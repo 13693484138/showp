@@ -1,0 +1,25 @@
+<!-- 轮播图 -->
+<swiper indicator-dots="{{indicatorDots}}"
+autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+<block wx:for="{{imgUrls}}">
+  <swiper-item>
+    <image src="{{item}}" class="slide-image" width="355" height="150"/>
+  </swiper-item>
+</block>
+</swiper>
+<!-- 活动列表 -->
+<view class="active-list clearfix">
+    <view class="active-item float-l">
+
+    </view>
+    <view class="active-item float-l">
+        
+    </view>
+    <view class="active-item float-l">
+        
+    </view>
+</view>
+<!-- 限时优惠 -->
+<view>
+    <view ></view>
+</view>

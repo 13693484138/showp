@@ -1,0 +1,30 @@
+
+swiper {
+    height:400rpx;
+}
+.slide-image {
+    display: block;
+    width:100%;
+}
+.active-list {
+    background:#bdbdbd;
+    padding:20rpx;
+    padding-bottom: 0;
+}
+.active-item {
+    width:345rpx;
+    margin-right:20rpx;
+    height: 200rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    border-radius: 20rpx;
+    -webkit-border-radius: 20rpx;
+    -moz-border-radius: 20rpx;
+    -ms-border-radius: 20rpx;
+    -o-border-radius: 20rpx;
+    padding:20rpx;
+    box-sizing: border-box;
+}
+.active-item:nth-child(even){
+    margin-right:0;
+}

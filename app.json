@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/region/region",
+    "pages/classify/classify",
+    "pages/cart/cart",
+    "pages/person/person",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "医保城海购",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bdbdbd",
+    "selectedColor": "#dc3c14",
+    "list": [
+      {
+        "iconPath": "./assets/icon/home.png",
+        "selectedIconPath": "./assets/icon/home-selected.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "iconPath": "./assets/icon/region.png",
+        "selectedIconPath": "./assets/icon/region-selected.png",
+        "pagePath": "pages/region/region",
+        "text": "963专区"
+      },
+      {
+        "iconPath": "./assets/icon/classify.png",
+        "selectedIconPath": "./assets/icon/classify-selected.png",
+        "pagePath": "pages/classify/classify",
+        "text": "分类"
+      },
+      {
+        "iconPath": "./assets/icon/cart.png",
+        "selectedIconPath": "./assets/icon/cart-selected.png",
+        "pagePath": "pages/cart/cart",
+        "text": "购物车"
+      },
+      {
+        "iconPath": "./assets/icon/person.png",
+        "selectedIconPath": "./assets/icon/person-selected.png",
+        "pagePath": "pages/person/person",
+        "text": "个人"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
