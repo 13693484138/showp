@@ -112,7 +112,38 @@
   </view>
   <view class="classify-content">
     <view class="template-3">
-
+      <view class="clearfix">
+        <view class="template-3-item float-l">
+          <view class="template-3-thumbnail">
+            <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+            <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+          </view>
+          <view class="template-3-title ellipse-2">
+            麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
+          </view>
+          <view class="template-3-price">￥12.00</view>
+        </view>
+        <view class="template-3-item float-l">
+            <view class="template-3-thumbnail">
+              <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+              <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+            </view>
+            <view class="template-3-title ellipse-2">
+              麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
+            </view>
+            <view class="template-3-price">￥12.00</view>
+          </view>
+          <view class="template-3-item float-l">
+              <view class="template-3-thumbnail">
+                <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+                <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+              </view>
+              <view class="template-3-title ellipse-2">
+                麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
+              </view>
+              <view class="template-3-price">￥12.00</view>
+            </view>
+      </view>
     </view>
   </view>
 </view>
@@ -122,8 +153,25 @@
     <text class="right-arrow">专题精选</text>
   </view>
   <view class="classify-content">
-    <view class="template-3">
-
+    <view class="template-4">
+        <view class="template-4-item">
+          <view class="template-4-thumbnail">
+              <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+          </view>
+          <view class="flex-row flex-between template-4-info">
+            <view class="template-4-title ellipse">专题精选的标题专题精选的标题专题精选的标题</view>
+            <view class="template-4-price">￥12.00</view>
+          </view>
+        </view>
+        <view class="template-4-item">
+            <view class="template-4-thumbnail">
+                <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+            </view>
+            <view class="flex-row flex-between template-4-info">
+              <view class="template-4-title ellipse">专题精选的标题专题精选的标题专题精选的标题</view>
+              <view class="template-4-price">￥12.00</view>
+            </view>
+          </view>
     </view>
   </view>
 </view>
