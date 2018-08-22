@@ -11,6 +11,7 @@
 .vscode
 typings
 project.config.json
+jsconfig.json
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db

@@ -43,3 +43,35 @@
   -webkit-box-pack: center;
           justify-content: center;
 }
+.ellipse {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ellipse-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.right-arrow {
+  position: relative;
+}
+.right-arrow:after {
+  position: absolute;
+  top: 50%;
+  right: 20rpx;
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+  transform: translateY(-50%) rotate(-45deg);
+  content: "";
+  display: block;
+  width: 18rpx;
+  height: 18rpx;
+  border-width: 4rpx;
+  border-style: solid;
+  border-color: #ccc;
+  border-top-width: 0;
+  border-left-width: 0;
+}
