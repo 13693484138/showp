@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+   item:["../../assets/img/1.jpeg","../../assets/img/2.jpeg","../../assets/img/3.jpeg","../../assets/img/4.jpeg"]
   },
 
   /**

@@ -1,1 +1,103 @@
 /* pages/region/region.wxss */
+.scroll-view-item{
+      width:300rpx;
+      height: 150rpx;
+      background-color:#fff;
+      margin-left:15rpx;
+      font-size: 14px;
+      display: inline-block;
+      box-sizing: border-box;
+      vertical-align: middle;
+      position: relative;
+}
+.scroll-view-item:last-child{
+      margin-right:15rpx;
+}
+.limited-item-thumbnail{
+    width:100%;
+    height: 150rpx;
+    display: block;
+    border-radius: 12rpx;
+}
+scroll-view{
+      white-space: nowrap;
+}
+.limited-item-text{
+  width: 100%;
+  height: 150rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 24rpx;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  z-index: 100;
+  opacity:0.3;
+  background: #222;
+  border-radius: 12rpx;
+  vertical-align: middle;
+  line-height: 150rpx;
+}
+.limited-item-bg{
+  width: 100%;
+  height: 150rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 24rpx;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  z-index: 101;
+  border-radius: 12rpx;
+  vertical-align: middle;
+  line-height: 150rpx;
+}
+.list-item{
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: #f4f4f4;
+}
+.list-item-img{
+  width: 100%;
+  height: 500rpx;
+}
+.list-li{
+  margin-top: 10rpx;
+}
+.list-item-text-r{
+  float: right;
+  
+ 
+}
+.list-item-text-l{
+  float: left;
+  margin-left: 15rpx;
+}
+.text-r-t{
+ font-size:30rpx;
+  color: #565656;
+}
+.text-r-b{
+ font-size:28rpx;
+  color: #a4a4a4;
+  margin-bottom: 10rpx;
+}
+.list-item-text-r{
+  font-size:30rpx;
+  color: #b11534;
+  margin-right: 10rpx;
+  margin-top: 20rpx;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

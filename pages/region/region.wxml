@@ -1,2 +1,80 @@
-<!--pages/region/region.wxml-->
-<text>pages/region/region.wxml</text>
+<scroll-view scroll-x>
+    <view  class="scroll-view-item bc_green">
+        <image class="limited-item-thumbnail" src="../../assets/img/2.jpeg"
+               mode="aspectFill"></image>
+        <view class="limited-item-text"></view>
+        <view class="limited-item-bg">Emu Tracks专区</view>
+    </view>
+    <view  class="scroll-view-item bc_green">
+        <image class="limited-item-thumbnail" src="../../assets/img/2.jpeg"
+               mode="aspectFill"></image>
+        <view class="limited-item-text"></view>
+          <view class="limited-item-bg" >Emu Tracks专区</view>
+    </view>
+    <view  class="scroll-view-item bc_green">
+        <image class="limited-item-thumbnail" src="../../assets/img/3.jpeg"
+               mode="aspectFill"></image>
+          <view class="limited-item-text"></view>
+            <view class="limited-item-bg">Emu Tracks专区</view>
+    </view>
+    <view  class="scroll-view-item bc_green">
+        <image class="limited-item-thumbnail" src="../../assets/img/4.jpeg"
+               mode="aspectFill"></image>
+          <view class="limited-item-text"></view>
+            <view class="limited-item-bg">Emu Tracks专区</view>
+    </view>
+</scroll-view>
+<view class="list-li">
+<view class="list-item">
+  <image class="list-item-img" src="../../assets/img/liet.jpeg"></image>
+  <view class="list-item-text clearfix">
+  <view class="list-item-text-l">
+  <view class="text-r-t">花样真我,绽放美丽娇颜</view>
+  <view class="text-r-b">植物草本，自然美颜</view>
+  </view>
+  <view class="list-item-text-r">
+           129元
+  </view>
+  </view>
+  
+</view>
+
+<view class="list-item">
+  <image class="list-item-img" src="../../assets/img/liet.jpeg"></image>
+  <view class="list-item-text clearfix">
+  <view class="list-item-text-l">
+  <view class="text-r-t">花样真我,绽放美丽娇颜</view>
+  <view class="text-r-b">植物草本，自然美颜</view>
+  </view>
+  <view class="list-item-text-r">
+           129元
+  </view>
+  </view>
+</view>
+
+<view class="list-item">
+  <image class="list-item-img" src="../../assets/img/liet.jpeg"></image>
+  <view class="list-item-text clearfix">
+  <view class="list-item-text-l">
+  <view class="text-r-t">花样真我,绽放美丽娇颜</view>
+  <view class="text-r-b">植物草本，自然美颜</view>
+  </view>
+  <view class="list-item-text-r clearfix">
+           129元
+  </view>
+  </view>
+</view>
+
+<view class="list-item">
+  <image class="list-item-img" src="../../assets/img/liet.jpeg"></image>
+  <view class="list-item-text clearfix">
+  <view class="list-item-text-l">
+  <view class="text-r-t">花样真我,绽放美丽娇颜</view>
+  <view class="text-r-b">植物草本，自然美颜</view>
+  </view>
+  <view class="list-item-text-r clearfix">
+           129元
+  </view>
+  </view>
+</view>
+</view>
