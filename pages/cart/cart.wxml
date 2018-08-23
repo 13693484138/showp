@@ -1,3 +1,7 @@
+<view class="flex-row edit flex-between">
+    <view></view>
+    <view catchtap="editing">{{editing?'保存':'编辑'}}</view>
+</view>
 <view class="flex-row flex-around serivces-list">
     <view class="services">满88元免费包邮</view>
     <view class="services">30天无忧退货</view>
@@ -10,10 +14,112 @@
     </view>
     <view class="view-gift">查看赠品</view>
 </view>
+<view class="list-section">
+    <checkbox-group bindchange="checkboxChange">
+        <view class="list-item flex-row">
+            <label class="item-checkbox">
+                <checkbox value="1" />
+            </label>
+            <view class="flex-row flex-full">
+                <view class="thumbnail">
+                    <image mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
+                </view>
+                <view class="flex-full">
+                    <view class="flex-row flex-between p-title">
+                        <view class="flex-full ellipse-2">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
+                        <view class="count">X1111</view>
+                    </view>
+                    <view class="p-remark">商品描述</view>
+                    <view class="flex-row flex-between">
+                        <view>
+                            <text class="item-price">￥12.122</text>
+                            <text class="item-ori-price">￥24.122</text>
+                        </view>
+                        <view class='op-section flex-row'>
+                            <button class="op-icon icon-min disabled"></button>
+                            <input type="text" disabled value="1" class="count-box" />
+                            <button class="op-icon icon-plus"></button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </checkbox-group>
+</view>
+<view class="list-section">
+    <checkbox-group bindchange="checkboxChange">
+        <view class="list-item flex-row">
+            <label class="item-checkbox">
+                <checkbox value="1" />
+            </label>
+            <view class="flex-row flex-full">
+                <view class="thumbnail">
+                    <image mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
+                    <view class="status e">商品已下架</view>
+                </view>
+                <view class="flex-full">
+                    <view class="flex-row flex-between p-title">
+                        <view class="flex-full ellipse-2">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
+                        <view class="count">X1111</view>
+                    </view>
+                    <view class="p-remark">商品描述</view>
+                    <view class="flex-row flex-between">
+                        <view>
+                            <text class="item-price">￥12.122</text>
+                            <text class="item-ori-price">￥24.122</text>
+                        </view>
+                        <view class='op-section flex-row'>
+                            <button class="op-icon icon-min disabled"></button>
+                            <input type="text" disabled value="1" class="count-box" />
+                            <button class="op-icon icon-plus"></button>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+    </checkbox-group>
+</view>
+<view class="list-section" wx:if="{{!editing}}">
+    <view class="fav-title">猜你喜欢</view>
+    <view class="clearfix">
+        <view class="template-3-item float-l">
+            <view class="template-3-thumbnail">
+                <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+                <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+            </view>
+            <view class="template-3-title ellipse-2">
+                麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
+            </view>
+            <view class="template-3-price">￥12.00</view>
+        </view>
+        <view class="template-3-item float-l">
+            <view class="template-3-thumbnail">
+                <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+                <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+            </view>
+            <view class="template-3-title ellipse-2">
+                麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
+            </view>
+            <view class="template-3-price">￥12.00</view>
+        </view>
+        <view class="template-3-item float-l">
+            <view class="template-3-thumbnail">
+                <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+                <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+            </view>
+            <view class="template-3-title ellipse-2">
+                麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
+            </view>
+            <view class="template-3-price">￥12.00</view>
+        </view>
+    </view>
+</view>
+<view class="footer-space"></view>
 <view class="cart-footer-bar flex-row flex-between">
     <checkbox-group bindchange="checkboxChange" class="cart-footer-checkgroup">
-        <label class="checkbox">
-            <checkbox value="1"/>已选(1)
+        <label class="item-checkbox">
+            <checkbox value="1" />已选(1)
         </label>
     </checkbox-group>
     <view class="flex-row">
