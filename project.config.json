@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.3",
-	"appid": "wxea10a008a531b908",
+	"appid": "touristappid",
 	"projectname": "medicalShop",
 	"isGameTourist": false,
 	"condition": {
