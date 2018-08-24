@@ -5,14 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    userInfo:{},
+    daySign:'每日签到 >',
+    myOrder:'我的订单'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.getUserInfo({
+      success:res =>{
+        this.setData({
+          userInfo: res.userInfo
+        })
+      }
+    })
+   
   },
 
   /**
@@ -26,7 +35,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
   },
 
   /**
