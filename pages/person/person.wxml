@@ -20,37 +20,37 @@
     <view class='myOrder right-arrow'>
       {{myOrder}}
     </view>
-    <view class='flex-row'>
+    <view class='flex-row-smx'>
       <view class='dpshpf'>
         <image src='../../assets/icon/qianbao.png' class='img-size'></image>
-        <view class='font-size .img-font-distance'>
+        <view class='font-size img-font-distance'>
           待付款
         </view>
       </view>
 
       <view class='dpshpf'>
          <image src='../../assets/icon/daifahuo.png' class='img-size'></image>
-        <view class='font-size .img-font-distance'>
+        <view class='font-size img-font-distance'>
             待发货
         </view>
       </view>
        <view class='dpshpf'>
          <image src='../../assets/icon/che.png' class='img-size'></image>
-         <view class='font-size .img-font-distance'>
+         <view class='font-size img-font-distance'>
             已发货
          </view>
       </view>
 
       <view class='dpshpf'>
         <image src='../../assets/icon/pingjia.png' class='img-size'></image>
-        <view class='font-size .img-font-distance'>
+        <view class='font-size img-font-distance'>
             待评价
         </view>
       </view>
 
       <view class='dpshpf'>
         <image src='../../assets/icon/shouhoufuwu.png' class='img-size'></image>
-        <view class='font-size .img-font-distance'>
+        <view class='font-size img-font-distance'>
             售后服务
         </view>
       </view>

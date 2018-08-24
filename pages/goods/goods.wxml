@@ -1,0 +1,111 @@
+<view class="container">
+    
+    <!--轮播图-->
+    <view class='swiper-container'>
+        <swiper indicator-dots="true" class="swiper"
+        autoplay="true" interval="5000" duration="500" bindchange="swiperChange">
+        <block wx:for="{{imgUrls}}" wx:for-index="index">
+            <swiper-item class="swiper-item">
+            <image src="{{item}}"  class="item-img" mode="center"/>
+            </swiper-item>
+        </block>
+        </swiper>
+        <view class="imageCount">{{swipercurrent+1}}/{{imgUrls.length}}</view>
+    </view>
+
+    <!--产品信息-->
+    <view class='goods-info'>
+      <view class='goods-price flex-row'>
+         <view class='rmb goods-price-color'>
+          ￥
+         </view>
+         <view class='total-money goods-price-color'>
+           {{googdsPrice}}
+         </view>
+         <view class='pthy goods-price-color'>
+            普通会员价
+         </view>
+      </view>
+      <view class='sell-goods flex-row flex-end'>
+        <view>
+          已售: {{sellAccount}} 件 
+        </view>
+      </view>
+      
+      <view class="goodsInstro">
+        {{goodsInstro}}
+      </view>
+      <view class='productCountryInfo flex-row flex-between'>
+        <view class='flex-row'>
+           <image src='{{productCountryIcon}}' class='productCountryIcon img-size'></image>
+           <view class='productCountry'>
+              {{productCountry}}
+           </view>
+        </view>
+       
+        <view class='taxRate'>
+          海外直邮商品,使用税率为{{taxRate}}
+        </view>
+      </view>
+      <view class='flex-row'>
+        <image src='../../assets/icon/feiji.png' class='img-size currency-margin'></image>
+        <view class='font-size currency-margin'>
+          海外直邮 原装正品
+        </view>
+      </view>
+    </view>
+
+    <!--配送-->
+    <view class='sendType flex-row'>
+      <image src='../../assets/icon/diandongche.png'class="img-size currency-margin"></image>
+      <view class='font-size currency-margin'>
+        该商品支持 快递配送
+      </view>
+    </view>
+
+    <!--说明-->
+    <view class='sendType flex-row right-arrow'>
+      <view class='font-size currency-margin'>
+        说明 
+      </view>
+      <view class='hwps currency-margin'>
+        关于海外直邮配送方式
+      </view>
+    </view>
+
+    <!--品牌-->
+    <view class='sendType flex-row flex-between right-arrow'>
+      <view class='flex-row'>
+          <image src='{{brandIcon}}' class='img-size currency-margin'></image>
+          <view class='flex-col currency-margin'>  
+            <view class='font-size'>{{brandName}}</view>
+            <view class='font-size'>共有商品
+            <text style='color:red;'>{{brandGoodsAccount}}</text>件
+            </view>
+          </view>
+      </view>
+      <view class='ppzq font-size'>
+        查看品牌专区
+       </view>
+    </view>
+
+    <!--评论-->
+    <view class='sendType'>
+      <view class='flex-row flex-between right-arrow'>
+        <view class='font-size currency-margin'>以有<text style='color:red;'>{{commentPersonAccount}}</text>人评价</view>
+        <view class='font-size ppzq'>立即查看</view>
+      </view>
+
+      <view>
+        <view wx:for="{{commentInfoList}}" wx:for-item="item" wx:for-index="index" class='flex-row flex-between'>
+          <view class='flex-row'>
+            <image src='{{item.avatar}}' class='img-size currency-margin'></image>
+            <text class='currency-margin'>{{item.nickName}}</text>
+          </view>
+          <view class='ppzq'>{{item.content}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+</view>

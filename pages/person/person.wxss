@@ -8,7 +8,15 @@
   margin-top:20rpx;
 }
 
-
+.flex-row-smx{
+  text-align: center;
+}
+.dpshpf{
+  margin: 30rpx  10rpx;
+  display: inline-block;
+  text-align: center;
+  width:120rpx;
+}
 .person-head{
   position:fixed;
   z-index: 999;
@@ -55,8 +63,7 @@
   font-size: 14px;
 }
 .img-font-distance{
-  margin-top: -15rpx;
-  margin-left: -20rpx;
+  margin-top: -5rpx;
 }
 
 .order{
@@ -67,11 +74,6 @@
   margin-top: 30rpx;
   font-size: 16px;
 }
-.dpshpf{
-  margin-top: 60rpx;
-  margin-left: 80rpx;
-}
-
 .list-font-size{
   font-size: 16px;
 }
