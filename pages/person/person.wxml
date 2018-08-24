@@ -1,2 +1,153 @@
-<!--pages/person/person.wxml-->
-<text>pages/person/person.wxml</text>
+
+<view class='container'>
+<!-- 页面顶部黑色区域 -->
+  <view class="person-head flex-row flex-between">
+    <view class='userinfo-body flex-row'>
+      <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image>
+      <view>
+        <view class='userinfo-nickname'>
+          {{userInfo.nickName}}
+        </view>
+        <view class='daySign'>
+          {{daySign}}
+        </view>
+      </view>
+    </view>
+    <image src='../../assets/img/qcode.png' class='qcode'></image>
+  </view>
+
+  <view class='order'>
+    <view class='myOrder right-arrow'>
+      {{myOrder}}
+    </view>
+    <view class='flex-row'>
+      <view class='dpshpf'>
+        <image src='../../assets/icon/qianbao.png' class='img-size'></image>
+        <view class='font-size .img-font-distance'>
+          待付款
+        </view>
+      </view>
+
+      <view class='dpshpf'>
+         <image src='../../assets/icon/daifahuo.png' class='img-size'></image>
+        <view class='font-size .img-font-distance'>
+            待发货
+        </view>
+      </view>
+       <view class='dpshpf'>
+         <image src='../../assets/icon/che.png' class='img-size'></image>
+         <view class='font-size .img-font-distance'>
+            已发货
+         </view>
+      </view>
+
+      <view class='dpshpf'>
+        <image src='../../assets/icon/pingjia.png' class='img-size'></image>
+        <view class='font-size .img-font-distance'>
+            待评价
+        </view>
+      </view>
+
+      <view class='dpshpf'>
+        <image src='../../assets/icon/shouhoufuwu.png' class='img-size'></image>
+        <view class='font-size .img-font-distance'>
+            售后服务
+        </view>
+      </view>
+    </view>
+  </view>
+  
+
+  <view class='emptyView'>
+  </view>
+
+  <view>
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/tuan.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        我的拼团
+      </view>
+      <image src='../../assets/icon/hot.png' class='list-img-font-distance list-img-size' mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/fenxiang.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        分享给好友
+      </view>
+      <image src='../../assets/icon/hongdian.png' class='hongdian list-img-size' mode="aspectFill"></image>
+      <view class='font-size list-img-font-distance'>
+        邀请好友即可获得100积分
+      </view>
+  </view>
+
+    <view class='emptyView'>
+    </view>
+
+  <view >
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/renminbi.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        优惠券
+      </view>
+      </view>
+    </view>
+
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/jifen.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        积分中心
+      </view>
+    </view>
+
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/lipin.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        礼品卡
+      </view>
+    </view>
+
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/huiyuan.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        会员福利
+      </view>
+    </view>
+
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/shoucang.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        我的收藏
+      </view>
+    </view>
+
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/dizhi.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        地址管理
+      </view>
+    </view>
+
+  <view class='emptyView'>
+  </view>
+
+
+<view >
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/daogou.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        专属导购
+      </view>
+      </view>
+    </view>
+
+    <view class='flex-row right-arrow list-border-distance'>
+      <image src='../../assets/icon/bangzhu.png' class='list-img-size list-img-border-distance'></image>
+      <view class='list-font-size list-img-font-distance'>
+        帮助中心
+      </view>
+  </view>
+
+</view>
+
