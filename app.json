@@ -10,7 +10,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/regionList/regionList",
-    "pages/orderDetail/orderDetail",
+    "pages/orderDetail/orderDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
