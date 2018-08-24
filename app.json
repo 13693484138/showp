@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "pages/home/home",
     "pages/classifyDetail/classifyDetail",
     "pages/region/region",
@@ -8,7 +9,8 @@
     "pages/person/person",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/regionList/regionList"
+    "pages/regionList/regionList",
+    "pages/orderDetail/orderDetail",
   ],
   "window": {
     "backgroundTextStyle": "light",
