@@ -6,7 +6,8 @@
     "pages/cart/cart",
     "pages/person/person",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/regionList/regionList"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -6,7 +6,20 @@ Page({
   data: {
    item:["../../assets/img/1.jpeg","../../assets/img/2.jpeg","../../assets/img/3.jpeg","../../assets/img/4.jpeg"]
   },
+  jump:function(){
+    wx.navigateTo({
+      url: '../regionList/regionList',
+      success: function(res) {
+        
+      },
+      fail: function(res) {
 
+      },
+      complete: function(res) {
+
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,4 +75,5 @@ Page({
   onShareAppMessage: function () {
   
   }
+ 
 })
