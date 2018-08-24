@@ -1,1 +1,75 @@
 /* pages/classify/classify.wxss */
+/* 列表样式 */
+.classify{
+    }
+.left-navbar{
+    position:absolute;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    background-color: #ffffff;
+    font-size: 15px;
+    border: 1rpx solid #dfdfdf;
+}
+.left-navbar view{
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+/* 商品样式 */
+#right{
+    position: absolute;
+    right: 0;
+    width: 74.8%;
+    height: auto;
+    height: 91%;
+}
+.goods-banner{
+    width: 100%;
+}
+.img-banner{
+    width: 524rpx;
+    margin: 20rpx auto;
+    height: 180rpx;
+    display: block;
+}
+.goods-title{
+    text-align: center;
+    font-size: 24rpx;
+    color: #222;
+}
+.goods-title text{
+    color: #dfdfdf;
+    margin: 0 15rpx;
+}
+.goods-list{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    margin: 30rpx auto;
+    width: 90%;
+}
+.goods-list-item{
+    margin:18rpx 23rpx;
+   display: inline-block;
+ 
+}
+.goods-list-img{
+    width: 100%;
+}
+.showp-img{
+    width: 100%;
+    border-radius:50%;
+    display: block;
+    width: 120rpx;
+    height: 120rpx;
+}
+.goods-list-text{
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-size: 26rpx;
+    color: #101010;
+    margin-top:20rpx;
+}
+/* 搜索框样式 */
