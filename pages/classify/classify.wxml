@@ -39,7 +39,7 @@
         <view class="goods-title"> <text>-</text>精选分类<text>-</text></view>
         <!-- 商品展示 -->
         <view class="goods-list">
-            <view class="goods-list-item">
+            <view class="goods-list-item" catchtap='viewDetail'>
                 <view class="goods-list-img">
                     <image class="showp-img" src="../../assets/img/type-img1.jpeg" mode="aspectFill"></image>
                 </view>

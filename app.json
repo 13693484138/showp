@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/classifyDetail/classifyDetail",
     "pages/region/region",
     "pages/classify/classify",
     "pages/cart/cart",

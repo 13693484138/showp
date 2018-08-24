@@ -62,5 +62,8 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  viewDetail:function(){
+    wx.navigateTo({ url: '../classifyDetail/classifyDetail' });
   }
 })
