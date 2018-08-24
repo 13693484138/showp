@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/classifyDetail/classifyDetail",
     "pages/region/region",
     "pages/classify/classify",
     "pages/cart/cart",
     "pages/person/person",
     "pages/index/index",
     "pages/logs/logs"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
