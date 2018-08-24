@@ -1,0 +1,76 @@
+<view class="section">
+    <view class="flex-row address-pannel">
+        <view class="icon-address"></view>
+        <view class="address-info">
+            <view>
+                <text>沈怀山</text><text>12345678900</text>
+            </view>
+            <view>河北省 唐山市 路北区黎明徇顺夺顺黎明徇顺夺顺黎明徇顺夺顺黎明徇顺夺顺</view>
+        </view>
+    </view>
+    <view class="right-arrow data-section">查看清关材料</view>
+</view>
+<view class="section flex-row services">
+    <view class="service service-online flex-row flex-center">
+        <image src="../../assets/icon/service-online.png" mode='aspectFill'></image>在线客服
+    </view>
+    <view class="service service-tel flex-row flex-center">
+        <image src="../../assets/icon/service-tel.png" mode='aspectFill'></image>电话客服
+    </view>
+</view>
+<view class="section-list">
+    <view class="list-header flex-row flex-between">
+        <view>商品信息</view>
+        <view>共2件商品</view>
+    </view>
+    <view class="list-content">
+        <view class="goods-list">
+            <view class="goods-item flex-row">
+                <image mode="aspectFill" class="goods-item-thumbnail" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
+                <view class="goods-item-info">
+                    <view class="flex-row flex-between">
+                        <view class="goods-item-name ellipse-2">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
+                        <view class="goods-item-price">￥160.99</view>
+                    </view>
+                    <view class="goods-item-count">X1</view>
+                </view>
+            </view>
+            <view class="goods-item flex-row">
+                <image mode="aspectFill" class="goods-item-thumbnail" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
+                <view class="goods-item-info">
+                    <view class="flex-row flex-between">
+                        <view class="goods-item-name ellipse-2">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
+                        <view class="goods-item-price">￥160.99</view>
+                    </view>
+                    <view class="goods-item-count">X1</view>
+                </view>
+            </view>
+        </view>
+        <view class="list-content-infos">
+            <view class="list-content-info flex-row flex-between">
+                <view>商品总额</view>
+                <view>￥565.00</view>
+            </view>
+            <view class="list-content-info flex-row flex-between fs-red">
+                <view>优惠券</view>
+                <view>￥-20</view>
+            </view>
+            <view class="list-content-info flex-row flex-between">
+                <view>运费</view>
+                <view>￥20</view>
+            </view>
+        </view>
+    </view>
+    <view class="list-footer ">
+        订单金额：<text class="fs-red">￥632.00</text>
+    </view>
+</view>
+<view class="section">
+    <view class="flex-row flex-between order-item">
+        <view>订单编号：8883843843848384</view>
+        <view class="copy-btn">复制</view>
+    </view>
+    <view class="flex-row order-item">
+        <view>下单时间：2018-09-10 12：23：00</view>
+    </view>
+</view>

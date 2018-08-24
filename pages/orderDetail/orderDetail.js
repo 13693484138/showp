@@ -1,4 +1,4 @@
-// pages/classify/classify.js
+// pages/orderDetail/orderDetail.js
 Page({
 
   /**
@@ -62,8 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  viewDetail:function(){
-    wx.navigateTo({ url: '../classifyDetail/classifyDetail' });
   }
 })

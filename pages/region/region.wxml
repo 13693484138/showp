@@ -1,23 +1,23 @@
 <scroll-view scroll-x>
-    <view  class="scroll-view-item bc_green">
+    <view  class="scroll-view-item bc_green" bindtap='jump'>
         <image class="limited-item-thumbnail" src="../../assets/img/2.jpeg"
                mode="aspectFill"></image>
         <view class="limited-item-text"></view>
         <view class="limited-item-bg">Emu Tracks专区</view>
     </view>
-    <view  class="scroll-view-item bc_green">
+    <view  class="scroll-view-item bc_green" bindtap='jump'>
         <image class="limited-item-thumbnail" src="../../assets/img/2.jpeg"
                mode="aspectFill"></image>
         <view class="limited-item-text"></view>
           <view class="limited-item-bg" >Emu Tracks专区</view>
     </view>
-    <view  class="scroll-view-item bc_green">
+    <view  class="scroll-view-item bc_green" bindtap='jump'>
         <image class="limited-item-thumbnail" src="../../assets/img/3.jpeg"
                mode="aspectFill"></image>
           <view class="limited-item-text"></view>
             <view class="limited-item-bg">Emu Tracks专区</view>
     </view>
-    <view  class="scroll-view-item bc_green">
+    <view  class="scroll-view-item bc_green" bindtap='jump'>
         <image class="limited-item-thumbnail" src="../../assets/img/4.jpeg"
                mode="aspectFill"></image>
           <view class="limited-item-text"></view>
