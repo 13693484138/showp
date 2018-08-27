@@ -1,0 +1,129 @@
+page{
+  width: 100%;
+  height:100%;
+  background: #f0e8e8;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container{
+  position: relative;
+  text-align: center;
+  background: white;
+
+}
+.swiper{
+  width: 100%;
+  height: 400px;
+}
+.swiper-item{
+  width: 100%;
+  height: 100%;
+}
+.item-img{
+  width: 100%;
+  height: 100%;
+}
+
+.imageCount{
+  width: 100rpx;
+  height: 80rpx;
+  background-color: #c5c5cc;
+  border-radius: 15%;
+  line-height: 78rpx;
+  color: #ffffff;
+  text-align: center;
+  font-size: 26rpx;
+  position: absolute;
+  right: 26rpx;
+  bottom:20rpx;
+}
+.goods-info{
+  background: white;
+  padding-top: 30rpx;
+}
+
+.goods-price{
+ 
+}
+.goods-price-color{
+  color: red;
+}
+.rmb{
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+.total-money{
+  font-size: 40rpx;
+  margin-left: 10rpx;
+
+}
+.pthy{
+  font-size: 30rpx;
+  width: 200rpx;
+  height: 40rpx;
+  border-radius:5%;
+  text-align: center;
+  border:1rpx solid red;
+   margin-left: 20rpx;
+}
+.sell-goods{
+  margin: 20rpx 30rpx;
+  font-size: 25rpx;
+  color: #bebebe
+}
+.goodsInstro{
+  margin-top: 100rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size: 35rpx;
+  font-weight: bolder;
+}
+.productCountryInfo{
+  margin-top: 50rpx;
+  margin-bottom: 20rpx;
+}
+.productCountryIcon{
+  margin-left: 30rpx;
+}
+.productCountry{
+  font-size: 30rpx;
+  color: #b3b2b2;
+  margin-left: 10rpx;
+}
+.taxRate{
+  font-size: 25rpx;
+  color: #b3b2b2;
+  margin-right: 30rpx;
+}
+
+.img-size{
+  width:50rpx;
+  height:30rpx;
+}
+.font-size{
+  font-size: 30rpx;
+  color: #929191
+}
+/*
+列表通用margin
+*/
+.currency-margin{
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+}
+.sendType{
+  background: white;
+  margin-top: 20rpx;
+}
+.hwps{
+  font-size: 25rpx;
+  color: #bebebe
+}
+.ppzq{
+  margin-right: 50rpx;
+  font-size: 28rpx;
+}

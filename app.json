@@ -1,13 +1,13 @@
 {
   "pages": [
-   
+    "pages/goods/goods",
     "pages/home/home",
+    "pages/index/index",
     "pages/classifyDetail/classifyDetail",
     "pages/region/region",
     "pages/classify/classify",
     "pages/cart/cart",
     "pages/person/person",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/regionList/regionList",
     "pages/orderDetail/orderDetail"
