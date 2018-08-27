@@ -20,11 +20,7 @@
     <view class='myOrder right-arrow'>
       {{myOrder}}
     </view>
-<<<<<<< HEAD
-    <view class='flex-row flex-around'>
-=======
     <view class='flex-row-smx'>
->>>>>>> 461cfdb18173af3681770f9596ce10fd2e28cf81
       <view class='dpshpf'>
         <image src='../../assets/icon/qianbao.png' class='img-size'></image>
         <view class='font-size img-font-distance'>
