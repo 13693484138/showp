@@ -68,8 +68,7 @@
   font-size: 16px;
 }
 .dpshpf{
-  margin-top: 60rpx;
-  margin-left: 80rpx;
+
 }
 
 .list-font-size{
