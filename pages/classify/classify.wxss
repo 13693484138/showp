@@ -1,12 +1,37 @@
 /* pages/classify/classify.wxss */
 /* 列表样式 */
+.sos{
+  width:90%;
+  height: 60rpx;
+  margin: 0 auto;
+  background-color: #ececec;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  z-index: 1000;
+}
+.input-text{
+  font-size: 28rpx;
+}
+.sos input{
+  width: 100%;
+  display:block;
+  font-size: 28rpx;
+  height: 60rpx;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 60rpx;
+}
 .classify{
+  margin-top:74rpx;
     }
 .left-navbar{
     position:absolute;
     left: 0;
     width: 25%;
-    height: 100%;
+    height: 93%;
     background-color: #ffffff;
     font-size: 15px;
     border: 1rpx solid #dfdfdf;
