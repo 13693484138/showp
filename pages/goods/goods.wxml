@@ -108,4 +108,34 @@
       </view>
     </view>
 
+  <!-- 底部-->
+  <view class='containerBottom flex-row flex-between'>
+    <!--分享-->
+    <view class='flex-col flex-center bottom-fx'>
+      <image src='../../assets/icon/fx.png' class='img-size'></image>
+      <text>分享</text>
+    </view>
+     <!--收藏-->
+    <view class='flex-col flex-center bottom-sc'>
+       <image src='../../assets/icon/sc.png' class='img-size'></image>
+      <text>收藏</text>
+    </view>
+
+     <!--购物车-->
+    <view class="flex-col bottom-gwc">
+       <image src='../../assets/icon/gwc.png' class='img-size'></image>
+      <text>购物车</text>
+    </view>
+
+     <!--加入购物车-->
+    <view class='bottom-jrgwc flex-row flex-center'>
+      <text>加入购物车</text>
+    </view>
+
+    <!--立即购买-->
+    <view class='bottom-ljgm flex-row flex-center'>
+      <text>立即购买</text>
+    </view>
+  
+  </view>
 </view>

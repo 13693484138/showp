@@ -5,7 +5,8 @@ page{
 }
 .container{
     width: 100%;
-    height: 100%;
+    padding-bottom: 80rpx;
+
 }
 
 .swiper-container{
@@ -126,4 +127,45 @@ page{
 .ppzq{
   margin-right: 50rpx;
   font-size: 28rpx;
+}
+.containerBottom{
+  background: white;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  height: 80rpx;
+}
+.bottom-fx{
+  font-size: 25rpx;
+  width: 120rpx;
+  height: 100%;
+  justify-content: center;
+}
+.bottom-sc{
+  font-size: 22rpx;
+  color: rgb(202, 199, 199);
+  width: 120rpx;
+  height: 100%;
+  justify-content: center;
+}
+.bottom-gwc{
+  font-size: 22rpx;
+  color: rgb(202, 199, 199);
+  width: 120rpx;
+  height: 100%;
+  justify-content: center;
+}
+.bottom-jrgwc{
+  text-align: center;
+  background: yellow;
+  height: 100%;
+  width: 230rpx;
+  font-size: 35rpx;
+}
+.bottom-ljgm{
+  text-align: center;
+  background: red;
+  height: 100%;
+  width: 230rpx;
+  font-size: 35rpx;
 }
