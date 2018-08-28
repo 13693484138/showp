@@ -1,15 +1,6 @@
-<!-- 顶部搜索框 -->
-<!-- <view class="inputcontainer">
-        <view class="input" catchtap="inputSwitchStatus" wx:if="{{!edit}}">搜索商品</view>
-        <view class="edit" wx:else>
-          <form bindsubmit="inputSearch" bindreset="inputReset">
-            <text class="searchicon"></text>
-            <input focus="true" type="text" name="search-input" confirm-type='search' bindconfirm="inputSearch"/>
-            <button class="deleteicon cancel-btn-default-style" catchtap="inputReset" hover-class="clear-btn-hover" formType="reset"></button>
-            <button class="cancel cancel-btn-default-style" hover-class="search-btn-hover" formType="submit">搜索</button>
-          </form>      
-        </view> 
-    </view> -->
+<view class="sos">
+<input type="text" placeholder="搜索商品" placeholder-class="input-text"/> 
+</view>
 <view class="classify">
     <scroll-view class="left-navbar" scroll-y="true">
         <view class="list-item">其他分类</view>
