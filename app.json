@@ -1,14 +1,17 @@
 {
   "pages": [
+    "pages/orderList/orderList",
     "pages/home/home",
+    "pages/goods/goods",
+    "pages/index/index",
     "pages/classifyDetail/classifyDetail",
     "pages/region/region",
     "pages/classify/classify",
     "pages/cart/cart",
     "pages/person/person",
-    "pages/index/index",
     "pages/logs/logs",
-    "pages/regionList/regionList"
+    "pages/regionList/regionList",
+    "pages/orderDetail/orderDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
