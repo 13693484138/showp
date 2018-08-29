@@ -1,0 +1,44 @@
+<view class='container'>
+  <!--地址信息-->
+  <view class='address-info'>
+    <!--主信息-->
+    <view class='flex-row info-view'>
+      <!--具体地址信息-->
+      <view class="adress-info-text">
+        <view class='info-phone flex-row'>
+          <text>郑怀山</text>
+          <text>13002705879</text>
+        </view>
+
+        <view class='info-address flex-row font-size'>
+          <text class='ellipse-2'>河北省 唐山市 路北区 黎明决战 氨基酸的分类进发的房间里撒酒疯来看撒娇地方来看撒娇的路口附近的撒飞机离开的撒酒疯雷克萨</text>
+        </view>
+
+        <view class='flex-row info-card font-size'>
+          <image src='../../assets/icon/sfz.png'></image>
+          <text class='address-info-name'>郑怀山</text>
+          <text class='address-info-text'>37030419855854654561234</text>
+        </view>
+
+      </view>
+      <!--编辑按钮-->
+      <view class='info-change'>
+        <image src='../../assets/icon/bj.png'></image>
+      </view>
+    </view>
+    <!--是否默认-->
+    <view class='flex-row default-view'>
+      <image src='../../assets/icon/mr.png' class='img-size'></image>
+      <text class='font-size'>默认地址</text>
+    </view>
+  </view>
+
+
+
+
+
+  <!--新建按钮-->
+  <view class='create-view'>
+      <button type='warn' bindtap=''>+新增收货地址</button>
+  </view>
+</view>
