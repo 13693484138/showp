@@ -1,0 +1,71 @@
+<view class='container'>
+<form bindsubmit="formSubmit">
+
+    <view class='address-Info'>
+      <view class="section flex-row">
+        <text>收货人</text>
+        <input type='text'/>
+      </view> 
+      <view class="section flex-row">
+        <text>联系电话</text>
+        <input type="number" maxlength="11"/>
+      </view>
+      <view class="section flex-row">
+        <text>所在地区</text>
+        <input type='text'/>
+      </view>
+      <view class="section flex-row">
+        <text>所在位置</text>
+        <input type='text'/>
+      </view>
+      <view class="section position-detail flex-row">
+        <text>详细位置</text>
+        <input type='text'/>
+      </view>
+    </view>
+  
+  <view class='remind'>
+    <view class='remind-head'>
+      个人相关信息
+    </view>
+    <view class='remind-info'>
+      根据海关要求，购买海外直邮商品需要提供收货人身份证信息及身份证图片：购买跨境保税商品需要提供付款人身份证信息，请务必提供真实信息及确保顺利清关。
+    </view>
+  </view>
+
+  <!--身份验证-->
+  <view class='info-verification'>
+      <view class='info-detail flex-row'>
+        <text>真实姓名</text>
+        <input type='text'></input>
+      </view>
+      <view class='info-detail flex-row'>
+        <text>身份证号</text>
+        <input type='idcard'></input>
+      </view>
+
+      <view class='flex-row .info-detail'>
+        <view class='img-view flex-col' bindtap=''>
+          <image src='../../assets/icon/xiangji.png' class='img-size'></image>
+          <text>身份证正面照</text>
+        </view>
+        <view class='img-view flex-col' bindtap=''>
+          <image src='../../assets/icon/xiangji.png' class='img-size'></image>
+          <text>身份证反面照</text>
+        </view>
+      </view>
+  </view>
+
+
+  <!--默认-->
+    <view class='flex-row flex-between default-view'>
+      <text>设为默认地址</text>
+      <switch bindchange="switchChange">
+      </switch>
+    </view>
+  <!--保存-->
+  <view class='button-view'>
+    <button form-type='submit'>保存</button>  
+  </view>
+</form>
+</view>
