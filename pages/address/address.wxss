@@ -1,0 +1,93 @@
+
+page{
+    background: #f7f6f6;
+}
+.container{
+  padding-bottom: 100rpx;
+}
+.address-Info{
+  height: 280px;
+  background: white;
+}
+
+.section{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border: solid 1rpx #f5f4f4;
+  font-size: 30rpx;
+  color: #8f8c8c;
+}
+.section>input{
+  flex: 1;
+  width:1;
+  font-size: 30rpx;
+  color:black;
+}
+.position-detail{
+  padding: 60rpx 20rpx;
+}
+
+.remind{
+   margin:15rpx;
+   padding-top: 15rpx;
+   padding-left: 15rpx;
+}
+.remind-head{
+  text-align: left;
+  font-size: 30rpx;
+  color: #8f8c8c;
+}
+.remind-info{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 25rpx;
+  color: red;
+}
+.info-verification{
+  background: white;
+  font-size: 30rpx;
+  color: #8f8c8c;
+}
+.info-detail{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  border: solid 1rpx #f5f4f4;
+}
+.info-detail>input{
+  width: 1;
+  flex: 1;
+}
+.img-view{
+  width: 200rpx;
+  height: 100rpx;
+  background: #f7f6f6;
+  margin: 50rpx;
+  margin-right: 0rpx;
+  font-size: 20rpx;
+  justify-content: center;
+}
+.default-view{
+  font-size: 30rpx;
+  color: #8f8c8c;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  padding: 30rpx 20rpx;
+}
+.button-view{
+  width: 100%;
+  background: white;
+  bottom: 0;
+  position: fixed;
+}
+.button-view>button{
+  width: 100%;
+  height: 100rpx;
+  background: white;
+  color: red;
+}
+.img-size{
+  width: 50rpx;
+  height: 50rpx;
+}
