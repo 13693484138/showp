@@ -82,8 +82,7 @@ const wxLogin = () => {
                 wx.getUserInfo({
                     // 若获取不到用户信息 （最大可能是用户授权不允许，也有可能是网络请求失败，但该情况很少）
                     fail: (e) => {
-                        //reject(e)
-                       // resolve(e)
+                        //用户授权失败时，可以在此处跳转一个授权页面
                     },
                     success: ({ userInfo, rawData, signature, encryptedData, iv }) => {
                         param['rawData'] = rawData;
