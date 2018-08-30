@@ -43,7 +43,7 @@ const http = (httpConfig) => {
                     if (stack.length == 0) {
                         wxLogin().then((res) => {
                             const item = stack.shift();
-                            return http(item);
+                            sendRequest(item);
                         }).catch((res) => {
                             console.log('登录失败：' + JSON.stringify(res));
                         })
