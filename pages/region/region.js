@@ -6,7 +6,7 @@ Page({
   data: {
    item:["../../assets/img/1.jpeg","../../assets/img/2.jpeg","../../assets/img/3.jpeg","../../assets/img/4.jpeg"]
   },
-  jump:function(){
+  jump:function(e){
     wx.navigateTo({
       url: '../regionList/regionList',
       success: function(res) {

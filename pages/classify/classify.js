@@ -1,4 +1,4 @@
-// pages/classify/classify.js
+const http = require('../../utils/http');
 Page({
 
   /**
@@ -12,7 +12,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    http.request({
+      apiName:'goods/classify',
+      method:'post',
+      success:(res)=>{
+        console.log(res)
+      }
+    })
   },
 
   /**
