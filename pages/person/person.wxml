@@ -21,8 +21,8 @@
       {{myOrder}}
     </view>
     <view class='flex-row-smx'>
-      <view class='dpshpf'>
-        <image src='../../assets/icon/qianbao.png' class='img-size'></image>
+      <view class='dpshpf'  bindtap="showp">
+        <image src='../../assets/icon/qianbao.png' class='img-size' ></image>
         <view class='font-size img-font-distance'>
           待付款
         </view>
