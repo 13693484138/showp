@@ -3,7 +3,6 @@
    "pages/home/home",
    "pages/classify/classify",
     "pages/cart/cart",
-    "pages/classify/classify",
     "pages/addressDetail/addressDetail",
     "pages/address/address",
     "pages/orderList/orderList",
