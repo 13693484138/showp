@@ -7,14 +7,14 @@
     <view class="services">30天无忧退货</view>
     <view class="services">48小时快速退款</view>
 </view>
-<view class="flex-row gift-section">
+<!--view class="flex-row gift-section">
     <view class="gift-info flex-row right-arrow">
         <view class="tag">满赠</view>
         <view class="gift-text ellipse-2">再加29元,【全场】满129赠小林室内芳香剂1瓶</view>
     </view>
     <view class="view-gift">查看赠品</view>
-</view>
-<view class="list-section">
+</view-->
+<view class="list-section" style="margin-top:0;">
     <checkbox-group bindchange="checkboxChange">
         <view class="list-item flex-row">
             <label class="item-checkbox">
@@ -35,7 +35,7 @@
                             <text class="item-price">￥12.122</text>
                             <text class="item-ori-price">￥24.122</text>
                         </view>
-                        <view class='op-section flex-row'>
+                        <view class='op-section flex-row' wx:if="{{editing}}">
                             <button class="op-icon icon-min disabled"></button>
                             <input type="text" disabled value="1" class="count-box" />
                             <button class="op-icon icon-plus"></button>
@@ -68,7 +68,7 @@
                             <text class="item-price">￥12.122</text>
                             <text class="item-ori-price">￥24.122</text>
                         </view>
-                        <view class='op-section flex-row'>
+                        <view class='op-section flex-row' wx:if="{{editing}}">
                             <button class="op-icon icon-min disabled"></button>
                             <input type="text" disabled value="1" class="count-box" />
                             <button class="op-icon icon-plus"></button>
