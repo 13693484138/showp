@@ -9,13 +9,10 @@
 <!-- 活动列表 -->
 <view class="active-list clearfix">
   <view class="active-item float-l">
-
+    <image mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535693598198&di=1b386bd163b7d3cd270d1e5962e8f876&imgtype=0&src=http%3A%2F%2Fpic21.nipic.com%2F20120607%2F2495147_132744525102_2.jpg"></image>
   </view>
   <view class="active-item float-l">
-
-  </view>
-  <view class="active-item float-l">
-
+    <image mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535693762000&di=2d905691dd2db802f5c19c355bdde77d&imgtype=0&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F17%2F98%2F49%2F57n58PICzQZ_1024.jpg"></image>
   </view>
 </view>
 <!-- 限时优惠 -->

@@ -124,6 +124,6 @@
     </checkbox-group>
     <view class="flex-row">
         <view class="btn-footer-price">￥1212.12</view>
-        <button class="btn">下单</button>
+        <button class="btn" catchtap="editOrder">下单</button>
     </view>
 </view>
