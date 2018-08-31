@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+   "pages/classify/classify",
     "pages/addressDetail/addressDetail",
     "pages/address/address",
     "pages/orderList/orderList",
@@ -9,7 +10,6 @@
     "pages/index/index",
     "pages/classifyDetail/classifyDetail",
     "pages/region/region",
-    "pages/classify/classify",
     "pages/cart/cart",
     "pages/logs/logs",
     "pages/regionList/regionList",

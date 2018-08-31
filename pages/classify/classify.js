@@ -1,27 +1,71 @@
-// pages/classify/classify.js
+const http = require('../../utils/http');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    class:[],//一级列表
+    classIndex:0,//一级分类
+    classType:[],//二级分类
+    classTitle:"精选分类",//分类title
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
+    http.request({
+      apiName:'goods/classify',
+      method:'post',
+      isShowProgress:true,
+      success:(res)=>{
+        console.log(res);
+        this.setData({
+          class:res,
+        })
+        http.request({
+          apiName:'/goods/sonOfClassify',
+          method:'post',
+          data:{"pId":res[0].id},
+          success:(res)=>{
+            console.log(res);
+            this.setData({
+              classType:res
+            })
+          }
+        })
+      }
+    });
 
+  },
+  
+  classTap:function(e){
+    this.setData({
+      classIndex:e.currentTarget.dataset.index,
+      classTitle:e.currentTarget.dataset.title
+    });
+    console.log(e.currentTarget.dataset.id);
+    http.request({
+      apiName:'/goods/sonOfClassify',
+      method:'post',
+      data:{"pId":e.currentTarget.dataset.id},
+      isShowProgress:true,
+      success:(res)=>{
+        console.log(res);
+        this.setData({
+          classType:res
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
   
   },
-
+  
   /**
    * 生命周期函数--监听页面显示
    */
