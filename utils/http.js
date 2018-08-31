@@ -79,6 +79,7 @@ const wxLogin = () => {
                 let param = {
                     code: res.code,
                 }
+                let userinfo = "";
                 wx.getUserInfo({
                     // 若获取不到用户信息 （最大可能是用户授权不允许，也有可能是网络请求失败，但该情况很少）
                     fail: (e) => {
@@ -89,8 +90,7 @@ const wxLogin = () => {
                         param['signature'] = signature;
                         param['encryptedData'] = encryptedData;
                         param['iv'] = iv;
-                        param['userInfo'] = userInfo
-
+                        userinfo = userInfo
                     },
                     complete: () => {
                         // 登录操作
@@ -103,7 +103,7 @@ const wxLogin = () => {
                                 // 保存用户信息
                                 wx.setStorage({
                                     key: 'userinfo',
-                                    data: param['userInfo']
+                                    data: userinfo
                                 })
                                 wx.setStorage({
                                     key: "_hgc",
