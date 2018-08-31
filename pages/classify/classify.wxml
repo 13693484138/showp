@@ -1,5 +1,7 @@
-<view class="sos">
-<input type="text" placeholder="搜索商品" placeholder-class="input-text"/> 
+<view class="sos" bindtap='enterSearch'>
+<!-- <input type="text" placeholder="搜索商品" placeholder-class="input-text"/>  -->
+<image src='../../assets/icon/search.png'></image>
+<text class='txtColor'>搜索</text>
 </view>
 <view class="classify">
     <scroll-view class="left-navbar" scroll-y="true">

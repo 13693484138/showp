@@ -1,0 +1,11 @@
+<view class='logo'>
+  <image src='../../assets/icon/dg.png'></image>
+  <view>医保城海购</view>
+</view>
+<view class='description'>
+  <text>这是一段说明说明\n这还是说明\n接着说明说明说明\n还要说明说明说明说明说明说明\n
+  </text>
+</view>
+<view class='footer'>
+  <text>Copyright 2009-2018</text>
+</view>

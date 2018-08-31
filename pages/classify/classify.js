@@ -71,5 +71,10 @@ Page({
   },
   viewDetail:function(){
     wx.navigateTo({ url: '../classifyDetail/classifyDetail' });
+  },
+  enterSearch(){
+    wx.navigateTo({
+      url: '../search/search',
+    })
   }
 })

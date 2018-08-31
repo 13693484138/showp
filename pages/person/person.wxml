@@ -144,7 +144,7 @@
 
     <view class='flex-row right-arrow list-border-distance'>
       <image src='../../assets/icon/bz.png' class='list-img-size list-img-border-distance'></image>
-      <view class='list-font-size list-img-font-distance'>
+      <view class='list-font-size list-img-font-distance' bindtap='enterAboutMe'>
         帮助中心
       </view>
   </view>
