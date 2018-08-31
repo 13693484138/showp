@@ -23,6 +23,10 @@ page{
   width:1;
   font-size: 30rpx;
   color:black;
+  margin-left: 20rpx;
+}
+.section:first-child input{
+  margin-left: 48rpx;
 }
 .position-detail{
   padding: 60rpx 20rpx;
@@ -58,6 +62,7 @@ page{
 .info-detail>input{
   width: 1;
   flex: 1;
+  margin-left: 20rpx;
 }
 .img-view{
   width: 200rpx;

@@ -6,7 +6,6 @@ Page({
    */
   data: {
     userInfo:{},
-    daySign:'每日签到 >',
     myOrder:'我的订单'
   },
 
