@@ -5,107 +5,22 @@
 </view>
 <view class="classify">
     <scroll-view class="left-navbar" scroll-y="true">
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
-        <view class="list-item">其他分类</view>
+        <view wx:for-index="index" class="list-item {{classIndex==index?'activt':''}}"  wx:for="{{class}}"   wx:key="{{item.id}}"  bindtap="classTap" data-index="{{index}}" data-id="{{item.id}}" data-title="{{item.title}}">{{item.title}}</view>
     </scroll-view>
     <scroll-view id="right" scroll-y="true" scroll-top="{{scrollTop}}">
         <!-- 顶部图片  -->
         <view class="goods-banner">
             <image class="img-banner" src="../../assets/img/type-banner.png" mode="scaleToFill"></image>
         </view>
-        <view class="goods-title"> <text>-</text>精选分类<text>-</text></view>
+        <view class="goods-title"> <text>-</text>{{classTitle}}<text>-</text></view>
         <!-- 商品展示 -->
         <view class="goods-list">
-            <view class="goods-list-item" catchtap='viewDetail'>
+            <view class="goods-list-item" wx:for="{{classType}}" wx:key="{{item.id}}" catchtap='viewDetail'>
                 <view class="goods-list-img">
                     <image class="showp-img" src="../../assets/img/type-img1.jpeg" mode="aspectFill"></image>
                 </view>
-                <text class="goods-list-text">红酒</text>
+                <text class="goods-list-text">{{item.title}}</text>
             </view>
-
-            <view class="goods-list-item">
-                    <view class="goods-list-img">
-                        <image class="showp-img" src="../../assets/img/type-img2.jpeg" mode="aspectFill"></image>
-                    </view>
-                    <text class="goods-list-text">红酒</text>
-                </view>
-
-                <view class="goods-list-item">
-                        <view class="goods-list-img">
-                            <image class="showp-img" src="../../assets/img/type-img3.jpeg" mode="aspectFill"></image>
-                        </view>
-                        <text class="goods-list-text">红酒</text>
-                    </view>
-
-                    <view class="goods-list-item">
-                            <view class="goods-list-img">
-                                <image class="showp-img" src="../../assets/img/type-img4.jpeg" mode="aspectFill"></image>
-                            </view>
-                            <text class="goods-list-text">红酒</text>
-                        </view>
-
-                        <view class="goods-list-item">
-                                <view class="goods-list-img">
-                                    <image class="showp-img" src="../../assets/img/type-img5.jpeg" mode="aspectFill"></image>
-                                </view>
-                                <text class="goods-list-text">红酒</text>
-                            </view>
-        </view>
-
-        <!-- 第二块分类 -->
-        <view class="goods-title"> <text>-</text>精选分类<text>-</text></view>
-        <!-- 商品展示 -->
-        <view class="goods-list">
-            <view class="goods-list-item">
-                <view class="goods-list-img">
-                    <image class="showp-img" src="../../assets/img/type-img1.jpeg" mode="aspectFill"></image>
-                </view>
-                <text class="goods-list-text">红酒</text>
-            </view>
-
-            <view class="goods-list-item">
-                    <view class="goods-list-img">
-                        <image class="showp-img" src="../../assets/img/type-img2.jpeg" mode="aspectFill"></image>
-                    </view>
-                    <text class="goods-list-text">红酒</text>
-                </view>
-
-                <view class="goods-list-item">
-                        <view class="goods-list-img">
-                            <image class="showp-img" src="../../assets/img/type-img3.jpeg" mode="aspectFill"></image>
-                        </view>
-                        <text class="goods-list-text">红酒</text>
-                    </view>
-
-                    <view class="goods-list-item">
-                            <view class="goods-list-img">
-                                <image class="showp-img" src="../../assets/img/type-img4.jpeg" mode="aspectFill"></image>
-                            </view>
-                            <text class="goods-list-text">红酒</text>
-                        </view>
-
-                        <view class="goods-list-item">
-                                <view class="goods-list-img">
-                                    <image class="showp-img" src="../../assets/img/type-img5.jpeg" mode="aspectFill"></image>
-                                </view>
-                                <text class="goods-list-text">红酒</text>
-                            </view>
         </view>
     </scroll-view>
 </view>

@@ -3,15 +3,11 @@
 <!-- 页面顶部黑色区域 -->
   <view class="person-head flex-row flex-between">
     <view class='userinfo-body flex-row'>
-      <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image>
-      <view>
+      <image class='userinfo-avatar' src='../../assets/icon/touxiang.jpg'></image>
         <view class='userinfo-nickname'>
-          {{userInfo.nickName}}
+          A尚萌新
         </view>
-        <view class='daySign'>
-          {{daySign}}
-        </view>
-      </view>
+
     </view>
     <image src='../../assets/img/qcode.png' class='qcode'></image>
   </view>
@@ -21,8 +17,8 @@
       {{myOrder}}
     </view>
     <view class='flex-row-smx'>
-      <view class='dpshpf'>
-        <image src='../../assets/icon/qianbao.png' class='img-size'></image>
+      <view class='dpshpf'  bindtap="showp">
+        <image src='../../assets/icon/qianbao.png' class='img-size' ></image>
         <view class='font-size img-font-distance'>
           待付款
         </view>

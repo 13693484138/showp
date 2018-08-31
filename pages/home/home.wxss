@@ -24,8 +24,12 @@ swiper {
     -moz-border-radius: 20rpx;
     -ms-border-radius: 20rpx;
     -o-border-radius: 20rpx;
-    padding:20rpx;
     box-sizing: border-box;
+    overflow: hidden;
+}
+.active-item>image {
+    width:345rpx;
+    height: 200rpx;
 }
 .active-item:nth-child(even){
     margin-right:0;

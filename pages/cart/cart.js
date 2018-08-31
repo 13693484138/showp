@@ -53,7 +53,9 @@ Page({
     this.setData({
       editing:this.data.editing
     })
+  },
+  editOrder:function(){
+    wx.navigateTo({ url: '../editOrder/editOrder' });
   }
- 
 
 })

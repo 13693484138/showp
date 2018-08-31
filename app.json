@@ -1,21 +1,22 @@
 {
   "pages": [
     "pages/classify/classify",
+   "pages/home/home",
+    "pages/cart/cart",
     "pages/addressDetail/addressDetail",
     "pages/address/address",
     "pages/orderList/orderList",
-    "pages/home/home",
     "pages/person/person",
     "pages/goods/goods",
     "pages/index/index",
     "pages/classifyDetail/classifyDetail",
     "pages/region/region",
-    "pages/cart/cart",
     "pages/logs/logs",
     "pages/regionList/regionList",
     "pages/orderDetail/orderDetail",
     "pages/search/search",
-    "pages/aboutMe/aboutMe"
+    "pages/aboutMe/aboutMe",
+    "pages/editOrder/editOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",

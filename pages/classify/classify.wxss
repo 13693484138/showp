@@ -89,12 +89,15 @@
     width: 90%;
 }
 .goods-list-item{
-    margin:18rpx 23rpx;
-   display: inline-block;
- 
+    display: flex;
+    width: 33.33%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rpx;
 }
 .goods-list-img{
-    width: 100%;
+    /* width: 100%; */
 }
 .showp-img{
     width: 100%;
@@ -105,10 +108,16 @@
 }
 .goods-list-text{
     text-align: center;
-    width: 100%;
+    width: 150rpx;
+    height: 70rpx;
+    overflow: hidden;
     display: block;
     font-size: 26rpx;
     color: #101010;
     margin-top:20rpx;
+    word-break:break-all;
+}
+.activt{
+    border-left:6rpx solid red;
 }
 /* 搜索框样式 */
