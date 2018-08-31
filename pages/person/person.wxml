@@ -3,10 +3,11 @@
 <!-- 页面顶部黑色区域 -->
   <view class="person-head flex-row flex-between">
     <view class='userinfo-body flex-row'>
-      <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image>
+      <image class='userinfo-avatar' src='../../assets/icon/touxiang.jpg'></image>
         <view class='userinfo-nickname'>
-          {{userInfo.nickName}}
+          A尚萌新
         </view>
+
     </view>
     <image src='../../assets/img/qcode.png' class='qcode'></image>
   </view>
