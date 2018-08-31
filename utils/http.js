@@ -41,7 +41,7 @@ const http = (httpConfig) => {
                     if (stack.length == 0) {
                         wxLogin().then((res) => {
                             const item = stack.shift();
-                            return http(item);
+                            sendRequest(item);
                         }).catch((res) => {
                             console.log('登录失败：' + JSON.stringify(res));
                         })
@@ -77,32 +77,32 @@ const wxLogin = () => {
                 let param = {
                     code: res.code,
                 }
+                let userinfo = "";
                 wx.getUserInfo({
                     // 若获取不到用户信息 （最大可能是用户授权不允许，也有可能是网络请求失败，但该情况很少）
+                    // (注意)测试环境不会弹出用户授权，所以不需要把http放到success，后面需要调整
                     fail: (e) => {
-                        //reject(e)
-                       // resolve(e)
+                        //用户授权失败时，可以在此处跳转一个授权页面
                     },
                     success: ({ userInfo, rawData, signature, encryptedData, iv }) => {
                         param['rawData'] = rawData;//加密的用户数据
                         param['signature'] = signature;//签名
                         param['encryptedData'] = encryptedData;//解密工具
                         param['iv'] = iv;
-                        param['userInfo'] = userInfo//用户信息
-
+                        userinfo = userInfo
                     },
                     complete: () => {
                         // 登录操作
                         http({
                             apiName: AppConfig.loginApi,
-                            params: param,
+                            data: param,
                             method: 'post'
                         }).then(res => {
                            
                                 // 保存用户信息
                                 wx.setStorage({
                                     key: 'userinfo',
-                                    data: param['userInfo']
+                                    data: userinfo
                                 })
                                 wx.setStorage({
                                     key: "_hgc",

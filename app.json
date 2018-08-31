@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/home/home",
+   "pages/home/home",
    "pages/classify/classify",
+    "pages/cart/cart",
+    "pages/classify/classify",
     "pages/addressDetail/addressDetail",
     "pages/address/address",
     "pages/orderList/orderList",
@@ -10,10 +12,10 @@
     "pages/index/index",
     "pages/classifyDetail/classifyDetail",
     "pages/region/region",
-    "pages/cart/cart",
     "pages/logs/logs",
     "pages/regionList/regionList",
-    "pages/orderDetail/orderDetail"
+    "pages/orderDetail/orderDetail",
+    "pages/editOrder/editOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",

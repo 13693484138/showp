@@ -1,11 +1,11 @@
-// pages/cart/cart.js
+// pages/editOrder/editOrder.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    editing:false //是否正在进行商品编辑
+  
   },
 
   /**
@@ -42,20 +42,25 @@ Page({
   onUnload: function () {
   
   },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
   
   },
-  editing:function(){
-    this.data.editing = this.data.editing?false:true;
-    this.setData({
-      editing:this.data.editing
-    })
-  },
-  editOrder:function(){
-    wx.navigateTo({ url: '../editOrder/editOrder' });
-  }
 
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
 })
