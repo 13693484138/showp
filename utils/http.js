@@ -96,7 +96,7 @@ const wxLogin = () => {
                         // 登录操作
                         http({
                             apiName: AppConfig.loginApi,
-                            params: param,
+                            data: param,
                             method: 'post'
                         }).then(res => {
                            
