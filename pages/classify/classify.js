@@ -50,7 +50,6 @@ Page({
       apiName:'/goods/sonOfClassify',
       method:'post',
       data:{"pId":e.currentTarget.dataset.id},
-      isShowProgress:true,
       success:(res)=>{
         console.log(res);
         this.setData({
@@ -107,7 +106,7 @@ Page({
   onShareAppMessage: function () {
   
   },
-  viewDetail:function(){
-    wx.navigateTo({ url: '../classifyDetail/classifyDetail' });
+  viewDetail:function(e){
+    wx.navigateTo({ url: '../classifyDetail/classifyDetail?key='+e.currentTarget.dataset.id});
   }
 })

@@ -13,7 +13,7 @@
         <view class="goods-title"> <text>-</text>{{classTitle}}<text>-</text></view>
         <!-- 商品展示 -->
         <view class="goods-list">
-            <view class="goods-list-item" wx:for="{{classType}}" wx:key="{{item.id}}" catchtap='viewDetail'>
+            <view class="goods-list-item" wx:for="{{classType}}" wx:key="{{item.id}}" data-id="{{item.id}}" catchtap='viewDetail'>
                 <view class="goods-list-img">
                     <image class="showp-img" src="../../assets/img/type-img1.jpeg" mode="aspectFill"></image>
                 </view>

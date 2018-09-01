@@ -1,10 +1,13 @@
 // pages/classifyDetail/classifyDetail.js
+const http = require('../../utils/http');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    showList:[],
+    class:[],
     translate:'10px',//滚动条的偏移量
     tabMenu:[
       {
@@ -66,7 +69,35 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (option) {
+    http.request({
+      apiName:'/goods/goodsListByClassify',
+      method:'post',
+      data:{"currentPage":1,"pageSize":10,"classifyId":option.key},
+      isShowProgress:true,
+      success:(res)=>{
+        console.log(res);
+        this.setData({
+          showList:res.records
+        })
+      }
+    })
+    http.request({
+      apiName:'goods/classify',
+      method:'post',
+      success:(res)=>{
+        console.log(res);
+      let newRes=res.forEach(function(item){
+          return item.push({
+            "oueterWidth":"0px",
+            "innerWidth":"0px"
+           });
+        });
+        console.log(newRes);
+        this.setData({
+          class:newRes
+        })
+      }})
     const _this = this;
     let flag = false;
     const query = wx.createSelectorQuery();

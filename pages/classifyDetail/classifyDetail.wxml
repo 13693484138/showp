@@ -1,7 +1,7 @@
 <view class="section flex-col">
   <scroll-view scroll-x scroll-with-animation class="scroll-cls">
-    <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{tabMenu}}" data-index="{{index}}" wx:key="*this"
-      catchtap="menuTap"><text class="scroll-item-text">{{item.text}}</text></view>
+    <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{class}}" data-index="{{index}}" wx:key="*this"
+      catchtap="menuTap"><text class="scroll-item-text">{{item.title}}</text></view>
     <view class="slide-line" style="transform:translateX({{translate}});width:{{lineWidth}}"></view>
   </scroll-view>
   <view class="flex-row flex-around listTitle">
@@ -15,54 +15,14 @@
   </view>
   <scroll-view class="goods-scroll-view" scroll-y scroll-with-animation>
     <view class="goods-list clearfix">
-      <view class="goods-item">
+      <view class="goods-item" wx:for="{{showList}}" wx:key="{{item.id}}">
         <view class="item-thumbnail">
-          <view class="item-tag">海外直邮</view>
+          <view class="item-tag">{{item.country}}</view>
           <image class="goods-thumbnail" mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
         </view>
-        <view class="ellipse-2 goods-name">商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
-        <view class="goods-price">￥30.00</view>
+        <view class="ellipse-2 goods-name">{{item.title}}</view>
+        <view class="goods-price">￥{{item.pack}}</view>
       </view>
-      <view class="goods-item">
-        <view class="item-thumbnail">
-          <view class="item-tag">海外直邮</view>
-          <image class="goods-thumbnail" mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
-        </view>
-        <view class="ellipse-2 goods-name">商品名称商品名称商商</view>
-        <view class="goods-price">￥30.00</view>
-      </view>
-      <view class="goods-item">
-          <view class="item-thumbnail">
-            <view class="item-tag">海外直邮</view>
-            <image class="goods-thumbnail" mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
-          </view>
-          <view class="ellipse-2 goods-name">商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
-          <view class="goods-price">￥30.00</view>
-        </view>
-        <view class="goods-item">
-          <view class="item-thumbnail">
-            <view class="item-tag">海外直邮</view>
-            <image class="goods-thumbnail" mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
-          </view>
-          <view class="ellipse-2 goods-name">商品名称商品名称商商</view>
-          <view class="goods-price">￥30.00</view>
-        </view>
-        <view class="goods-item">
-            <view class="item-thumbnail">
-              <view class="item-tag">海外直邮</view>
-              <image class="goods-thumbnail" mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
-            </view>
-            <view class="ellipse-2 goods-name">商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
-            <view class="goods-price">￥30.00</view>
-          </view>
-          <view class="goods-item">
-            <view class="item-thumbnail">
-              <view class="item-tag">海外直邮</view>
-              <image class="goods-thumbnail" mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
-            </view>
-            <view class="ellipse-2 goods-name">商品名称商品名称商商</view>
-            <view class="goods-price">￥30.00</view>
-          </view>
     </view>
   </scroll-view>
 </view>
