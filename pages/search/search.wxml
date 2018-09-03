@@ -1,7 +1,9 @@
 <!-- 搜索框 -->
 <view class='header'>
   <view class='inputBox'>
-    <view class='fangdajing'><image src='../../assets/icon/search.png'></image></view>
+    <view class='fangdajing'>
+      <image src='../../assets/icon/search.png'></image>
+    </view>
     <input placeholder='搜索'></input>
   </view>
   <view class='cancel' bindtap='back'>取消</view>
@@ -9,11 +11,18 @@
 <!-- 热搜 -->
 <view class='hotSearch'>
   <view>热搜</view>
-  <view class='hotContent'></view>
+  <view class='hotContent'>
+    <view>视频</view>
+    <view>饮料</view>
+    <view>零食零食</view>
+    <view>饮料</view>
+    <view>饮料</view>
+    <view>零食零食</view>
+    <view>饮料</view>
+    <view>饮料</view>
+    <view>饮料</view>
+    <view>饮料</view>
+    <view>零食零食</view>
+    <view>饮料</view>
+  </view>
 </view>
-<!-- 历史搜索 -->
-<view class='history'>
-  <view>历史记录</view>
-  <view>icon</view>
-</view>
-<view class='hisContent'></view>

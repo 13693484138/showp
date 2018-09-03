@@ -1,49 +1,50 @@
 <scroll-view scroll-y>
-<view class="region-banner">
+  <view class="region-banner">
     <image src="../../assets/img/content-banner.png"></image>
-</view>
-<view class="region-banner-1">
+  </view>
+  <view class="region-banner-1">
     <image src="../../assets/img/content-text.png"></image>
-</view>
-<view class="region-list">
-   <view class="region-list-item">
-       <view class="region-list-item-img">
-           <image src="../../assets/img/content-list1.png"></image>
-           <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
-           <view class="region-list-mony">¥95</view>
-       </view>
-   </view>
+  </view>
+  <view class="region-list">
+    <view class="region-list-item" wx:for="{{goodsList}}" wx:key="{{item.title}}">
+      <view class="region-list-item-img">
+        <image src="../../assets/img/content-list1.png"></image>
+        <view class="region-list-text">{{item.title}}</view>
+        <view class="region-list-mony">¥{{item.salePrice}}</view>
+      </view>
+    </view>
 
-   <view class="region-list-item">
-    <view class="region-list-item-img">
+    <!-- <view class="region-list-item">
+      <view class="region-list-item-img">
         <image src="../../assets/img/content-list1.png"></image>
         <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
         <view class="region-list-mony">¥95</view>
+      </view>
     </view>
-</view>
 
-<view class="region-list-item">
-    <view class="region-list-item-img">
+    <view class="region-list-item">
+      <view class="region-list-item-img">
         <image src="../../assets/img/content-list1.png"></image>
         <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
         <view class="region-list-mony">¥95</view>
+      </view>
     </view>
-</view>
 
-<view class="region-list-item">
-    <view class="region-list-item-img">
+    <view class="region-list-item">
+      <view class="region-list-item-img">
         <image src="../../assets/img/content-list1.png"></image>
         <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
         <view class="region-list-mony">¥95</view>
+      </view>
     </view>
-</view>
 
-<view class="region-list-item">
-    <view class="region-list-item-img">
+    <view class="region-list-item">
+      <view class="region-list-item-img">
         <image src="../../assets/img/content-list1.png"></image>
         <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
         <view class="region-list-mony">¥95</view>
-    </view>
-</view>
-</view>
-</scroll-view> 
+      </view>
+    </view> -->
+
+  </view>
+</scroll-view>
