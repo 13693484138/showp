@@ -1,11 +1,11 @@
 <view class="section flex-col">
   <scroll-view scroll-x scroll-with-animation class="scroll-cls">
-    <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{class}}" data-index="{{index}}" wx:key="*this"
+    <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{tabMenu}}" data-index="{{index}}" wx:key="*this"
       catchtap="menuTap"><text class="scroll-item-text">{{item.title}}</text></view>
     <view class="slide-line" style="transform:translateX({{translate}});width:{{lineWidth}}"></view>
   </scroll-view>
   <view class="flex-row flex-around listTitle">
-    <view wx:for="{{listTitle}}" wx:key="*this" class="title-item flex-row flex-center {{listTitleIndex==index?'active':''}}" data-index="{{index}}" catchtap="titleMenuTap">
+    <view wx:for="{{listTitle}}" wx:key="*this" data-order="{{item.order}}"  class="title-item flex-row flex-center {{listTitleIndex==index?'active':''}}" data-index="{{index}}" catchtap="titleMenuTap">
       <text>{{item.name}}</text>
       <view class="sort flex-col {{item.sortRule=='asc'?'sort-asc':'sort-desc'}}" wx:if="{{item.sort}}">
         <text class="sort-up"></text>
@@ -21,7 +21,7 @@
           <image class="goods-thumbnail" mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
         </view>
         <view class="ellipse-2 goods-name">{{item.title}}</view>
-        <view class="goods-price">￥{{item.pack}}</view>
+        <view class="goods-price">￥{{item.salePrice}}</view>
       </view>
     </view>
   </scroll-view>

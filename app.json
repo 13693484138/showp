@@ -1,8 +1,7 @@
 {
   "pages": [
-   
-   "pages/home/home",
-   "pages/classify/classify",
+    "pages/home/home",
+    "pages/classify/classify",
     "pages/cart/cart",
     "pages/addressDetail/addressDetail",
     "pages/address/address",
@@ -15,6 +14,8 @@
     "pages/logs/logs",
     "pages/regionList/regionList",
     "pages/orderDetail/orderDetail",
+    "pages/search/search",
+    "pages/aboutMe/aboutMe",
     "pages/editOrder/editOrder"
   ],
   "window": {

@@ -3,10 +3,11 @@
 <!-- 页面顶部黑色区域 -->
   <view class="person-head flex-row flex-between">
     <view class='userinfo-body flex-row'>
-      <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image>
+      <image class='userinfo-avatar' src='../../assets/icon/touxiang.jpg'></image>
         <view class='userinfo-nickname'>
-          {{userInfo.nickName}}
+          A尚萌新
         </view>
+
     </view>
     <image src='../../assets/img/qcode.png' class='qcode'></image>
   </view>
@@ -139,7 +140,7 @@
 
     <view class='flex-row right-arrow list-border-distance'>
       <image src='../../assets/icon/bz.png' class='list-img-size list-img-border-distance'></image>
-      <view class='list-font-size list-img-font-distance'>
+      <view class='list-font-size list-img-font-distance' bindtap='enterAboutMe'>
         帮助中心
       </view>
   </view>

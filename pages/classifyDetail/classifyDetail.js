@@ -1,43 +1,16 @@
 // pages/classifyDetail/classifyDetail.js
 const http = require('../../utils/http');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    key:"",
     showList:[],
     class:[],
+    typeId:"",
     translate:'10px',//滚动条的偏移量
-    tabMenu:[
-      {
-        text:'全部',
-        oueterWidth:'0px',
-        innerWidth:'0px'
-      },
-      {
-        text:'澳大利亚',
-        oueterWidth:'0px',
-        innerWidth:'0px'
-      }, {
-        text:'澳大',
-        oueterWidth:'0px',
-        innerWidth:'0px'
-      }, {
-        text:'澳大利',
-        oueterWidth:'0px',
-        innerWidth:'0px'
-      }, {
-        text:'澳大利亚亚',
-        oueterWidth:'0px',
-        innerWidth:'0px'
-      },
-      {
-        text: '澳大利亚亚澳',
-        oueterWidth:'0px',
-        innerWidth:'0px'
-      }
-    ],
+    tabMenu:[],
     tabMenuIndex:0,//默认选中项
     lineWidth:0,//滚动条的宽度
     listTitle:[
@@ -56,11 +29,14 @@ Page({
       {
         name:'价格',
         sort:true,//是否允许排序
-        sortRule:'asc'//不允许排序时可以不写
+        sortRule:'asc',//不允许排序时可以不写
+        order:'salePrice',
+        spa:'0'
       },
       {
         name:'品牌',
-        sort:false//是否允许排序
+        sort:false,//是否允许排序
+        order:'brand'
       },
     ],
     listTitleIndex:0
@@ -70,6 +46,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
+    this.setData({
+      key:option.key,
+      typeId:option.typeId
+    });
     http.request({
       apiName:'/goods/goodsListByClassify',
       method:'post',
@@ -83,20 +63,26 @@ Page({
       }
     })
     http.request({
-      apiName:'goods/classify',
+      apiName:'goods/sonOfClassify',
       method:'post',
+      data:{"pId":this.data.typeId},
       success:(res)=>{
-        console.log(res);
-      let newRes=res.forEach(function(item){
-          return item.push({
-            "oueterWidth":"0px",
-            "innerWidth":"0px"
-           });
-        });
-        console.log(newRes);
-        this.setData({
-          class:newRes
+        let arry2=[];
+        //重组数组
+        console.log(res.findIndex(fruit => fruit.id === this.data.key));
+         this.setData({
+          tabMenuIndex:res.findIndex(fruit => fruit.id === this.data.key)+1,
+          }) //初始下标
+    
+         res.map(((item,index)=>{
+          arry2.push(Object.assign({},item,{"oueterWidth":"0px","innerWidth":"0px"}));
+         }));
+         //向数组开头添加数据
+         arry2.unshift({"title":"全部","oueterWidth":"0px","innerWidth":"0px"});
+         this.setData({
+          tabMenu:arry2
         })
+        
       }})
     const _this = this;
     let flag = false;
@@ -114,14 +100,15 @@ Page({
     }).exec();
     let timer = setInterval(function(){
       if(flag){
+        console.log(_this.data.tabMenuIndex);
         _this.setData({
-          translate:(_this.data.tabMenu[0].oueterWidth-_this.data.tabMenu[0].innerWidth)/2+'px',
-          lineWidth:_this.data.tabMenu[0].innerWidth+'px'
+          translate:(_this.data.tabMenu[_this.data.tabMenuIndex].oueterWidth+_this.data.tabMenu[0].oueterWidth*2-_this.data.tabMenu[_this.data.tabMenuIndex].innerWidth)/2+'px',
+          lineWidth:_this.data.tabMenu[_this.data.tabMenuIndex].innerWidth+'px'
         })
         clearInterval(timer);
         timer=null;
       }
-    },200)
+    },1000)
   },
 
   /**
@@ -184,6 +171,19 @@ Page({
    })
   },
   titleMenuTap:function(e){
+    
+    http.request({
+      apiName:'/goods/goodsListByClassify',
+      method:'post',
+      data:{"currentPage":1,"pageSize":10,"classifyId":this.data.key,"order":e.currentTarget.dataset.order},
+      isShowProgress:true,
+      success:(res)=>{
+        console.log(res);
+        this.setData({
+          showList:res.records
+        })
+      }
+    })
     const index = e.currentTarget.dataset.index;
     const menuItem = this.data.listTitle[index];
     if(index!=this.data.listTitleIndex){

@@ -1,26 +1,18 @@
-// pages/person/person.js
+// pages/search/search.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:{},
-    myOrder:'我的订单'
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getUserInfo({
-      success:res =>{
-        this.setData({
-          userInfo: res.userInfo
-        })
-      }
-    })
-   
+  
   },
 
   /**
@@ -29,29 +21,18 @@ Page({
   onReady: function () {
   
   },
-  showp:function(){
-    wx.navigateTo({
-      url: '../orderList/orderList',
-      success: function(res) {
-        
-      },
-      fail: function(res) {
 
-      },
-      complete: function(res) {
-
-      }})
-  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+  
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide:function () {
+  onHide: function () {
   
   },
 
@@ -82,9 +63,8 @@ Page({
   onShareAppMessage: function () {
   
   },
-  enterAboutMe(){
-    wx.navigateTo({
-      url: '../aboutMe/aboutMe',
-    })
+  //返回按钮
+  back(){
+    console.log("back")
   }
 })

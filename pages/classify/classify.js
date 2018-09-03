@@ -9,6 +9,7 @@ Page({
     classIndex:0,//一级分类
     classType:[],//二级分类
     classTitle:"精选分类",//分类title
+    typeId:""
   },
 
   /**
@@ -23,6 +24,7 @@ Page({
         console.log(res);
         this.setData({
           class:res,
+          typeId:res[0].id
         })
         http.request({
           apiName:'/goods/sonOfClassify',
@@ -43,8 +45,10 @@ Page({
   classTap:function(e){
     this.setData({
       classIndex:e.currentTarget.dataset.index,
-      classTitle:e.currentTarget.dataset.title
+      classTitle:e.currentTarget.dataset.title,
+      typeId:e.currentTarget.dataset.id
     });
+  console.log(this.data.typeId);
     console.log(e.currentTarget.dataset.id);
     http.request({
       apiName:'/goods/sonOfClassify',
@@ -107,6 +111,11 @@ Page({
   
   },
   viewDetail:function(e){
-    wx.navigateTo({ url: '../classifyDetail/classifyDetail?key='+e.currentTarget.dataset.id});
+    wx.navigateTo({ url: '../classifyDetail/classifyDetail?key='+e.currentTarget.dataset.id+'&typeId='+this.data.typeId});
+  },
+  enterSearch(){
+    wx.navigateTo({
+      url: '../search/search',
+    })
   }
 })
