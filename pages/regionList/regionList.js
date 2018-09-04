@@ -73,6 +73,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 自定义方法
+   */
+
+
+  //跳转商品详情页面
+  forward(e){
+    let whichGoodsId = e.currentTarget.id;//所点击商品id
+    // console.log(whichGoodsId)
+    wx.navigateTo({
+      url: '../goods/goods?goodsId=' + whichGoodsId,
+    })
   }
 
 })

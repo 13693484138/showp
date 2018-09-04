@@ -1,5 +1,5 @@
 module.exports = {
-    apiHost:"http://192.168.1.247:8080/xcx/",
+  apiHost:"http://shop.ngrok.michaelch.xyz/xcx/",
     mapkey:"Z2EBZ-EXYEJ-YTMFD-K3Y4O-3HQEK-PPF5U",
     loginApi:'login/test'
   };

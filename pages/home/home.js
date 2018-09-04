@@ -1,4 +1,5 @@
 // pages/home/home.js
+const http=require('../../utils/http.js');
 Page({
 
   /**
@@ -13,7 +14,9 @@ Page({
     indicatorDots: false,
     autoplay: true,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    activityId:null,//随机一活动的id
+    activityTopic:null,//随机一活动的主题
   },
 
   /**
@@ -34,7 +37,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    // this.getTopic()
   },
 
   /**
@@ -70,5 +73,46 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  /**
+   * 自定义方法
+   */
+  //请求某一活动主题以及该活动下的三种产品
+  getTopic(){
+      http.request({
+        apiName: 'activity/activityList',
+        method: 'post',
+        isShowProgress: true,
+        success: (res) => {
+          let num = parseInt(Math.random()*res.length)//随机生成（0-活动列表.length)的一个下标
+          this.setData({
+            activityId: res[num].id,
+            activityTopic:res[num].title,
+          })
+        },
+      })
+    http.request({
+      apiName: 'activity/activityShoppingList',
+      method: 'post',
+      data: {
+        'id': this.activityId,
+        'currentPage': 1,
+        'pageSize': 10
+      },
+      isShowProgress: true,
+      success: (res) => {
+        console.log(res)
+        this.setData({
+          activityGoodsList: res.records,
+        })
+      }
+    }) 
+    
+  },
+  //查看全部的跳转
+  forward(){
+    wx.navigateTo({
+      url: '',
+    })
   }
 })

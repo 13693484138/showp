@@ -1,6 +1,6 @@
 <!-- 轮播图 -->
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
+  <block wx:for="{{imgUrls}}" wx:key='{{item.index}}'>
     <swiper-item>
       <image src="{{item}}" class="slide-image" width="355" height="150" />
     </swiper-item>
@@ -17,7 +17,7 @@
 </view>
 <!-- 限时优惠 -->
 <view class="limited-section">
-  <view class="limited-bar flex-row flex-between">
+  <!-- <view class="limited-bar flex-row flex-between">
     <view class="limited-bar-title">限时特惠</view>
     <view class="limited-bar-time">
       <text>13</text>
@@ -25,6 +25,9 @@
       <text>13</text>
     </view>
     <view class="limited-bar-next">下一场 22：00开始</view>
+  </view> -->
+  <view class="classify-title">
+    <text class="right-arrow">{{activityTopic}}</text>
   </view>
   <scroll-view scroll-x>
     <view class="limited-item">
@@ -66,16 +69,22 @@
       <view class="flex-row">
         <view class="template-1-l">
           <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
-          <button type="button" class="btn btn-radius"><text class="right-arrow">去看看</text></button>
+          <button type="button" class="btn btn-radius">
+            <text class="right-arrow">去看看</text>
+          </button>
         </view>
         <view class="flex-col template-1-r">
           <view>
             <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
-            <button class="btn b-block"><text class="right-arrow">全场包税</text></button>
+            <button class="btn b-block">
+              <text class="right-arrow">全场包税</text>
+            </button>
           </view>
           <view>
             <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
-            <button class="btn b-block"><text class="right-arrow">全场包税</text></button>
+            <button class="btn b-block">
+              <text class="right-arrow">全场包税</text>
+            </button>
           </view>
         </view>
       </view>
@@ -121,25 +130,25 @@
           <view class="template-3-price">￥12.00</view>
         </view>
         <view class="template-3-item float-l">
-            <view class="template-3-thumbnail">
-              <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
-              <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
-            </view>
-            <view class="template-3-title ellipse-2">
-              麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
-            </view>
-            <view class="template-3-price">￥12.00</view>
+          <view class="template-3-thumbnail">
+            <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+            <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
           </view>
-          <view class="template-3-item float-l">
-              <view class="template-3-thumbnail">
-                <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
-                <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
-              </view>
-              <view class="template-3-title ellipse-2">
-                麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
-              </view>
-              <view class="template-3-price">￥12.00</view>
-            </view>
+          <view class="template-3-title ellipse-2">
+            麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
+          </view>
+          <view class="template-3-price">￥12.00</view>
+        </view>
+        <view class="template-3-item float-l">
+          <view class="template-3-thumbnail">
+            <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+            <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+          </view>
+          <view class="template-3-title ellipse-2">
+            麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡麦卢卡
+          </view>
+          <view class="template-3-price">￥12.00</view>
+        </view>
       </view>
     </view>
   </view>
@@ -151,24 +160,24 @@
   </view>
   <view class="classify-content">
     <view class="template-4">
-        <view class="template-4-item">
-          <view class="template-4-thumbnail">
-              <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
-          </view>
-          <view class="flex-row flex-between template-4-info">
-            <view class="template-4-title ellipse">专题精选的标题专题精选的标题专题精选的标题</view>
-            <view class="template-4-price">￥12.00</view>
-          </view>
+      <view class="template-4-item">
+        <view class="template-4-thumbnail">
+          <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
         </view>
-        <view class="template-4-item">
-            <view class="template-4-thumbnail">
-                <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
-            </view>
-            <view class="flex-row flex-between template-4-info">
-              <view class="template-4-title ellipse">专题精选的标题专题精选的标题专题精选的标题</view>
-              <view class="template-4-price">￥12.00</view>
-            </view>
-          </view>
+        <view class="flex-row flex-between template-4-info">
+          <view class="template-4-title ellipse">专题精选的标题专题精选的标题专题精选的标题</view>
+          <view class="template-4-price">￥12.00</view>
+        </view>
+      </view>
+      <view class="template-4-item">
+        <view class="template-4-thumbnail">
+          <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+        </view>
+        <view class="flex-row flex-between template-4-info">
+          <view class="template-4-title ellipse">专题精选的标题专题精选的标题专题精选的标题</view>
+          <view class="template-4-price">￥12.00</view>
+        </view>
+      </view>
     </view>
   </view>
 </view>
