@@ -44,7 +44,7 @@ Page({
     ],
     listTitleIndex:0
   },
-  onPullDownRefresh() {
+  onPullDownRefresh: function(){
     console.log("-------------");
     wx.showNavigationBarLoading(); //在标题栏中显示加载
     http.request({
@@ -130,7 +130,7 @@ Page({
   },
   scrollBottom:function(){
     this.setData({
-      pageSize:pageSize+10
+      pageSize:this.data.pageSize+10
     })
     http.request({
       apiName:'/goods/goodsListByClassify',
@@ -202,7 +202,8 @@ Page({
   },
   menuTap:function(e){
     this.setData({
-      key:e.currentTarget.dataset.id
+      key:e.currentTarget.dataset.id,
+      pageSize:10
     })
     if(!this.data.key){
       http.request({
@@ -250,7 +251,8 @@ Page({
       success:(res)=>{
         console.log(res);
         this.setData({
-          showList:res.records
+          showList:res.records,
+          pageSize:10
         })
       }
     })
