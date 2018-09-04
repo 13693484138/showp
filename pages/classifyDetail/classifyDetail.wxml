@@ -1,6 +1,6 @@
 <view class="section flex-col">
   <scroll-view scroll-x scroll-with-animation class="scroll-cls">
-    <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{tabMenu}}" data-index="{{index}}" wx:key="*this"
+    <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{tabMenu}}" data-index="{{index}}" wx:key="*this" data-id="{{item.id}}"
       catchtap="menuTap"><text class="scroll-item-text">{{item.title}}</text></view>
     <view class="slide-line" style="transform:translateX({{translate}});width:{{lineWidth}}"></view>
   </scroll-view>
@@ -13,7 +13,7 @@
       </view>
     </view>
   </view>
-  <scroll-view class="goods-scroll-view" scroll-y scroll-with-animation>
+  <scroll-view class="goods-scroll-view" scroll-y lower-threshold="60" bindscrolltolower="scrollBottom" scroll-with-animation="true" scroll-top="{{setTop}}">
     <view class="goods-list clearfix">
       <view class="goods-item" wx:for="{{showList}}" wx:key="{{item.id}}">
         <view class="item-thumbnail">
@@ -26,4 +26,4 @@
     </view>
   </scroll-view>
 </view>
-<view class="scroll-top"></view>
+<view class="scroll-top" id="scrollTop" catchtap="scrollTop"></view>

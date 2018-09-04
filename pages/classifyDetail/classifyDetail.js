@@ -8,11 +8,14 @@ Page({
     key:"",
     showList:[],
     class:[],
+    setTop:100,
     typeId:"",
     translate:'10px',//滚动条的偏移量
     tabMenu:[],
     tabMenuIndex:0,//默认选中项
     lineWidth:0,//滚动条的宽度
+    pageIndex:1,
+    pageSize:10,
     listTitle:[
       {
         name:'默认',
@@ -41,7 +44,23 @@ Page({
     ],
     listTitleIndex:0
   },
-
+  onPullDownRefresh() {
+    console.log("-------------");
+    wx.showNavigationBarLoading(); //在标题栏中显示加载
+    http.request({
+      apiName:'/goods/goodsListByClassify',
+      method:'post',
+      data:{"currentPage":1,"pageSize":10,"classifyId":this.data.key},
+      isShowProgress:true,
+      success:(res)=>{
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+        this.setData({
+          showList:res.records
+        })
+      }
+    })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -65,14 +84,12 @@ Page({
     http.request({
       apiName:'goods/sonOfClassify',
       method:'post',
-      data:{"pId":this.data.typeId},
+      data:{"pId":this.data.typeId,"firstClassifyId":this.data.key},
       success:(res)=>{
         let arry2=[];
         //重组数组
         console.log(res.findIndex(fruit => fruit.id === this.data.key));
-         this.setData({
-          tabMenuIndex:res.findIndex(fruit => fruit.id === this.data.key)+1,
-          }) //初始下标
+
     
          res.map(((item,index)=>{
           arry2.push(Object.assign({},item,{"oueterWidth":"0px","innerWidth":"0px"}));
@@ -82,7 +99,9 @@ Page({
          this.setData({
           tabMenu:arry2
         })
-        
+        this.setData({
+          tabMenuIndex:arry2.findIndex(fruit => fruit.id === this.data.key),
+          }) //初始下标
       }})
     const _this = this;
     let flag = false;
@@ -100,7 +119,6 @@ Page({
     }).exec();
     let timer = setInterval(function(){
       if(flag){
-        console.log(_this.data.tabMenuIndex);
         _this.setData({
           translate:(_this.data.tabMenu[_this.data.tabMenuIndex].oueterWidth+_this.data.tabMenu[0].oueterWidth*2-_this.data.tabMenu[_this.data.tabMenuIndex].innerWidth)/2+'px',
           lineWidth:_this.data.tabMenu[_this.data.tabMenuIndex].innerWidth+'px'
@@ -108,9 +126,25 @@ Page({
         clearInterval(timer);
         timer=null;
       }
-    },1000)
+    },200)
   },
-
+  scrollBottom:function(){
+    this.setData({
+      pageSize:pageSize+10
+    })
+    http.request({
+      apiName:'/goods/goodsListByClassify',
+      method:'post',
+      data:{"currentPage":this.data.pageIndex,"pageSize":this.data.pageSize,"classifyId":this.data.key},
+      isShowProgress:true,
+      success:(res)=>{
+        console.log(res);
+        this.setData({
+          showList:res.records
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -138,7 +172,14 @@ Page({
   onUnload: function () {
   
   },
-
+  scrollTop:function(){
+    this.setData({
+      setTop:0
+    })
+    // wx.createSelectorQuery().select(".goods-scroll-view").scrollOffset(function(res){
+    //  // 节点的竖直滚动位置
+    // }).exec()
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -160,6 +201,36 @@ Page({
   
   },
   menuTap:function(e){
+    this.setData({
+      key:e.currentTarget.dataset.id
+    })
+    if(!this.data.key){
+      http.request({
+        apiName:'/goods/goodsListByFirstClassify',
+        method:'post',
+        data:{"currentPage":1,"pageSize":10,"classifyId":this.data.typeId},
+        isShowProgress:true,
+        success:(res)=>{
+          this.setData({
+            showList:res.records
+          })
+        }
+      })
+      }
+      else{
+        http.request({
+          apiName:'/goods/goodsListByClassify',
+          method:'post',
+          data:{"currentPage":1,"pageSize":10,"classifyId":this.data.key},
+          isShowProgress:true,
+          success:(res)=>{
+            console.log(res);
+            this.setData({
+              showList:res.records
+            })
+          }
+        })
+      } 
     const index = e.currentTarget.dataset.index;
     const outerWidth = this.data.tabMenu[index].oueterWidth;
     const innerWidth = this.data.tabMenu[index].innerWidth;
@@ -171,7 +242,6 @@ Page({
    })
   },
   titleMenuTap:function(e){
-    
     http.request({
       apiName:'/goods/goodsListByClassify',
       method:'post',
