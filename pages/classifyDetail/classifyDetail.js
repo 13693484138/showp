@@ -17,6 +17,7 @@ Page({
     lineWidth:0,//滚动条的宽度
     pageIndex:1,
     pageSize:10,
+    total:0,
     listTitle:[
       {
         name:'默认',
@@ -64,7 +65,8 @@ Page({
       success:(res)=>{
         console.log(res);
         this.setData({
-          showList:res.records
+          showList:res.records,
+          total:res.total
         })
       }
     })
@@ -141,7 +143,7 @@ Page({
         }
       })
     }
-    else if(this.data.showList.length%10==0){
+    else if(this.data.pageSize-10<this.data.total){
     http.request({
       apiName:'/goods/goodsListByClassify',
       method:'post',
@@ -155,17 +157,10 @@ Page({
       }
     })
   }
-  else if(this.data.showList.length==0||this.data.showList.length%10!=0){
+  else {
      this.setData({
        genduo:true
      })
-  }
-  else{
-    wx.showToast({
-      title: '未知错误',
-      icon: 'none',
-      duration: 2000
-    })
   }
   },
   /**

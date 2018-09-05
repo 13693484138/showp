@@ -20,8 +20,7 @@
     <view class="limited-item-bg">Emu Tracks专区</view>
   </view> -->
 </scroll-view>
-<view class="list-li">
-
+<scroll-view scroll-y class="list-li">
   <view class="list-item" wx:for='{{activityGoodsList}}' wx:key='{{item.title}}' id='{{item.id}}' bindtap='forward'>
     <image class="list-item-img" src="../../assets/img/liet.jpeg"></image>
     <view class="list-item-text clearfix">
@@ -33,8 +32,7 @@
         {{item.salePrice}}元
       </view>
     </view>
-
-  </view>
+</view>
 
   <!-- <view class="list-item">
     <image class="list-item-img" src="../../assets/img/liet.jpeg"></image>
@@ -74,4 +72,4 @@
       </view>
     </view>
   </view> -->
-</view>
+</scroll-view>

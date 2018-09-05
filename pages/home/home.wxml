@@ -30,31 +30,31 @@
     <text class="right-arrow">{{activityTopic}}</text>
   </view>
   <scroll-view scroll-x>
-    <view class="limited-item">
+    <view class="limited-item" wx:for='{{activityGoodsList}}' wx:key='{{item}}'>
+      <view class="limited-item-tag">海外直邮</view>
+      <image class="limited-item-thumbnail" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'
+        mode="aspectFill"></image>
+      <view class="limited-item-title ellipse-2">{{item.title}}</view>
+      <view class="price">活动价：￥200.00</view>
+      <view class="ori_price">原价：￥400.00</view>
+    </view>
+    <!-- <view class="limited-item">
       <view class="limited-item-tag">海外直邮</view>
       <image class="limited-item-thumbnail" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'
         mode="aspectFill"></image>
       <view class="limited-item-title ellipse-2">澳大利亚保健品澳大利亚保健品澳大利亚保健品澳大利亚保健品</view>
       <view class="price">活动价：￥200.00</view>
       <view class="ori_price">原价：￥400.00</view>
-    </view>
-    <view class="limited-item">
+    </view> -->
+    <!-- <view class="limited-item">
       <view class="limited-item-tag">海外直邮</view>
       <image class="limited-item-thumbnail" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'
         mode="aspectFill"></image>
       <view class="limited-item-title ellipse-2">澳大利亚保健品澳大利亚保健品澳大利亚保健品澳大利亚保健品</view>
       <view class="price">活动价：￥200.00</view>
       <view class="ori_price">原价：￥400.00</view>
-    </view>
-    <view class="limited-item">
-      <view class="limited-item-tag">海外直邮</view>
-      <image class="limited-item-thumbnail" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'
-        mode="aspectFill"></image>
-      <view class="limited-item-title ellipse-2">澳大利亚保健品澳大利亚保健品澳大利亚保健品澳大利亚保健品</view>
-      <view class="price">活动价：￥200.00</view>
-      <view class="ori_price">原价：￥400.00</view>
-    </view>
-    <view class="limited-item limited-view-all">
+    </view> -->
+    <view class="limited-item limited-view-all" bindtap='queryAll'>
       查看全部
     </view>
   </scroll-view>
