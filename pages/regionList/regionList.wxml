@@ -6,7 +6,7 @@
     <image src="../../assets/img/content-text.png"></image>
   </view>
   <view class="region-list">
-    <view class="region-list-item" wx:for="{{goodsList}}" wx:key="{{item.title}}">
+    <view class="region-list-item" wx:for="{{goodsList}}" wx:key="{{item.title}}" bindtap='forward' id="{{item.id}}">
       <view class="region-list-item-img">
         <image src="../../assets/img/content-list1.png"></image>
         <view class="region-list-text">{{item.title}}</view>

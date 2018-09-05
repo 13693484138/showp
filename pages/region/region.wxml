@@ -22,7 +22,7 @@
 </scroll-view>
 <view class="list-li">
 
-  <view class="list-item" wx:for='{{activityGoodsList}}' wx:key='{{item.title}}'>
+  <view class="list-item" wx:for='{{activityGoodsList}}' wx:key='{{item.title}}' id='{{item.id}}' bindtap='forward'>
     <image class="list-item-img" src="../../assets/img/liet.jpeg"></image>
     <view class="list-item-text clearfix">
       <view class="list-item-text-l">

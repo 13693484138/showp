@@ -1,4 +1,5 @@
 // pages/goods/goods.js
+const http=require('../../utils/http.js');
 Page({
 
   /**
@@ -28,7 +29,8 @@ Page({
       "nickName":"李四",
       "content": "hello world2"
     }
-  ]
+  ],
+  goodDetails:null,//用于存放请求回的商品详情数据
   },
 
 
@@ -42,6 +44,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let goodsId=options.goodsId;
+    http.request({
+      apiName: 'goods/details',
+      method: 'post',
+      data:{
+        'id':goodsId
+      },
+      isShowProgress: true,
+      success: (res) => {
+        console.log(res);
+        this.setData({
+          goodsDetails: res,
+        })
+      },
+    })
   
   },
 
@@ -93,6 +110,10 @@ Page({
   onShareAppMessage: function () {
   
   },
-
+  /**
+   * 自定义方法
+   */
+  //渲染商品详情
+ 
 
 })

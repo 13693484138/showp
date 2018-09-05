@@ -4,7 +4,7 @@
     <view class='swiper-container'>
         <swiper indicator-dots="true" class="swiper"
         autoplay="true" interval="5000" duration="500" bindchange="swiperChange">
-        <block wx:for="{{imgUrls}}" wx:for-index="index">
+        <block wx:for="{{imgUrls}}" wx:for-index="index" wx:key='{{item.https}}'>
             <swiper-item class="swiper-item">
             <image src="{{item}}"  class="item-img" mode="center"/>
             </swiper-item>
@@ -20,7 +20,7 @@
           ￥
          </view>
          <view class='total-money goods-price-color'>
-           {{googdsPrice}}
+           {{goodsDetails.salePrice}}
          </view>
          <view class='pthy goods-price-color'>
             普通会员价
@@ -33,7 +33,7 @@
       </view>
       
       <view class="goodsInstro">
-        {{goodsInstro}}
+        {{goodsDetails.title}}
       </view>
       <view class='productCountryInfo flex-row flex-between'>
         <view class='flex-row'>
@@ -97,7 +97,7 @@
       </view>
 
       <view>
-        <view wx:for="{{commentInfoList}}" wx:for-item="item" wx:for-index="index" class='flex-row flex-between'>
+        <view wx:for="{{commentInfoList}}" wx:for-item="item" wx:for-index="index" class='flex-row flex-between' wx:key='{{item.avatar}}'>
           <view class='flex-row'>
             <image src='{{item.avatar}}' class='img-size currency-margin'></image>
             <text class='currency-margin'>{{item.nickName}}</text>

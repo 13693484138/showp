@@ -157,7 +157,8 @@ page{
 }
 .bottom-jrgwc{
   text-align: center;
-  background: yellow;
+  background: #f6c743;
+  color:#fff;
   height: 100%;
   width: 230rpx;
   font-size: 35rpx;
@@ -165,6 +166,7 @@ page{
 .bottom-ljgm{
   text-align: center;
   background: red;
+  color:#fff;
   height: 100%;
   width: 230rpx;
   font-size: 35rpx;
