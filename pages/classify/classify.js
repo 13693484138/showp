@@ -54,6 +54,7 @@ Page({
       apiName:'/goods/sonOfClassify',
       method:'post',
       data:{"pId":e.currentTarget.dataset.id},
+      isShowProgress:true,
       success:(res)=>{
         console.log(res);
         this.setData({

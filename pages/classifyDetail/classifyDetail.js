@@ -2,12 +2,13 @@
 const http = require('../../utils/http');
 Page({
   /**
-   * 页面的初始数据
+  页面的初始数据
    */
   data: {
     key:"",
     showList:[],
     class:[],
+    genduo:false,
     setTop:100,
     typeId:"",
     translate:'10px',//滚动条的偏移量
@@ -45,21 +46,7 @@ Page({
     listTitleIndex:0
   },
   onPullDownRefresh: function(){
-    console.log("-------------");
-    wx.showNavigationBarLoading(); //在标题栏中显示加载
-    http.request({
-      apiName:'/goods/goodsListByClassify',
-      method:'post',
-      data:{"currentPage":1,"pageSize":10,"classifyId":this.data.key},
-      isShowProgress:true,
-      success:(res)=>{
-        wx.hideNavigationBarLoading() //完成停止加载
-        wx.stopPullDownRefresh() //停止下拉刷新
-        this.setData({
-          showList:res.records
-        })
-      }
-    })
+    this.loderMore();
     },
   /**
    * 生命周期函数--监听页面加载
@@ -120,18 +107,41 @@ Page({
     let timer = setInterval(function(){
       if(flag){
         _this.setData({
-          translate:(_this.data.tabMenu[_this.data.tabMenuIndex].oueterWidth+_this.data.tabMenu[0].oueterWidth*2-_this.data.tabMenu[_this.data.tabMenuIndex].innerWidth)/2+'px',
-          lineWidth:_this.data.tabMenu[_this.data.tabMenuIndex].innerWidth+'px'
+          translate:(_this.data.tabMenu[0].oueterWidth+_this.data.tabMenu[0].oueterWidth*2-_this.data.tabMenu[0].innerWidth)/2+'px',
+          lineWidth:_this.data.tabMenu[1].innerWidth+'px'
         })
         clearInterval(timer);
         timer=null;
       }
-    },200)
+    },400)
   },
   scrollBottom:function(){
     this.setData({
       pageSize:this.data.pageSize+10
     })
+    this.loderMore();
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+  loderMore:function(){
+    if(!this.data.key){
+      http.request({
+        apiName:'/goods/goodsListByFirstClassify',
+        method:'post',
+        data:{"currentPage":1,"pageSize":10,"classifyId":this.data.typeId},
+        isShowProgress:true,
+        success:(res)=>{
+          this.setData({
+            showList:res.records
+          })
+        }
+      })
+    }
+    else if(this.data.showList.length%10==0){
     http.request({
       apiName:'/goods/goodsListByClassify',
       method:'post',
@@ -144,14 +154,20 @@ Page({
         })
       }
     })
+  }
+  else if(this.data.showList.length==0||this.data.showList.length%10!=0){
+     this.setData({
+       genduo:true
+     })
+  }
+  else{
+    wx.showToast({
+      title: '未知错误',
+      icon: 'none',
+      duration: 2000
+    })
+  }
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -181,19 +197,11 @@ Page({
     // }).exec()
   },
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
   
   },
-
   /**
    * 用户点击右上角分享
    */
@@ -205,33 +213,7 @@ Page({
       key:e.currentTarget.dataset.id,
       pageSize:10
     })
-    if(!this.data.key){
-      http.request({
-        apiName:'/goods/goodsListByFirstClassify',
-        method:'post',
-        data:{"currentPage":1,"pageSize":10,"classifyId":this.data.typeId},
-        isShowProgress:true,
-        success:(res)=>{
-          this.setData({
-            showList:res.records
-          })
-        }
-      })
-      }
-      else{
-        http.request({
-          apiName:'/goods/goodsListByClassify',
-          method:'post',
-          data:{"currentPage":1,"pageSize":10,"classifyId":this.data.key},
-          isShowProgress:true,
-          success:(res)=>{
-            console.log(res);
-            this.setData({
-              showList:res.records
-            })
-          }
-        })
-      } 
+     this.loderMore();
     const index = e.currentTarget.dataset.index;
     const outerWidth = this.data.tabMenu[index].oueterWidth;
     const innerWidth = this.data.tabMenu[index].innerWidth;
