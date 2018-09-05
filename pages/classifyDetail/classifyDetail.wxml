@@ -13,7 +13,7 @@
       </view>
     </view>
   </view>
-  <scroll-view class="goods-scroll-view" scroll-y lower-threshold="60" bindscrolltolower="scrollBottom" scroll-with-animation="true" scroll-top="{{setTop}}">
+  <scroll-view class="goods-scroll-view" scroll-y lower-threshold="20" bindscrolltolower="scrollBottom" scroll-with-animation="true" scroll-top="{{setTop}}">
     <view class="goods-list clearfix">
       <view class="goods-item" wx:for="{{showList}}" wx:key="{{item.id}}">
         <view class="item-thumbnail">
@@ -24,6 +24,7 @@
         <view class="goods-price">￥{{item.salePrice}}</view>
       </view>
     </view>
+    <view class="goods-tishi" wx:if="{{genduo}}">没有更多啦～</view>
   </scroll-view>
 </view>
 <view class="scroll-top" id="scrollTop" catchtap="scrollTop"></view>
