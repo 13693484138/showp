@@ -81,7 +81,6 @@ Page({
    */
   //请求某一活动主题以及该活动下的三种产品
   getTopic(){
-    
       http.request({
         apiName: 'activity/activityList',
         method: 'post',
@@ -105,8 +104,11 @@ Page({
             success: (res) => {
               console.log('第二次ajax请求完成')
               console.log(res)
+              let [x,y,z]=res.records;
+              let threeGoods=[x,y,z];
+              console.log(threeGoods)
               this.setData({
-                activityGoodsList: res.records,
+                activityGoodsList: threeGoods,
               })
             },
             fail: err => {
@@ -119,9 +121,10 @@ Page({
     
   },
   //查看全部的跳转
-  forward(){
+  queryAll(){
+    console.log(this.data.activityId)
     wx.navigateTo({
-      url: '',
+      url: '../regionList/regionList',
     })
   }
 })
