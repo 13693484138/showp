@@ -69,19 +69,24 @@ scroll-view{
 }
 .list-li{
   margin-top: 10rpx;
+  font-size: 0;
+}
+.list-item-text{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
 }
 .list-item-text-r{
-  float: right;
-  
  
 }
 .list-item-text-l{
-  float: left;
+  flex: 1;
   margin-left: 15rpx;
 }
 .text-r-t{
  font-size:30rpx;
   color: #565656;
+  margin-top: 10rpx;
 }
 .text-r-b{
  font-size:28rpx;
@@ -92,7 +97,6 @@ scroll-view{
   font-size:30rpx;
   color: #b11534;
   margin-right: 10rpx;
-  margin-top: 20rpx;
 }
 .clearfix:after {
   content: ".";

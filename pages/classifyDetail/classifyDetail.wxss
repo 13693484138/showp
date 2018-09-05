@@ -173,7 +173,7 @@ page {
 }
 .goods-tishi{
     width: 100%;
-    height: 60rpx;
+    height: 120rpx;
     text-align: center;
     color: #222;
     font-size: 14px;
