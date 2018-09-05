@@ -8,6 +8,9 @@ Page({
     item: ["../../assets/img/1.jpeg", "../../assets/img/2.jpeg", "../../assets/img/3.jpeg", "../../assets/img/4.jpeg"],
     activityList: [], //存放活动列表
     activityGoodsList: [], //存放具体某一活动的商品列表
+    pageIndex:1,
+    pageSize:8,
+    total:0,
   },
   jump: function(e) {
     // console.log(e.currentTarget.id)
@@ -47,8 +50,8 @@ Page({
       method: 'post',
       data: {
         'id': '25dde3d3abfa11e8aae9000c29fa27b9',
-        'currentPage': 1,
-        'pageSize': 10
+        'currentPage': this.data.pageIndex,
+        'pageSize': this.data.pageSize
       },
       isShowProgress: true,
       success: (res) => {
@@ -107,7 +110,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+       this.onLoad();
   },
 
   /**
@@ -116,7 +119,22 @@ Page({
   onReachBottom: function() {
 
   },
-
+  scrollBottom:function(){
+     this.setData({
+       pageSize:this.data.pageSize+8
+     })
+     this.loderMore();
+  },
+  loderMore: function () {
+    if (this.data.pageSize - 8 < this.data.total) {
+      this.requsetZqList();
+    }
+    else {
+      this.setData({
+        genduo: true
+      })
+    }
+  },
   /**
    * 用户点击右上角分享
    */

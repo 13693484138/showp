@@ -111,9 +111,6 @@ Page({
                 activityGoodsList: threeGoods,
               })
             },
-            fail: err => {
-              console.log(err)
-            }
           }) 
         },
       })
@@ -122,9 +119,17 @@ Page({
   },
   //查看全部的跳转
   queryAll(){
-    console.log(this.data.activityId)
+    let id=this.data.activityId
     wx.navigateTo({
-      url: '../regionList/regionList',
+      url: '../regionList/regionList?id='+id,
+    })
+  },
+  //第一栏的列表点击跳详情
+  goodDeatails(e){
+    console.log(e.currentTarget.id)
+    let goodsId = e.currentTarget.id
+    wx.navigateTo({
+      url: '../goods/goods?goodsId=' + goodsId,
     })
   }
 })
