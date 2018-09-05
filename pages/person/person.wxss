@@ -13,10 +13,10 @@
   margin: 0 auto;
 }
 .dpshpf{
-  margin: 30rpx  10rpx;
+  margin: 30rpx  4rpx;
   display: inline-block;
   text-align: center;
-  width:120rpx;
+  width:130rpx;
 }
 .person-head{
   position:fixed;

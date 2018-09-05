@@ -15,15 +15,17 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    activityId:null,//随机一活动的id
-    activityTopic:null,//随机一活动的主题
+    activityId:"",//随机一活动的id
+    activityTopic:"",//随机一活动的主题
+    activityGoodsList:[],//该活动下的商品列表
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getTopic()
   },
 
   /**
@@ -37,7 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // this.getTopic()
+    
   },
 
   /**
@@ -79,34 +81,41 @@ Page({
    */
   //请求某一活动主题以及该活动下的三种产品
   getTopic(){
+    
       http.request({
         apiName: 'activity/activityList',
         method: 'post',
         isShowProgress: true,
         success: (res) => {
+          console.log('第一个ajax请求完成')
           let num = parseInt(Math.random()*res.length)//随机生成（0-活动列表.length)的一个下标
           this.setData({
             activityId: res[num].id,
             activityTopic:res[num].title,
           })
+          http.request({
+            apiName: 'activity/activityShoppingList',
+            method: 'post',
+            data: {
+              'id': this.data.activityId,
+              'currentPage': 1,
+              'pageSize': 10
+            },
+            isShowProgress: true,
+            success: (res) => {
+              console.log('第二次ajax请求完成')
+              console.log(res)
+              this.setData({
+                activityGoodsList: res.records,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+          }) 
         },
       })
-    http.request({
-      apiName: 'activity/activityShoppingList',
-      method: 'post',
-      data: {
-        'id': this.activityId,
-        'currentPage': 1,
-        'pageSize': 10
-      },
-      isShowProgress: true,
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          activityGoodsList: res.records,
-        })
-      }
-    }) 
+    
     
   },
   //查看全部的跳转
