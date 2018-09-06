@@ -85,8 +85,8 @@ const wxLogin = () => {
                         //用户授权失败时，可以在此处跳转一个授权页面
                     },
                     success: ({ userInfo, rawData, signature, encryptedData, iv }) => {
-                        param['rawData'] = rawData;//加密的用户数据
-                        param['signature'] = signature;//签名
+                        // param['rawData'] = rawData;//加密的用户数据
+                        // param['signature'] = signature;//签名
                         param['encryptedData'] = encryptedData;//解密工具
                         param['iv'] = iv;
                         userinfo = userInfo
@@ -106,7 +106,7 @@ const wxLogin = () => {
                                 })
                                 wx.setStorage({
                                     key: "_hgc",
-                                    data: res['user']['token'],
+                                    data: res,
                                     success: () => {
                                         resolve(res)
                                     }

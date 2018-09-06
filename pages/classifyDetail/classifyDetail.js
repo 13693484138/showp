@@ -63,7 +63,6 @@ Page({
       data:{"currentPage":1,"pageSize":10,"classifyId":option.key},
       isShowProgress:true,
       success:(res)=>{
-        console.log(res);
         this.setData({
           showList:res.records,
           total:res.total
@@ -77,14 +76,11 @@ Page({
       success:(res)=>{
         let arry2=[];
         //重组数组
-        console.log(res.findIndex(fruit => fruit.id === this.data.key));
-
-    
          res.map(((item,index)=>{
           arry2.push(Object.assign({},item,{"oueterWidth":"0px","innerWidth":"0px"}));
          }));
          //向数组开头添加数据
-         arry2.unshift({"title":"全部","oueterWidth":"0px","innerWidth":"0px"});
+         arry2.unshift({"title":"全部","oueterWidth":"0px","innerWidth":"0px","id":0});
          this.setData({
           tabMenu:arry2
         })
@@ -134,7 +130,7 @@ Page({
       http.request({
         apiName:'/goods/goodsListByFirstClassify',
         method:'post',
-        data:{"currentPage":1,"pageSize":10,"classifyId":this.data.typeId},
+        data:{"currentPage":this.data.pageIndex,"pageSize":this.data.pageSize,"classifyId":this.data.typeId},
         isShowProgress:true,
         success:(res)=>{
           this.setData({
@@ -163,6 +159,7 @@ Page({
      })
   }
   },
+  
   /**
    * 生命周期函数--监听页面显示
    */
@@ -203,6 +200,17 @@ Page({
   onShareAppMessage: function () {
   
   },
+  /**
+   * 商品详情
+   */
+  goodsContent:function(e){
+    wx.navigateTo({
+      url: '../goods/goods?goodsId='+e.currentTarget.dataset.id,
+    })
+  },
+    /**
+   * 滑块
+   */
   menuTap:function(e){
     this.setData({
       key:e.currentTarget.dataset.id,
@@ -219,7 +227,25 @@ Page({
      tabMenuIndex:index
    })
   },
+    /**
+   * 排序
+   */
   titleMenuTap:function(e){
+    if(this.data.key==0){
+      http.request({
+        apiName:'/goods/goodsListByFirstClassify',
+        method:'post',
+        data:{"currentPage":1,"pageSize":10,"classifyId":this.data.typeId,"order":e.currentTarget.dataset.order},
+        isShowProgress:true,
+        success:(res)=>{
+          this.setData({
+            showList:res.records,
+            pageSize:10
+          })
+        }
+      })
+    }
+    else{
     http.request({
       apiName:'/goods/goodsListByClassify',
       method:'post',
@@ -233,6 +259,7 @@ Page({
         })
       }
     })
+  }
     const index = e.currentTarget.dataset.index;
     const menuItem = this.data.listTitle[index];
     if(index!=this.data.listTitleIndex){
