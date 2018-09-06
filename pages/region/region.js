@@ -123,7 +123,12 @@ Page({
      this.setData({
        pageSize:this.data.pageSize+8
      })
-     this.loderMore();
+     if(this.data.genduo){
+       return;
+     }else{
+       this.loderMore();
+     }
+     
   },
   loderMore: function () {
     if (this.data.pageSize - 8 < this.data.total) {

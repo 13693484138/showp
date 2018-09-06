@@ -15,9 +15,21 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    activityId:"",//随机一活动的id
-    activityTopic:"",//随机一活动的主题
-    activityGoodsList:[],//该活动下的商品列表
+    activityId1:'',//活动1 id
+    activityTopic1:"",//活动1的主题
+    activityGoodsList1:[],//活动1下的商品列表
+    activityId2: '',//活动2 id
+    activityTopic2: "",//活动2的主题
+    activityGoodsList2: [],//活动2下的商品列表
+    activityId3: '',//活动3 id
+    activityTopic3: "",//活动3的主题
+    activityGoodsList3: [],//活动3下的商品列表
+    activityId4: '',//活动4 id
+    activityTopic4: "",//活动4的主题
+    activityGoodsList4: [],//活动4下的商品列表
+    activityId5: '',//活动5 id
+    activityTopic5: "",//活动5的主题
+    activityGoodsList5: [],//活动5下的商品列表
     
   },
 
@@ -25,7 +37,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getTopic()
+    this.getSwiper();//请求轮播列表
+    this.getTopic();//请求活动列表以及该活动下商品列表(4个)
   },
 
   /**
@@ -79,57 +92,80 @@ Page({
   /**
    * 自定义方法
    */
-  //请求某一活动主题以及该活动下的三种产品
+  //请求轮播图和链接
+  getSwiper(){
+    http.request({
+      apiName:'activity/bannerList',
+      method:'post',
+      isShowProgress: true,
+      success:res=>{
+        console.log(res)
+      }
+    })
+  },
+  //请求活动列表和该活动下的产品列表
   getTopic(){
       http.request({
-        apiName: 'activity/activityList',
+        apiName: 'activity/indexActivityList',
         method: 'post',
         isShowProgress: true,
+        data:{
+          activitySize:5,
+          goodsSize:4
+        },
         success: (res) => {
-          console.log('第一个ajax请求完成')
-          let num = parseInt(Math.random()*res.length)//随机生成（0-活动列表.length)的一个下标
+          console.log(res)
           this.setData({
-            activityId: res[num].id,
-            activityTopic:res[num].title,
-          })
-          http.request({
-            apiName: 'activity/activityShoppingList',
-            method: 'post',
-            data: {
-              'id': this.data.activityId,
-              'currentPage': 1,
-              'pageSize': 10
-            },
-            isShowProgress: true,
-            success: (res) => {
-              console.log('第二次ajax请求完成')
-              console.log(res)
-              let [x,y,z]=res.records;
-              let threeGoods=[x,y,z];
-              console.log(threeGoods)
-              this.setData({
-                activityGoodsList: threeGoods,
-              })
-            },
+            //活动1
+            activityId1: res[0].id,
+            activityTopic1:res[0].title,
+            activityGoodsList1:res[0].goodInfos,
+            //活动2
+            activityId2: res[1].id,
+            activityTopic2: res[1].title,
+            activityGoodsList2: res[1].goodInfos,
+            //活动3
+            activityId3: res[2].id,
+            activityTopic3: res[2].title,
+            activityGoodsList3: res[2].goodInfos,
+            //活动4
+            activityId4: res[3].id,
+            activityTopic4: res[3].title,
+            activityGoodsList4: res[3].goodInfos,
+            //活动5
+            activityId5: res[4].id,
+            activityTopic5: res[4].title,
+            activityGoodsList5: res[4].goodInfos,
           }) 
         },
       })
     
     
   },
-  //查看全部的跳转
+  //查看全部按钮的跳转
   queryAll(){
-    let id=this.data.activityId
+    let id=this.data.activityId1
     wx.navigateTo({
       url: '../regionList/regionList?id='+id,
     })
   },
-  //第一栏的列表点击跳详情
+  //活动1的列表点击跳详情
   goodDeatails(e){
     console.log(e.currentTarget.id)
     let goodsId = e.currentTarget.id
     wx.navigateTo({
       url: '../goods/goods?goodsId=' + goodsId,
     })
+  },
+  //去看看按钮
+  looklook(){
+    console.log(1)
+    let whichId=this.data.activityId2;
+    console.log(whichId)
+    wx.navigateTo({
+      url: '../regionList/regionList?id=' + whichId,
+    })
   }
+  //活动3点击跳转详情
+  
 })

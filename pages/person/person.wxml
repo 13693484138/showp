@@ -37,14 +37,14 @@
          </view>
       </view>
 
-      <view class='dpshpf'>
+      <view class='dpshpf' bindtap='developing'>
         <image src='../../assets/icon/pingjia.png' class='img-size'></image>
         <view class='font-size img-font-distance'>
             待评价
         </view>
       </view>
 
-      <view class='dpshpf'>
+      <view class='dpshpf' bindtap='developing'>
         <image src='../../assets/icon/shouhoufuwu.png' class='img-size'></image>
         <view class='font-size img-font-distance'>
             售后服务

@@ -7,11 +7,11 @@ Page({
   data: {
     // translate:'10px',//滚动条的偏移量
     tabMenu:[
-      {
-        text:'全部',
-        oueterWidth:'0px',
-        innerWidth:'0px'
-      },
+      // {
+      //   text:'全部',
+      //   oueterWidth:'0px',
+      //   innerWidth:'0px'
+      // },
       {
         text:'待付款',
         oueterWidth:'0px',
