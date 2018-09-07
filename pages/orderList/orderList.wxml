@@ -1,7 +1,8 @@
 <view class="page-list">
-<view class="orderList-top">
+<!-- <view class="orderList-top">
     <view class="orderList-top-botoom {{listTap==index?'list-active':''}}" wx:for="{{listMenu}}" data-index="{{index}}" catchtap="listTap">{{item.text}}</view>
-</view>
+</view> -->
+<view class='margin'></view>
 <scroll-view scroll-x scroll-with-animation class="scroll-cls">
     <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{tabMenu}}" data-index="{{index}}" wx:key="*this"
       catchtap="menuTap"><text class="scroll-item-text">{{item.text}}</text></view>

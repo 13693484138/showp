@@ -82,9 +82,17 @@ Page({
   onShareAppMessage: function () {
   
   },
+  //关于我们
   enterAboutMe(){
     wx.navigateTo({
       url: '../aboutMe/aboutMe',
+    })
+  },
+  //待开发
+  developing(){
+    wx.showToast({
+      title:'正在努力开发中',
+      image:'../../assets/icon/kaifazhong.png'
     })
   }
 })

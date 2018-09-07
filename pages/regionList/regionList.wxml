@@ -1,4 +1,4 @@
-<scroll-view scroll-y>
+<scroll-view scroll-y lower-threshold="20" bindscrolltolower="scrollBottom">
   <view class="region-banner">
     <image src="../../assets/img/content-banner.png"></image>
   </view>
@@ -45,6 +45,6 @@
         <view class="region-list-mony">¥95</view>
       </view>
     </view> -->
-
+  <view class="goods-tishi" wx:if="{{genduo}}">没有更多啦～</view>
   </view>
 </scroll-view>

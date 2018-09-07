@@ -124,7 +124,12 @@ Page({
      this.setData({
        pageIndex:this.data.pageIndex+1
      })
-     this.loderMore();
+     if(this.data.genduo){
+       return;
+     }else{
+       this.loderMore();
+     }
+     
   },
   loderMore: function () {
     if (this.data.pageIndex - 1 < this.data.pages) {

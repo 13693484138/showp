@@ -1,4 +1,7 @@
 /* pages/orderList/orderList.wxss */
+.margin{
+  height: 20rpx;
+}
 .scroll-cls {
     padding:0 20rpx;
     box-sizing: border-box;
