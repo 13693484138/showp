@@ -23,7 +23,7 @@
       </view>
       <!--编辑按钮-->
       <view class='info-change'>
-        <image src='../../assets/icon/bj.png'></image>
+        <image src='../../assets/icon/bj.png' bindtap='editAddress'></image>
       </view>
     </view>
     <!--是否默认-->
@@ -39,6 +39,6 @@
 
   <!--新建按钮-->
   <view class='create-view'>
-      <button type='warn' bindtap=''>+新增收货地址</button>
+      <button type='warn' bindtap='newAddress'>+新增收货地址</button>
   </view>
 </view>

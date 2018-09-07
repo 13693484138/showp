@@ -1,11 +1,11 @@
-// pages/classifyDetail/classifyDetail.js
+const http=require("../../utils/http.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // translate:'10px',//滚动条的偏移量
+    translate:'',//滚动条的偏移量
     tabMenu:[
       // {
       //   text:'全部',
@@ -70,7 +70,32 @@ Page({
    */
   onLoad: function (options) {
     const _this = this;
-    let flag = false;   
+    let flag = false; 
+    //通过传参改变选项卡
+    let offset = (parseInt(options.tabMenuIndex))+'00%'
+    this.setData({
+      tabMenuIndex: options.tabMenuIndex,
+      translate: offset
+    })
+    //请求
+    http.request({
+      apiName: 'order/orderlist',
+      method: 'post',
+      data: {
+        'currentPage':1,
+        'pageSize':10
+      },
+      isShowProgress: true,
+      success: (res) => {
+        console.log(res);
+        this.setData({
+          // goodsDetails: res,
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
 
   },
 

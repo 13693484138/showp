@@ -26,10 +26,10 @@
 .txtColor{
   color: rgba(red, green, blue, alpha)
 }
-.input-text{
+/* .input-text{
   font-size: 28rpx;
-}
-.sos input{
+} */
+/* .sos input{
   width: 100%;
   display:block;
   font-size: 28rpx;
@@ -37,7 +37,7 @@
   margin: 0 auto;
   text-align: center;
   line-height: 60rpx;
-}
+} */
 .classify{
   margin-top:74rpx;
     }

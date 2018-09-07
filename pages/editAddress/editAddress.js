@@ -1,11 +1,17 @@
-// pages/addressDetail/addressDetail.js
+// pages/editAddress/editAddress.js
+const http=require("../../utils/http.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    /*表单信息 */
+    name: '张三',
+    phone:17761295425,
+    idCard:'513023198701020912',
+    region:["四川省","成都市","高新区"],
+    address:'环球中心'
   },
 
   /**
@@ -26,7 +32,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
@@ -62,18 +68,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  /**
-   * 自定义函数
-   */
-  newAddress(){
-    wx.navigateTo({
-      url: '../newAddress/newAddress',
-    })
-  },
-  editAddress(){
-    wx.navigateTo({
-      url: '../editAddress/editAddress',
-    })
   }
 })

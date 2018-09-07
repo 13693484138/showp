@@ -29,9 +29,10 @@ Page({
   onReady: function () {
   
   },
-  showp:function(){
+  showp(e){
+    let tabMenuIndex=e.currentTarget.id;
     wx.navigateTo({
-      url: '../orderList/orderList',
+      url: '../orderList/orderList?tabMenuIndex=' + tabMenuIndex,
       success: function(res) {
         
       },
@@ -86,6 +87,11 @@ Page({
   enterAboutMe(){
     wx.navigateTo({
       url: '../aboutMe/aboutMe',
+    })
+  },
+  enterAddManage(){
+    wx.navigateTo({
+      url: '../addressDetail/addressDetail',
     })
   },
   //待开发

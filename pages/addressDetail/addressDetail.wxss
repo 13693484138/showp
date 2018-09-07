@@ -62,7 +62,10 @@ page{
 .create-view{
   width: 100%;
   height: 80rpx;
-  bottom: 0;
+  bottom: 10rpx;
   position: fixed;
   background: white;
+}
+.create-view>button{
+  border-radius: 0 !important;
 }
