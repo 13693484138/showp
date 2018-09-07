@@ -70,7 +70,8 @@ Page({
    */
   onLoad: function (options) {
     const _this = this;
-    let flag = false;    
+    let flag = false;   
+
   },
 
   /**
@@ -84,7 +85,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+  //  this.data.translate=  e.currentTarget.offsetLeft;
   },
 
   /**
