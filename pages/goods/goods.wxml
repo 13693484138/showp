@@ -128,14 +128,55 @@
     </view>
 
      <!--加入购物车-->
-    <view class='bottom-jrgwc flex-row flex-center'>
+    <view class='bottom-jrgwc flex-row flex-center' bindtap='showModal'>
       <text>加入购物车</text>
     </view>
 
     <!--立即购买-->
-    <view class='bottom-ljgm flex-row flex-center'>
+    <view class='bottom-ljgm flex-row flex-center' bindtap='showModal'>
       <text>立即购买</text>
     </view>
   
+  </view>
+</view>
+<view class='mask-layer'  wx:if="{{showPop}}" bindtap='hideModal'></view>
+<view class='pop-add-cart pop-common'  animation='{{animationData}}' wx:if="{{showPop}}" >
+  <view class='header'>
+    <view class='header-left'>
+      <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
+    </view>
+    <view class='header-right'>
+       <view class='header-right-many'>¥123.00</view>
+       <view class='header-right-text'>库存：996</view>
+       <view class='header-right-text'>课时：10</view>
+    </view>
+    <view class="group" bindtap='hideModal'>
+        <block>
+            <icon type='clear' size='30'/>
+        </block>
+      </view>
+   
+  </view>
+  <!-- <view class='body'>
+  <view class='body-title'>商品规格</view>
+  <scroll-view  scroll-x class="body-cli">
+    <view class='body-list'>规格一</view>
+    <view class='body-list'>规格二</view>
+    <view class='body-list'>规格三</view>
+    <view class='body-list'>规格四</view>
+  </scroll-view>
+  </view> -->
+  <view class='footer'>
+    <view class='footer-math flex-row'>
+      <view class='footer-math-text'>购买数量</view>
+      <view class='op-section flex-row'>
+          <button class="op-icon icon-min disabled" disabled="{{num<=1}}"  bindtap="deleNum"></button>
+          <input type="text" disabled value="{{num}}" class="count-box" />
+          <button class="op-icon icon-plus" bindtap="addNum"></button>
+      </view>
+    </view>
+    <view class="footer-bottom flex-row flex-1">
+        <button class="ok-buttom" type="warn"  bindtap="okCat"> 完成 </button>
+  </view>
   </view>
 </view>

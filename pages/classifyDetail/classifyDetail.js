@@ -17,7 +17,7 @@ Page({
     lineWidth:0,//滚动条的宽度
     pageIndex:1,
     pageSize:10,
-    total:0,
+    pages:0,
     listTitle:[
       {
         name:'默认',
@@ -65,7 +65,7 @@ Page({
       success:(res)=>{
         this.setData({
           showList:res.records,
-          total:res.total
+          pages:res.pages
         })
       }
     })
@@ -115,9 +115,15 @@ Page({
   },
   scrollBottom:function(){
     this.setData({
-      pageSize:this.data.pageSize+10
+      pageIndex:this.data.pageIndex+1
     })
-    this.loderMore();
+    if(this.data.genduo){
+      return;
+    }
+    else{
+      this.loderMore();
+    }
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -134,12 +140,13 @@ Page({
         isShowProgress:true,
         success:(res)=>{
           this.setData({
-            showList:res.records
+            showList:this.data.showList.concat(res.records),
+            pages:res.pages
           })
         }
       })
     }
-    else if(this.data.pageSize-10<this.data.total){
+    else if(this.data.pageIndex-1<this.data.pages){
     http.request({
       apiName:'/goods/goodsListByClassify',
       method:'post',
@@ -148,7 +155,8 @@ Page({
       success:(res)=>{
         console.log(res);
         this.setData({
-          showList:res.records
+          showList:this.data.showList.concat(res.records),
+          pages:res.pages
         })
       }
     })
@@ -214,7 +222,7 @@ Page({
   menuTap:function(e){
     this.setData({
       key:e.currentTarget.dataset.id,
-      pageSize:10
+      pageIndex:1
     })
      this.loderMore();
     const index = e.currentTarget.dataset.index;
@@ -240,7 +248,7 @@ Page({
         success:(res)=>{
           this.setData({
             showList:res.records,
-            pageSize:10
+            pageIndex:1
           })
         }
       })
@@ -255,7 +263,7 @@ Page({
         console.log(res);
         this.setData({
           showList:res.records,
-          pageSize:10
+          pageIndex:1
         })
       }
     })
