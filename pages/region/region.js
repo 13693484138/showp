@@ -10,7 +10,7 @@ Page({
     activityGoodsList: [], //存放具体某一活动的商品列表
     pageIndex:1,
     pageSize:8,
-    total:0,
+    pages:0,
   },
   jump: function(e) {
     // console.log(e.currentTarget.id)
@@ -57,7 +57,8 @@ Page({
       success: (res) => {
         console.log(res)
         this.setData({
-          activityGoodsList: res.records,
+          activityGoodsList: this.data.activityGoodsList.concat(res.records),
+          pages:res.pages
         })
       }
     })
@@ -121,12 +122,12 @@ Page({
   },
   scrollBottom:function(){
      this.setData({
-       pageSize:this.data.pageSize+8
+       pageIndex:this.data.pageIndex+1
      })
      this.loderMore();
   },
   loderMore: function () {
-    if (this.data.pageSize - 8 < this.data.total) {
+    if (this.data.pageIndex - 1 < this.data.pages) {
       this.requsetZqList();
     }
     else {

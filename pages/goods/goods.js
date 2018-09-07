@@ -31,6 +31,10 @@ Page({
     }
   ],
   goodDetails:null,//用于存放请求回的商品详情数据
+  showPop: false,
+  animationData: {},  
+  num:1,
+  goodsId:""
   },
 
 
@@ -45,6 +49,9 @@ Page({
    */
   onLoad: function (options) {
     let goodsId=options.goodsId;
+    this.setData({
+      goodsId:goodsId
+    })
     http.request({
       apiName: 'goods/details',
       method: 'post',
@@ -68,12 +75,104 @@ Page({
   onReady: function () {
   
   },
-
+   /**
+   * 购物车增加
+   */
+  deleNum:function(){
+      this.setData({
+        num:this.data.num-1
+      })
+  },
+  addNum:function(){
+    this.setData({
+      num:this.data.num+1
+    })
+  },
+  okCat:function(){
+    http.request({
+      apiName: 'order/addshoppingcar',
+      method: 'put',
+      data:{
+        'goodsId':this.data.goodsId,
+        'num':this.data.num
+      },
+      isShowProgress: true,
+      success: (res) => {
+        wx.showToast({
+          title: res,
+          icon: 'success',
+          duration: 2000
+        })
+        this.hideModal();
+      },
+    })
+  },
+  /**
+   * 显示购买弹出层
+   */
+  showModal(){
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'ease-in-out',
+    });  
+    this.animation = animation;
+    animation.translateY(285).step();    
+    this.setData({
+        animationData: this.animation.export(),
+        showPop:true
+  
+    });
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export(),
+        
+      })
+    }.bind(this), 200)
+  },
+    /**
+   * 隐藏购买弹出框
+   */
+  hideModal(){
+    var animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-in-out',
+    });  
+    this.animation = animation;
+    this.animation.translateY(285).step();  
+    this.setData({
+      animationData: this.animation.export(),
+  });
+  setTimeout(function () {
+    animation.translateY(0).step()
+    this.setData({
+      animationData: animation.export(),
+      showPop: false
+    })
+  }.bind(this), 500)
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-in-out',
+    });  
+    this.animation = animation;
+    this.animation.translateY(0).step();  
+    this.setData({
+      animationData: this.animation.export(),
+      showPop:false
+  });
+   setTimeout(function () {
+    animation.translateY(0).step()
+    this.setData({
+      animationData: animation.export(),
+      showPop: false
+    })
+  }.bind(this), 500)
+
   },
 
   /**
