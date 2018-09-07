@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    
   },
 
   /**
@@ -62,5 +62,18 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  /**
+   * 自定义函数
+   */
+  newAddress(){
+    wx.navigateTo({
+      url: '../newAddress/newAddress',
+    })
+  },
+  editAddress(){
+    wx.navigateTo({
+      url: '../editAddress/editAddress',
+    })
   }
 })

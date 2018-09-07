@@ -16,7 +16,9 @@
     "pages/orderDetail/orderDetail",
     "pages/search/search",
     "pages/aboutMe/aboutMe",
-    "pages/editOrder/editOrder"
+    "pages/editOrder/editOrder",
+    "pages/newAddress/newAddress",
+    "pages/editAddress/editAddress"
   ],
   "window": {
     "backgroundTextStyle": "light",

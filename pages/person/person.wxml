@@ -58,7 +58,7 @@
   </view>
 
   <view>
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='developing'>
       <image src='../../assets/icon/tuan.png' class='list-img-size list-img-border-distance'></image>
       <view class='list-font-size list-img-font-distance'>
         我的拼团
@@ -67,7 +67,7 @@
       </view>
     </view>
 
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='developing'>
       <image src='../../assets/icon/fenxiang.png' class='list-img-size list-img-border-distance'></image>
       <view class='list-font-size list-img-font-distance'>
         分享给好友
@@ -82,43 +82,43 @@
     </view>
 
   <view >
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='developing'>
       <image src='../../assets/icon/rmb.png' class='list-img-size list-img-border-distance'></image>
-      <view class='list-font-size list-img-font-distance'>
+      <view class='list-font-size list-img-font-distance'> 
         优惠券
       </view>
       </view>
     </view>
 
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='developing'>
       <image src='../../assets/icon/jf.png' class='list-img-size list-img-border-distance'></image>
       <view class='list-font-size list-img-font-distance'>
         积分中心
       </view>
     </view>
 
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='developing'>
       <image src='../../assets/icon/lp.png' class='list-img-size list-img-border-distance'></image>
       <view class='list-font-size list-img-font-distance'>
         礼品卡
       </view>
     </view>
 
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='developing'>
       <image src='../../assets/icon/hy.png' class='list-img-size list-img-border-distance'></image>
       <view class='list-font-size list-img-font-distance'>
         会员福利
       </view>
     </view>
 
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='developing'>
       <image src='../../assets/icon/wdsc.png' class='list-img-size list-img-border-distance'></image>
       <view class='list-font-size list-img-font-distance'>
         我的收藏
       </view>
     </view>
 
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance'  bindtap='enterAddManage'>
       <image src='../../assets/icon/dz.png' class='list-img-size list-img-border-distance'></image>
       <view class='list-font-size list-img-font-distance'>
         地址管理
@@ -130,7 +130,7 @@
 
 
 <view >
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='developing'>
       <image src='../../assets/icon/dg.png' class='list-img-size list-img-border-distance'></image>
       <view class='list-font-size list-img-font-distance'>
         专属导购
@@ -138,9 +138,9 @@
       </view>
     </view>
 
-    <view class='flex-row right-arrow list-border-distance'>
+    <view class='flex-row right-arrow list-border-distance' bindtap='enterAboutMe'>
       <image src='../../assets/icon/bz.png' class='list-img-size list-img-border-distance'></image>
-      <view class='list-font-size list-img-font-distance' bindtap='enterAboutMe'>
+      <view class='list-font-size list-img-font-distance'>
         帮助中心
       </view>
   </view>
