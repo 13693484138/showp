@@ -29,9 +29,10 @@ Page({
   onReady: function () {
   
   },
-  showp:function(){
+  showp(e){
+    let tabMenuIndex=e.currentTarget.id;
     wx.navigateTo({
-      url: '../orderList/orderList',
+      url: '../orderList/orderList?tabMenuIndex=' + tabMenuIndex,
       success: function(res) {
         
       },

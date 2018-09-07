@@ -6,9 +6,9 @@ Page({
    */
   data: {
     id: '',
-    currentPage: 1,
+    pageIndex: 1,
     pageSize: 8,
-    total:0,
+    pages: 0,
     genduo:false,
     goodsList: [] //用来渲染该页面的产品数据
   },
@@ -23,6 +23,7 @@ Page({
     } else {
       console.log('没有参数')
     }
+    
     this.requestData();
 
   },
@@ -59,6 +60,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    this.setData({
+      goodsList: []
+    })
     this.requestData();
   },
 
@@ -67,13 +71,12 @@ Page({
    */
   onReachBottom: function() {
     this.setData({
-      pageSize: this.data.pageSize + 8
+      pageIndex: this.data.pageIndex + 1
     })
     if(this.data.genduo){
       return;
     }
     else{
-      console.log("111111111111111111111");
       this.loderMore();
     }
    
@@ -98,15 +101,20 @@ Page({
       method: 'post',
       data: {
         'id': this.data.id,
-        'currentPage': this.data.currentPage,
+        'currentPage': this.data.pageIndex,
         'pageSize': this.data.pageSize
       },
       isShowProgress: true,
       success: (res) => {
+        console.log("1111111111111111111111")
+        console.log(res)
         this.setData({
-          goodsList: res.records,
-          total:res.total
+          goodsList: this.data.goodsList.concat(res.records),
+          pages: res.pages
         })
+      },
+      fail:err=>{
+        console.log(err)
       }
     })
   },
@@ -120,8 +128,8 @@ Page({
   },
   //加载更多
   loderMore () {
-    if (this.data.pageSize - 8 < this.data.total) {
-      this.requsetZqList();
+    if (this.data.pageIndex - 1 < this.data.pages) {
+      this.requestData();
     }
     else {
       this.setData({

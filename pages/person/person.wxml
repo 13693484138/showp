@@ -17,20 +17,20 @@
       {{myOrder}}
     </view>
     <view class='flex-row-smx'>
-      <view class='dpshpf'  bindtap="showp">
+      <view class='dpshpf'  bindtap="showp" id='0'>
         <image src='../../assets/icon/qianbao.png' class='img-size' ></image>
         <view class='font-size img-font-distance'>
           待付款
         </view>
       </view>
 
-      <view class='dpshpf'>
+      <view class='dpshpf' bindtap="showp" id='1'>
          <image src='../../assets/icon/daifahuo.png' class='img-size'></image>
         <view class='font-size img-font-distance'>
             待发货
         </view>
       </view>
-       <view class='dpshpf'>
+       <view class='dpshpf' bindtap="showp" id='2'>
          <image src='../../assets/icon/che.png' class='img-size'></image>
          <view class='font-size img-font-distance'>
             已发货
