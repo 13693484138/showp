@@ -1,67 +1,93 @@
 <view class="page-list">
-<!-- <view class="orderList-top">
+  <!-- <view class="orderList-top">
     <view class="orderList-top-botoom {{listTap==index?'list-active':''}}" wx:for="{{listMenu}}" data-index="{{index}}" catchtap="listTap">{{item.text}}</view>
 </view> -->
-<view class='margin'></view>
-<scroll-view scroll-x scroll-with-animation class="scroll-cls">
-    <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{tabMenu}}" data-index="{{index}}" wx:key="*this"
-      catchtap="menuTap"><text class="scroll-item-text">{{item.text}}</text></view>
+  <scroll-view scroll-x scroll-with-animation class="scroll-cls">
+    <view class="scroll-item {{index==tabMenuIndex?'active':''}}" wx:for="{{tabMenu}}" data-index="{{index}}" wx:key="*this" catchtap="menuTap">
+      <text class="scroll-item-text">{{item.text}}</text>
+    </view>
     <view class="slide-line" style="transform:translateX({{translate}});width:25%"></view>
   </scroll-view>
-  <view class="orderList-title">
-    <view class="orderList-title-li"><image mode="aspectFill" class="goods-item-thumbnail" src='../../assets/icon/service-online.png'></image>跨境联盟</view>
+  <!-- <view class="orderList-title">
+    <view class="orderList-title-li">
+      <image mode="aspectFill" class="goods-item-thumbnail" src='../../assets/icon/service-online.png'></image>跨境联盟</view>
     <view class="orderList-title-li">已取消</view>
   </view>
-  <view class="orderList-showp">
-    <view class="orderList-showp-list">
+  <view class="orderList-showp" wx:for="{{showData}}" wx:key="{{index}}">
+    <view class="orderList-showp-list" wx:for='{{item.goods}}'wx:for-item="item2">
       <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg"></image>
       <view class="orderList-showp-list-text">
-              澳大利亚Swisse胶原蛋白原液血橙精华口服液 护发护肤护甲5...
+        {{item2.title}}
       </view>
       <view class="orderList-show-list-many">
-              <view>¥160.00</view>
-              <view class="orderList-show-list-many-shuliang">x1</view>    
+        <view>¥{{item2.salePrice}}</view>
+        <view class="orderList-show-list-many-shuliang">x1</view>
       </view>
     </view>
 
     <view class="orderList-showp-list">
       <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg"></image>
       <view class="orderList-showp-list-text">
-              澳大利亚Swisse胶原蛋白原液血橙精华口服液 护发护肤护甲5...
+        澳大利亚Swisse胶原蛋白原液血橙精华口服液 护发护肤护甲5...
       </view>
       <view class="orderList-show-list-many">
-              <view>¥160.00</view>
-              <view class="orderList-show-list-many-shuliang">x1</view>    
+        <view>¥160.00</view>
+        <view class="orderList-show-list-many-shuliang">x1</view>
       </view>
     </view>
 
     <view class="orderList-showp-list">
       <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg"></image>
       <view class="orderList-showp-list-text">
-              澳大利亚Swisse胶原蛋白原液血橙精华口服液 护发护肤护甲5...
+        澳大利亚Swisse胶原蛋白原液血橙精华口服液 护发护肤护甲5...
       </view>
       <view class="orderList-show-list-many">
-              <view>¥160.00</view>
-              <view class="orderList-show-list-many-shuliang">x1</view>    
+        <view>¥160.00</view>
+        <view class="orderList-show-list-many-shuliang">x1</view>
       </view>
     </view>
+    <view class="orderList-title-dd">
+      <view class="orderList-title-dd-je">订单金额:</view>
+      <view class="orderList-title-dd-many">¥{{item.totalmoney}}</view>
+    </view>
+  </view> -->
 
-    <view class="orderList-showp-list">
-      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg"></image>
-      <view class="orderList-showp-list-text">
-              澳大利亚Swisse胶原蛋白原液血橙精华口服液 护发护肤护甲5...
+  <view class='oderGroup' wx:for="{{showData}}" wx:key="{{index}}">
+
+    <!-- 展示支付状态 -->
+    <view class='oderHeader'>
+      <view class="logo">
+        <image mode="aspectFill" class="goods-item-thumbnail" src='../../assets/icon/service-online.png'></image>
+        海购医保城
       </view>
-      <view class="orderList-show-list-many">
-              <view>¥160.00</view>
-              <view class="orderList-show-list-many-shuliang">x1</view>    
+      <view class='status'>{{status}}</view>
+    </view> 
+
+    <!-- 展示商品信息 -->
+    <view class='oderBody' wx:for='{{item.goods}}'wx:for-item="item2" wx:key="{{item2}}" id='{{item2.goodsId}}' bindtap='enterDetail'>
+      <view class='imgBox'>
+        <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg">
+        </image>
       </view>
+      <view class='infoBox'>
+        {{item2.title}}
+      </view>
+      <view class='quantityBox'>
+        <view class='price'>￥{{item2.salePrice}}</view>
+        <view class='many'>x1</view>
+      </view>
+    </view>
+    
+    <!-- 展示该订单组的金额  -->
+    <view class='oderFooter' wx:if='{{tabMenuIndex==0}}'>
+      <view>订单金额:
+        <text class='totalPrice'>¥{{item.totalmoney}}</text>
+      </view>
+      <view class='pay'>付款</view>
     </view>
   </view>
-  <view class="orderList-title-dd">
-    <view class="orderList-title-dd-je">订单金额:</view>
-    <view class="orderList-title-dd-many">¥623.00</view>
-  </view>
-  <view class="orderList-bottom">
+  
+  <!-- <view class="orderList-bottom">
     已经到底了哦～去别处逛逛把！
-  </view>
+  </view> -->
 </view>

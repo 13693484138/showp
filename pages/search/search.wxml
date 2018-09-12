@@ -4,7 +4,7 @@
     <view class='fangdajing'>
       <image src='../../assets/icon/search.png'></image>
     </view>
-    <input placeholder='搜索'></input>
+    <input placeholder='搜索' focus='ture'></input>
   </view>
   <view class='cancel' bindtap='back'>取消</view>
 </view>
