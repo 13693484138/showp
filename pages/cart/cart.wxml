@@ -1,7 +1,7 @@
-<view class="flex-row edit flex-between">
+<!-- <view class="flex-row edit flex-between">
     <view></view>
     <view catchtap="editing">{{editing?'保存':'编辑'}}</view>
-</view>
+</view> -->
 <view class="flex-row flex-around serivces-list">
     <view class="services">满88元免费包邮</view>
     <view class="services">30天无忧退货</view>
@@ -14,11 +14,11 @@
     </view>
     <view class="view-gift">查看赠品</view>
 </view-->
-<view class="list-section" style="margin-top:0;">
-    <checkbox-group bindchange="checkboxChange">
+<view class="list-section"  style="margin-top:0;">
+    <checkbox-group bindchange="checkboxChange" wx:for="{{catList}}"  wx:for-index="index" data-index="{{index}}" wx:key="*this">
         <view class="list-item flex-row">
             <label class="item-checkbox">
-                <checkbox value="1" />
+                <checkbox value="{{index}}" checked="{{item.checked}}"/>
             </label>
             <view class="flex-row flex-full">
                 <view class="thumbnail">
@@ -26,19 +26,19 @@
                 </view>
                 <view class="flex-full">
                     <view class="flex-row flex-between p-title">
-                        <view class="flex-full ellipse-2">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
-                        <view class="count">X1111</view>
+                        <view class="flex-full ellipse-2">{{item.title}}</view>
+                        <view class="count">X{{item.num}}</view>
                     </view>
                     <view class="p-remark">商品描述</view>
-                    <view class="flex-row flex-between">
+                    <view class="flex-row flex-between cat-h">
                         <view>
-                            <text class="item-price">￥12.122</text>
-                            <text class="item-ori-price">￥24.122</text>
+                            <text class="item-price">￥{{item.salePrice}}</text>
+                            <text class="item-ori-price">￥{{item.salePrice}}</text>
                         </view>
-                        <view class='op-section flex-row' wx:if="{{editing}}">
-                            <button class="op-icon icon-min disabled"></button>
-                            <input type="text" disabled value="1" class="count-box" />
-                            <button class="op-icon icon-plus"></button>
+                        <view class='op-section flex-row'>
+                            <button class="op-icon icon-min disabled"  wx:for-index="index" data-index="{{index}}" data-goodsid="{{item.attId}}" disabled="{{item.num<=1}}"  bindtap="deleNum"></button>
+                            <input type="text" disabled value="{{item.num}}" class="count-box" />
+                            <button class="op-icon icon-plus"  wx:for-index="index" data-index="{{index}}"  data-goodsid="{{item.attId}}" bindtap="addNum"></button>
                         </view>
                     </view>
                 </view>
@@ -46,41 +46,8 @@
         </view>
     </checkbox-group>
 </view>
-<view class="list-section">
-    <checkbox-group bindchange="checkboxChange">
-        <view class="list-item flex-row">
-            <label class="item-checkbox">
-                <checkbox value="1" />
-            </label>
-            <view class="flex-row flex-full">
-                <view class="thumbnail">
-                    <image mode="aspectFill" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
-                    <view class="status e">商品已下架</view>
-                </view>
-                <view class="flex-full">
-                    <view class="flex-row flex-between p-title">
-                        <view class="flex-full ellipse-2">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
-                        <view class="count">X1111</view>
-                    </view>
-                    <view class="p-remark">商品描述</view>
-                    <view class="flex-row flex-between">
-                        <view>
-                            <text class="item-price">￥12.122</text>
-                            <text class="item-ori-price">￥24.122</text>
-                        </view>
-                        <view class='op-section flex-row' wx:if="{{editing}}">
-                            <button class="op-icon icon-min disabled"></button>
-                            <input type="text" disabled value="1" class="count-box" />
-                            <button class="op-icon icon-plus"></button>
-                        </view>
-                    </view>
 
-                </view>
-            </view>
-        </view>
-    </checkbox-group>
-</view>
-<view class="list-section" wx:if="{{!editing}}">
+<view class="list-section">
     <view class="fav-title">猜你喜欢</view>
     <view class="clearfix">
             <view class="template-3-item float-l" wx:for='{{activityGoodsList4}}' wx:key='{{item}}' id='{{item.id}}' bindtap='goodDeatails'>
@@ -97,13 +64,13 @@
 </view>
 <view class="footer-space"></view>
 <view class="cart-footer-bar flex-row flex-between">
-    <checkbox-group bindchange="checkboxChange" class="cart-footer-checkgroup">
+    <checkbox-group bindchange="allCheckbox" class="cart-footer-checkgroup">
         <label class="item-checkbox">
-            <checkbox value="1" />已选(1)
+            <checkbox value="1" checked="{{selectedAllStatus}}"/>全选
         </label>
     </checkbox-group>
     <view class="flex-row">
-        <view class="btn-footer-price">￥1212.12</view>
+        <view class="btn-footer-price">￥{{count}}</view>
         <button class="btn" catchtap="editOrder">下单</button>
     </view>
 </view>

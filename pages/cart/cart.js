@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    catList:[],
+    count:0,
+    checkList:[],
+    selectedAllStatus:false,
     editing:false, //是否正在进行商品编辑
     activityId1:'',//活动1 id
     activityTopic1:"",//活动1的主题
@@ -26,7 +30,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -37,15 +41,78 @@ Page({
   //活动1的列表点击跳详情
   goodDeatails(e){
     console.log(e.currentTarget.id)
-    let goodsId = e.currentTarget.id
+    let goodsId = e.currentTarget.id;
     wx.navigateTo({
       url: '../goods/goods?goodsId=' + goodsId,
     })
   },
+    /**
+   * 增加数量
+   */
+  deleNum:function(e){
+    let up = "catList["+e.currentTarget.dataset.index+"].num";
+    console.log(e.currentTarget.dataset.goodsid);
+    let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1
+    http.request({
+      apiName: 'order/updateshoppingcarlist',
+      method: 'put',
+      data:{
+        'goodsid':e.currentTarget.dataset.goodsid,
+        'num':num
+      },
+      isShowProgress: true,
+      success: (res) => {
+        console.log(res);
+        if(this.data.catList[e.currentTarget.dataset.index].checked){
+          this.setData({
+            [up]:num,
+            count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
+          })}
+          else{
+            this.setData({
+              [up]:parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1,
+            })
+      }
+    }})   
+},
+  /**
+   * 删除数量
+   */
+addNum:function(e){
+  let up = "catList["+e.currentTarget.dataset.index+"].num";
+  console.log(e.currentTarget.dataset.goodsid);
+  let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num)+1
+  http.request({
+    apiName: 'order/updateshoppingcarlist',
+    method: 'put',
+    data:{
+      'goodsid':e.currentTarget.dataset.goodsid,
+      'num':num
+    },
+    isShowProgress: true,
+    success: (res) => {
+      console.log(res);
+      if(this.data.catList[e.currentTarget.dataset.index].checked){
+        this.setData({
+          [up]:num,
+          count:this.data.count+parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
+        })}
+        else{
+          this.setData({
+            [up]:num,
+          })
+    }
+  }})   
+},
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function (e) {
+    this.showCat()
+    this.getTopic();
+  },
+  // 购物车列表接口渲染
+  showCat(){
     http.request({
       apiName: 'order/shoppingcarlist',
       method: 'post',
@@ -56,11 +123,14 @@ Page({
       isShowProgress: true,
       success: (res) => {
         console.log(res);
+       this.setData({
+         catList:res.list,
+         count:0,
+         selectedAllStatus:false
+       })
       },
     })
-    this.getTopic();
-  },
-  //请求活动列表和该活动下的产品列表
+  },//动列表和该活动下的产品列表
   getTopic(){
     http.request({
       apiName: 'activity/indexActivityList',
@@ -125,5 +195,68 @@ Page({
   },
   editOrder:function(){
     wx.navigateTo({ url: '../editOrder/editOrder' });
+  },
+  // 单选按钮
+  checkboxChange:function(e){
+    var index = parseInt(e.currentTarget.dataset.index);
+    var catList = this.data.catList;
+    var checked = this.data.catList[index].checked;
+    if(!checked){
+      this.setData({
+        count:this.data.catList[index].num*this.data.catList[index].salePrice+this.data.count
+      });
+    }
+    else{
+      this.setData({
+        count:this.data.count-this.data.catList[index].num*this.data.catList[index].salePrice
+      });
+    }
+    catList[index].checked=!checked;
+    var r =catList.filter((item)=>{
+    return item.checked
+    });
+    if(r.length==catList.length){
+      this.setData({
+        selectedAllStatus:true
+      })
+    }
+    else{
+      this.setData({
+        selectedAllStatus:false
+      })
+    }
+    this.setData({
+      catList: catList
+    });
+  },
+  // 全选按钮
+  allCheckbox:function(e){
+    var selectedAllStatus = this.data.selectedAllStatus;
+    selectedAllStatus = !selectedAllStatus;
+    this.setData({
+      selectedAllStatus:selectedAllStatus
+    })
+    var catList = this.data.catList;
+    if(selectedAllStatus){
+    for (var i = 0; i < catList.length; i++) {
+      catList[i].checked = selectedAllStatus;
+      var num = parseInt(this.data.catList[i].num); 
+      var salePrice=parseFloat(this.data.catList[i].salePrice); 
+      this.setData({
+        count:this.data.count+num*salePrice,
+        catList:catList
+  })
+      }}
+  else{
+    for (var i = 0; i < catList.length; i++) {
+      catList[i].checked = selectedAllStatus;
+      var num = parseInt(this.data.catList[i].num); 
+      var salePrice=parseFloat(this.data.catList[i].salePrice); 
+      this.setData({
+        count:0,
+        catList:catList
+  })
+      }
   }
-})
+}}
+)

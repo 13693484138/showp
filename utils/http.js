@@ -148,6 +148,7 @@ const sendRequest = (httpConfig) => {
         if(typeof httpConfig.fail =='function'){
             httpConfig.fail(error)
         }else{
+            console.log(error);
             wx.showModal({
               title: '提示', //提示的标题,
               content: JSON.stringify(error), //提示的内容,
