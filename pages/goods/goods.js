@@ -11,15 +11,11 @@ Page({
     swipercurrent : 0,
     googdsPrice:149.00,
     sellAccount:1613,
-    goodsInstro:"印度神油 用了一个打十",
-         productCountryIcon:"https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=aa49690173c6a7efb973a020cdca8369/6a600c338744ebf85714a8e1dcf9d72a6159a783.jpg",
-  productCountry:"澳大利亚",
-  taxRate:"11.12%",//税率
-  brandIcon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535111868147&di=955bc85bc8bee8bd3e29ee7eec7de9b4&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2Fimg013%2Fv1%2F68%2Fd%2F84.jpg",
-  brandName:"addidas",
-  brandGoodsAccount:15,
-  commentPersonAccount:4,
-  commentInfoList:[{
+    taxRate:"11.12%",//税率
+    brandGoodsAccount:15,
+    commentPersonAccount:4,
+    goodsSalePrice:0,
+    commentInfoList:[{
     "avatar": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535111868147&di=955bc85bc8bee8bd3e29ee7eec7de9b4&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2Fimg013%2Fv1%2F68%2Fd%2F84.jpg",
     "nickName":"张三",
     "content":"hello world"
@@ -63,6 +59,7 @@ Page({
         console.log(res);
         this.setData({
           goodsDetails: res,
+          goodsSalePrice:res.salePrice
         })
       },
     })
@@ -209,6 +206,11 @@ Page({
   onShareAppMessage: function () {
   
   },
+  catShow:function(){
+    wx.switchTab({
+        url: '../cart/cart',
+    })
+  }
   /**
    * 自定义方法
    */

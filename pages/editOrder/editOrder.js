@@ -1,18 +1,23 @@
 // pages/editOrder/editOrder.js
+const http = require('../../utils/http');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+   order:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var order = options.order;
+    console.log(order);
+     this.setData({
+       order:order
+     })
   },
 
   /**
@@ -26,7 +31,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+     http.request({
+     apiName:"order/writeorder",
+     method:"put",
+     data:this.data.order,
+     isShowProgress:true,
+     success:function(res){
+       console.log(res);
+     },
+     fail:err=>{
+       console.log(err)
+    }
+   })
   },
 
   /**

@@ -52,28 +52,70 @@ Page({
   deleNum:function(e){
     let up = "catList["+e.currentTarget.dataset.index+"].num";
     console.log(e.currentTarget.dataset.goodsid);
-    let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1
-    http.request({
-      apiName: 'order/updateshoppingcarlist',
-      method: 'put',
-      data:{
-        'goodsid':e.currentTarget.dataset.goodsid,
-        'num':num
-      },
-      isShowProgress: true,
-      success: (res) => {
-        console.log(res);
-        if(this.data.catList[e.currentTarget.dataset.index].checked){
-          this.setData({
-            [up]:num,
-            count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
-          })}
-          else{
+    let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1;
+    if(num){
+      http.request({
+        apiName: 'order/updateshoppingcarlist',
+        method: 'put',
+        data:{
+          'goodsId':e.currentTarget.dataset.goodsid,
+          'num':num
+        },
+        isShowProgress: true,
+        success: (res) => {
+          console.log(res);
+          if(this.data.catList[e.currentTarget.dataset.index].checked){
             this.setData({
-              [up]:parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1,
-            })
-      }
-    }})   
+              [up]:num,
+              count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
+            })}
+            else{
+              this.setData({
+                [up]:parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1,
+              })
+        }
+      }})   
+    }
+    else{
+      wx.showModal(
+        {
+          "title":"提示",
+          "content":"确认要从购物车中删除此商品",
+          success:(res)=>{
+            if(res.confirm){
+             http.request({
+               apiName: 'order/deleteshoppingcarlist',
+               method: 'delete',
+               data:{"goodsId":[e.currentTarget.dataset.goodsid]},
+               isShowProgress: true,
+               success: (res) => {
+                  var newCatListIndex=this.data.catList.findIndex(res=>{
+                    res.goodsId==e.currentTarget.dataset.goodsid
+                  });
+                  this.setData({
+                    catList:this.data.catList.splice(newCatListIndex,1)
+                  });
+                 if(this.data.catList[e.currentTarget.dataset.index].checked){
+                   this.setData({
+                     [up]:num,
+                     count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
+                   })}
+                   else{
+                     this.setData({
+                       [up]:parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1,
+                     })
+               }
+             }}) 
+            }
+            else if(res.cancel){
+               return;
+            }
+         }
+        }
+      )
+       
+    }
+   
 },
   /**
    * 删除数量
@@ -86,7 +128,7 @@ addNum:function(e){
     apiName: 'order/updateshoppingcarlist',
     method: 'put',
     data:{
-      'goodsid':e.currentTarget.dataset.goodsid,
+      'goodsId':e.currentTarget.dataset.goodsid,
       'num':num
     },
     isShowProgress: true,
@@ -131,14 +173,14 @@ addNum:function(e){
       },
     })
   },//动列表和该活动下的产品列表
-  getTopic(){
+  getTopic(){  
     http.request({
       apiName: 'activity/indexActivityList',
       method: 'post',
       isShowProgress: true,
       data:{
-        activitySize:5,
-        goodsSize:4
+        "activitySize":1,
+        "goodsSize":4
       },
       success: (res) => {
         console.log(res)
@@ -193,8 +235,28 @@ addNum:function(e){
       editing:this.data.editing
     })
   },
+  // 填写订单
   editOrder:function(){
-    wx.navigateTo({ url: '../editOrder/editOrder' });
+  if(this.data.count>0){
+    let newCatList=this.data.catList;
+    let order=[];
+    newCatList.forEach(item => {
+      let aa=item.goodsId;
+      let bb=item.num;
+      let myjson={};
+       myjson[aa] =bb;
+      order.push(myjson);
+    });
+    order=JSON.stringify(order);
+    console.log(order);
+    wx.navigateTo({ url: '../editOrder/editOrder?order='+order });
+  }
+  else{
+    wx.showToast({
+      "title":"请选择商品",
+      "icon":"loading"
+    })
+  }
   },
   // 单选按钮
   checkboxChange:function(e){
