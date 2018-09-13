@@ -27,7 +27,7 @@
           <text class="f-30">身份证</text>
         </view>
         <view class="right-cont dis-flex">
-          <input maxlength="18" name="idCard" placeholder="请输入身份证号码" ></input>
+          <input maxlength="18" name="cardno" placeholder="请输入身份证号码" type='idCard'></input>
         </view>
       </view>
 
@@ -52,12 +52,27 @@
           <text class="f-30">详细地址</text>
         </view>
         <view class="right-cont dis-flex">
-          <input name="detail" placeholder="请输入街道小区楼层" type="text"></input>
+          <input name="address" placeholder="请输入街道小区楼层" type="text"></input>
         </view>
       </view> 
 
     </view> 
-
+    <!-- 身份证部分 -->
+    <view class='idCardPic b-b '>
+      <view bindtap='uploadZ' class=' relativeBox' name='pic1'>
+      <image class='idCard' src='{{uploadZheng}}'></image>
+      <text class='absoluteText'>身份证正面</text>
+      </view>
+      <view bindtap='uploadF' class=' relativeBox'>
+      <image class='idCard' src='{{uploadFan}}'></image>
+      <text class='absoluteText'>身份证反面</text>
+      </view>
+    </view>
+    <!-- 默认地址 -->
+    <view class='defaultAddress'>
+      <view>默认地址</view>
+      <view><switch name="idDefault"></switch></view>
+    </view>
 
     <view class="create-view">
       <button type='warn' disabled="{{disabled}}" form-type='submit'>保存</button>
