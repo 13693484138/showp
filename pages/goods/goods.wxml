@@ -122,7 +122,7 @@
     </view>
 
      <!--购物车-->
-    <view class="flex-col bottom-gwc">
+    <view class="flex-col bottom-gwc" bindtap='catShow'>
        <image src='../../assets/icon/gwc.png' class='img-size'></image>
       <text>购物车</text>
     </view>
@@ -146,9 +146,8 @@
       <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
     </view>
     <view class='header-right'>
-       <view class='header-right-many'>¥123.00</view>
+       <view class='header-right-many'>¥{{goodsSalePrice}}</view>
        <view class='header-right-text'>库存：996</view>
-       <view class='header-right-text'>课时：10</view>
     </view>
     <view class="group" bindtap='hideModal'>
         <block>
