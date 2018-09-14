@@ -71,7 +71,7 @@
     <!-- 默认地址 -->
     <view class='defaultAddress'>
       <view>默认地址</view>
-      <view><switch name="idDefault"></switch></view>
+      <view><switch name="isDefault"></switch></view>
     </view>
 
     <view class="create-view">

@@ -1,11 +1,10 @@
 const http = require('../../utils/http.js')
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    disabled: false,
+    disabled: false,//提交按钮的开关
     region: '', //用来保存当前选择的地区
     error: '', //用来存表单错误信息
     uploadZheng: '../../assets/icon/xiangji.png', //身份证正面
@@ -36,30 +35,28 @@ Page({
     
 
     // 表单验证
-    // if (!_this.validation(values)) {
-    //   console.log("======错误不执行下去========")
-    //   return false;
-    // }
+    if (!_this.validation(values)) {
+      console.log("======错误不执行下去========")
+      return false;
+    }
     //准备上传的图片数组
     let imgArr=[];
     imgArr.push(this.data.uploadZheng)
     imgArr.push(this.data.uploadFan)
-    // this.setData({
-    //   uploadArr:arr
-    // })
-    // console.log(this.data.uploadArr)
-    // 按钮禁用
-    // _this.setData({
-    //   disabled: true
-    // });
-    wx.showToast({
-      title: '正在保存中..',
+    
+    
+    //点击保存的人机交互效果
+    wx.showLoading({
+      title: '审核身份证',
     })
-    console.log("=========表单数据正确,准备提交=============")
-  
+    setTimeout(()=>{
+      wx.hideLoading()
+    },300)
+    
     /**
    * 上传图片取回id
-   */      let id = [];
+   */     
+    let id = [];//用来存返回的id
     for (let index in imgArr){
       let token = wx.getStorageSync('_hgc');//取得token  
       wx.uploadFile({
@@ -72,43 +69,45 @@ Page({
         success: res => {
           console.log(res)
           let data=JSON.parse(res.data);
-    
           id.push(data.data)
-          // console.log(data.msg);
           this.setData({
             uploadId: id
           })
           console.log(this.data.uploadId);
+          if(this.data.uploadId.length==2){
+            console.log("两个返回id已取得")
+            //将返回的id组装到values对象中
+            values.facephoto = this.data.uploadId[0];
+            values.backphoto = this.data.uploadId[1];
+
+            wx.showModal({
+              title: '提交',
+              content: '请确认您的信息无误',
+              success:(res)=>{
+                if(res.confirm){
+                  // 点击确定后的人机交互
+                  this.setData({
+                    disabled: true
+                  });
+                  this.submitAll(values)
+                  wx.showLoading({
+                    title: '正在保存中',
+                  })
+                }
+              }
+            })
+            
+          }
         },
         fail: err => {
           console.log(err)
         }
       })
     }
-    console.log(this.data.uploadId)
-    
-    
-    
-    
-    // 提交到后端
-    // App._post_form('address/add', values, function(result) {
-    //   if (result.code === 1) {
-    //     App.showSuccess(result.msg, function() {
-    //       wx.navigateBack();
-    //     });
-    //   } else {
-    //     // App.showError(result.msg);
-    //     console.lgo(this.data.error)
-    //   }
-    //   // 解除禁用
-    //   _this.setData({
-    //     disabled: false
-    //   });
-    // });
   },
   
   /**
-   * 表单验证
+   * 表单验证条件和正则
    */
   validation(values) {
     if (values.name === '') {
@@ -183,6 +182,7 @@ Page({
       title: err,
       image: '../../assets/icon/err.png'
     })
+    wx.hideToast()
   },
   /**
    * 身份证选取(正面)
@@ -213,6 +213,28 @@ Page({
           uploadFan: res.tempFilePaths[0],
           indexF:true,
         })
+      },
+    })
+  },
+  /**
+   * 地址信息提交方法(将返回的id,连同表单信息一起提交后台)
+   */
+  submitAll(json){
+    console.log(json)
+    //形参json表示要提交的所有信息
+    http.request({
+      apiName: 'order/insertaddress',
+      method: 'put',
+      data: json,
+      isShowProgress: true,
+      success: res => {
+        console.log(res);
+        console.log("保存成功")
+        //关闭加载框
+        wx.hideLoading()
+        this.setData({
+          disabled: flase
+        });
       },
     })
   },
