@@ -1,21 +1,21 @@
 <view class="section">
     <view class="right-arrow base-info">
         <view class="flex-row flex-between fs-16 fc-33">
-            <view>收货人：沈怀山</view>
-            <view>1321111111</view>
+            <view>收货人：{{name}}</view>
+            <view>{{phone}}</view>
         </view>
-        <view class="fs-14 fc-grey">收货地址：四川省成都市高新区益洲大道北段329号生活广场3栋一单元1340号</view>
+        <view class="fs-14 fc-grey">收货地址：{{Address}}</view>
     </view>
     <view class="fs-10 fc-red tip">海外直邮商品必须提供收货人身份证信息及身份证照片用以办理清关手续。</view>
-    <view class="card-icon fs-16 fc-33">沈怀山：432569190020304333</view>
+    <view class="card-icon fs-16 fc-33">沈怀山：{{cardNo}}</view>
     <view class="flex-row flex-between cap-logistics card-images">
-        <image mode="aspectFit" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535690456861&di=29355b77b61db86166bc626c77159aaf&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3Dc0dec5b27b3e6709be554dfb0ef7b30b%2F77094b36acaf2eddc494707c891001e939019339.jpg"></image>
-        <image mode="aspectFit" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535690515944&di=363398172fee9cff903a4e15b2a125f5&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171218%2F4d518721df3348ec8b944dc4cde43ecd.jpeg"></image>
+        <image mode="aspectFit" src="{{imgpathUrl}}{{facephoto}}"></image>
+        <image mode="aspectFit" src="{{imgpathUrl}}{{backphoto}}"></image>
     </view>
 </view>
 <view class="section border-bottom">
     <view class="goods-item flex-row right-arrow" wx:for="{{orderList}}" wx:for-indx="{{index}}" wx:key="*this" data-id="{{item.goodsid}}" bindtap="goodsContent">
-        <image class="goods-item-thumbnail" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535691206557&di=a8a6c594cfe7a77bf135f3d28e4a7a07&imgtype=0&src=http%3A%2F%2Fs9.rr.itc.cn%2Fr%2FwapChange%2F20175_11_17%2Fa2i89828419727218405.jpg"></image>
+        <image class="goods-item-thumbnail" mode="aspectFill" src="{{imgpathUrl+item.img}}"></image>
         <view class="flex-full">
             <view class="flex-row flex-between fs-14 fc-33 goods-item-info">
                 <view>
@@ -39,7 +39,7 @@
 <view class="section border-bottom">
     <view class="flex-row flex-between flex-item">
         <view class="fc-33 fs-16">留言</view>
-        <input type="text" maxlength="50" placeholder="给商家留言（50字以内" class="fs-14 fc-33 flex-full word-input"></input>
+        <input type="text" maxlength="50" name="remak"   bindblur="mobileInputEvent" placeholder="给商家留言 50字以内" class="fs-14 fc-33 flex-full word-input"></input>
     </view>
 </view>
 <view class="section border-bottom">
@@ -62,5 +62,5 @@
     <view class="fs-16 fc-33">
         实付款：<text class="fc-red">￥{{orderprice}}</text>
     </view>
-    <button class="c-btn">提交订单</button>
+    <button class="c-btn" bindtap="okOrder">提交订单</button>
 </view>
