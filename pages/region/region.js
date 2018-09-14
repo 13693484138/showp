@@ -30,39 +30,41 @@ Page({
     })
   },
   //请求所有活动专区板块
-  requestZq() {
-    http.request({
-      apiName: 'activity/activityList',
-      method: 'post',
-      isShowProgress: true,
-      success: (res) => {
-        console.log(res);
-        this.setData({
-          activityList: res,
-        })
-      },
-    })
-  },
+  // requestZq() {
+  //   http.request({
+  //     apiName: 'activity/activityList',
+  //     method: 'post',
+  //     isShowProgress: true,
+  //     success: (res) => {
+  //       console.log(res);
+  //       this.setData({
+  //         activityList: res,
+  //       })
+  //     },
+  //   })
+  // },
   //请求某活动专区的具体list
-  requsetZqList() {
-    http.request({
-      apiName: 'activity/activityShoppingList',
-      method: 'post',
-      data: {
-        'id': '25dde3d3abfa11e8aae9000c29fa27b9',
-        'currentPage': this.data.pageIndex,
-        'pageSize': this.data.pageSize
-      },
-      isShowProgress: true,
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          activityGoodsList: this.data.activityGoodsList.concat(res.records),
-          pages:res.pages
-        })
-      }
-    })
-  },
+  // requsetZqList() {
+  //   console.log("1111111111111111111111111111111111");
+  //   console.log(this.data.activityList[0].id);
+  //   http.request({
+  //     apiName: 'activity/activityShoppingList',
+  //     method: 'post',
+  //     data: {
+  //       'id': this.data.activityList[0].id,
+  //       'currentPage': this.data.pageIndex,
+  //       'pageSize': this.data.pageSize
+  //     },
+  //     isShowProgress: true,
+  //     success: (res) => {
+  //       console.log(res)
+  //       this.setData({
+  //         activityGoodsList: this.data.activityGoodsList.concat(res.records),
+  //         pages:res.pages
+  //       })
+  //     }
+  //   })
+  // },
   //跳转商品详情页面
   forward(e) {
     // console.log(e.currentTarget.id)
@@ -75,8 +77,50 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.requestZq();
-    this.requsetZqList();
+    new Promise((resolve,reject)=>{
+      http.request({
+        apiName: 'activity/activityList',
+        method: 'post',
+        isShowProgress: true,
+        success: (res) => {
+          console.log(res);
+          this.setData({
+            activityList: res,
+          })
+          resolve()
+        },
+      })
+    })
+    .then((ok)=>{
+      console.log(1)
+      http.request({
+        apiName: 'activity/activityShoppingList',
+        method: 'post',
+        data: {
+          'id': this.data.activityList[0].id,
+          'currentPage': this.data.pageIndex,
+          'pageSize': this.data.pageSize
+        },
+        isShowProgress: true,
+        success: (res) => {
+          console.log(res)
+          this.setData({
+            activityGoodsList: this.data.activityGoodsList.concat(res.records),
+            pages: res.pages
+          })
+        },
+        fail:err=>{
+          reject(err)
+        }
+      })
+    },(err)=>{
+      console.log(2)
+    })
+
+    //this.requestZq();
+    //this.requsetZqList();
+    
+   
   },
 
   /**

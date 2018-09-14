@@ -1,23 +1,24 @@
 <view class='container'>
   <!--地址信息-->
-  <view class='address-info'>
+  <view class='address-info' wx:for="{{addressList}}" wx:key="{{index}}">
     <!--主信息-->
     <view class='flex-row info-view'>
       <!--具体地址信息-->
       <view class="adress-info-text">
         <view class='info-phone flex-row'>
-          <text>郑怀山</text>
-          <text>13002705879</text>
+          <text>{{item.name}}</text>
+          <text>{{item.phone}}</text>
         </view>
 
         <view class='info-address flex-row font-size'>
-          <text class='ellipse-2'>河北省 唐山市 路北区 黎明决战 氨基酸的分类进发的房间里撒酒疯来看撒娇地方来看撒娇的路口附近的撒飞机离开的撒酒疯雷克萨</text>
+          <text class='ellipse-2'>{{item.province}} {{item.city}} {{item.district}} {{item.address}}
+          </text>
         </view>
 
         <view class='flex-row info-card font-size'>
           <image src='../../assets/icon/sfz.png'></image>
-          <text class='address-info-name'>郑怀山</text>
-          <text class='address-info-text'>37030419855854654561234</text>
+          <text class='address-info-name'>{{item.name}}</text>
+          <text class='address-info-text'>{{item.cardNo}}</text>
         </view>
 
       </view>
@@ -27,7 +28,7 @@
       </view>
     </view>
     <!--是否默认-->
-    <view class='flex-row default-view'>
+    <view class='flex-row default-view' wx:if="{{item.isDefault}}">
       <image src='../../assets/icon/mr.png' class='img-size'></image>
       <text class='font-size'>默认地址</text>
     </view>
