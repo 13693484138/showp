@@ -12,6 +12,9 @@ page {
     content:'';
     display:table;
 }
+.math-top{
+    margin-top: 15rpx;
+}
 .cap-logistics {
     position: relative;
 }

@@ -14,33 +14,28 @@
     </view>
 </view>
 <view class="section border-bottom">
-    <view class="goods-item flex-row right-arrow">
+    <view class="goods-item flex-row right-arrow" wx:for="{{orderList}}" wx:for-indx="{{index}}" wx:key="*this" data-id="{{item.goodsid}}" bindtap="goodsContent">
         <image class="goods-item-thumbnail" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535691206557&di=a8a6c594cfe7a77bf135f3d28e4a7a07&imgtype=0&src=http%3A%2F%2Fs9.rr.itc.cn%2Fr%2FwapChange%2F20175_11_17%2Fa2i89828419727218405.jpg"></image>
         <view class="flex-full">
             <view class="flex-row flex-between fs-14 fc-33 goods-item-info">
-                <view>商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
-                <view class="goods-item-price">199.00</view>
+                <view>
+                <view>
+                    {{item.title}}
+                    </view>
+                    <view class="math-top">数量:{{item.num}}</view>
+                </view>
+               
+                <view class="goods-item-price">{{item.salePrice}}</view>
             </view>
-            <view class="fs-10 fc-grey goods-item-count">X1</view>
-        </view>
-    </view>
-    <view class="goods-item flex-row right-arrow">
-        <image class="goods-item-thumbnail" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535691206557&di=a8a6c594cfe7a77bf135f3d28e4a7a07&imgtype=0&src=http%3A%2F%2Fs9.rr.itc.cn%2Fr%2FwapChange%2F20175_11_17%2Fa2i89828419727218405.jpg"></image>
-        <view class="flex-full">
-            <view class="flex-row flex-between fs-14 fc-33 goods-item-info">
-                <view>商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</view>
-                <view class="goods-item-price">199.00</view>
-            </view>
-            <view class="fs-10 fc-grey goods-item-count">X1</view>
         </view>
     </view>
 </view>
-<view class="section border-bottom">
+<!-- <view class="section border-bottom">
     <view class="flex-row flex-between right-arrow cut-down">
         <view class="fc-33 fs-16">优惠礼券</view>
         <view class="fc-red fs-14">优惠券:20.00</view>
     </view>
-</view>
+</view> -->
 <view class="section border-bottom">
     <view class="flex-row flex-between flex-item">
         <view class="fc-33 fs-16">留言</view>
@@ -50,22 +45,22 @@
 <view class="section border-bottom">
     <view class="flex-row flex-between flex-item">
         <view class="fc-33 fs-16">商品金额</view>
-        <view class="fc-red fs-14">￥20.00</view>
+        <view class="fc-red fs-14">￥{{goodsprice}}</view>
     </view>
-    <view class="flex-row flex-between flex-item">
+    <!-- <view class="flex-row flex-between flex-item">
         <view class="fc-33 fs-16">税费</view>
         <view class="fc-33 fs-14">￥20.00</view>
-    </view>
+    </view> -->
     <view class="flex-row flex-between flex-item">
         <view class="fc-33 fs-16">运费</view>
-        <view class="fc-33 fs-14">￥20.00</view>
+        <view class="fc-33 fs-14">￥{{sendfee}}</view>
     </view>
-    <view class="order-total fs-16 fc-33">订单金额：<text class="fc-red">3000.00</text></view>
+    <view class="order-total fs-16 fc-33">订单金额：<text class="fc-red">￥{{orderprice}}</text></view>
 </view>
 <view class="spacing"></view>
 <view class="flex-row flex-between footer-tab">
     <view class="fs-16 fc-33">
-        实付款：<text class="fc-red">￥3000.00</text>
+        实付款：<text class="fc-red">￥{{orderprice}}</text>
     </view>
     <button class="c-btn">提交订单</button>
 </view>

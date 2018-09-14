@@ -2,6 +2,5 @@ function math(n){
     return n = n.toFixed(2);
 }
   module.exports = {
-    math: math,
-    // tanOrder:tanOrder
+    math: math,// tanOrder:tanOrder
   }
