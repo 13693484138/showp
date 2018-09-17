@@ -1,18 +1,29 @@
 // pages/addressDetail/addressDetail.js
+const http=require("../../utils/http.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    addressList:[],//用户的地址列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    http.request({
+      apiName: 'order/addresslist',
+      method: 'get',
+      isShowProgress: true,
+      success: res => {
+        console.log(res)
+        this.setData({
+          addressList:res,
+        })
+      }
+    })
   },
 
   /**
@@ -26,7 +37,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**

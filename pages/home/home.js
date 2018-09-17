@@ -1,16 +1,13 @@
 // pages/home/home.js
 const http=require('../../utils/http.js');
+const imgPath = http.config.imgpathUrl;//图片的请求地址,需要通过id拼接
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+    imgUrls: [],//存放轮播图
+    imgSrc:'',
     indicatorDots: false,
     autoplay: true,
     interval: 5000,
@@ -37,6 +34,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
+    this.setData({
+      imgSrc:imgPath
+    })
     this.getSwiper();//请求轮播列表
     this.getTopic();//请求活动列表以及该活动下商品列表(4个)
   },
@@ -99,7 +100,17 @@ Page({
       method:'post',
       isShowProgress: true,
       success:res=>{
-        console.log(res)
+        // console.log(res)
+        let resAfter =res;
+        //拼接成完整的Url
+        let imgUrlArr=[];//存放轮播图地址
+        for(let value of resAfter){
+          // value.picture = imgPath + value.picture
+          imgUrlArr.push(value.picture)
+        }
+        this.setData({
+          imgUrls: imgUrlArr
+        })
       }
     })
   },
@@ -137,6 +148,7 @@ Page({
             activityTopic5: res[4].title,
             activityGoodsList5: res[4].goodInfos,
           }) 
+          console.log(this.data.activityGoodsList1)
         },
       })
     

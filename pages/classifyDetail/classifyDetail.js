@@ -5,6 +5,7 @@ Page({
   页面的初始数据
    */
   data: {
+    imgSrc:'',//图片路径+id
     key:"",
     showList:[],
     class:[],
@@ -53,6 +54,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
+    const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
+    this.setData({
+      imgSrc: imgPath
+    })
     this.setData({
       key:option.key,
       typeId:option.typeId
@@ -63,6 +68,7 @@ Page({
       data:{"currentPage":1,"pageSize":10,"classifyId":option.key},
       isShowProgress:true,
       success:(res)=>{
+        console.log(res.records)
         this.setData({
           showList:res.records,
           pages:res.pages

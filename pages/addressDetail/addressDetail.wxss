@@ -50,6 +50,7 @@ page{
 .info-change>image{
   width: 80rpx;
   height: 80rpx;
+  margin-left: 100rpx;
   margin-right: 30rpx;
   border-left: solid 1rpx #efefef;
 }
