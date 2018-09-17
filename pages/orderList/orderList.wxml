@@ -85,6 +85,7 @@
       </view>
       <view class='pay'>付款</view>
     </view>
+    <view class="oder-bug" wx:if='{{tabMenuIndex==0}}'></view>
   </view>
   
   <!-- <view class="orderList-bottom">

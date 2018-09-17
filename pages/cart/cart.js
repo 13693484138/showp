@@ -224,17 +224,17 @@ addNum:function(e){
   editOrder:function(){
   if(this.data.count>0){
     let newCatList=this.data.catList;
-    let order=[];
+    // let order=[];
+    let myjson={};
     newCatList.forEach(item => {
       let aa=item.goodsId;
       let bb=item.num;
-      let myjson={};
-       myjson[aa] =bb;
-      order.push(myjson);
+      myjson[aa]=bb;
     });
-    order=JSON.stringify(order);
-    console.log(order);
-    wx.navigateTo({ url: '../editOrder/editOrder?order='+order });
+    myjson=JSON.stringify(myjson);
+    // order=order.replace("[","{");
+    // order=order.replace("]","}");
+    wx.navigateTo({ url: '../editOrder/editOrder?order='+myjson });
   }
   else{
     wx.showToast({
