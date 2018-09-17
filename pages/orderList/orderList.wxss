@@ -218,7 +218,7 @@
   width: 130rpx;
   height: 200rpx;
   margin:0 20rpx; 
-  font-size: 12px;
+  font-size: 14px;
 }
 .imgBox>image{
   width: 100%;

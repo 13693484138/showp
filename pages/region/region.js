@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgSrc:'',//图片请求ip地址(需要拼接id)
     item: ["../../assets/img/1.jpeg", "../../assets/img/2.jpeg", "../../assets/img/3.jpeg", "../../assets/img/4.jpeg"],
     activityList: [], //存放活动列表
     activityGoodsList: [], //存放具体某一活动的商品列表
@@ -18,15 +19,6 @@ Page({
     console.log(whichId)
     wx.navigateTo({
       url: '../regionList/regionList?id=' + whichId,
-      success: function(res) {
-
-      },
-      fail: function(res) {
-
-      },
-      complete: function(res) {
-
-      },
     })
   },
   //请求所有活动专区板块
@@ -77,6 +69,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
+    this.setData({
+      imgSrc: imgPath
+    })
     new Promise((resolve,reject)=>{
       http.request({
         apiName: 'activity/activityList',

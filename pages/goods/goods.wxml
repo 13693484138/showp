@@ -6,7 +6,7 @@
         autoplay="true" interval="5000" duration="500" bindchange="swiperChange">
         <block wx:for="{{imgUrls}}" wx:for-index="index" wx:key='{{item.https}}'>
             <swiper-item class="swiper-item">
-            <image src="{{item}}"  class="item-img" mode="center"/>
+            <image src="{{imgSrc+item}}"  class="item-img" mode="center"/>
             </swiper-item>
         </block>
         </swiper>

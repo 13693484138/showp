@@ -17,7 +17,7 @@
         <view class="goods-list">
             <view class="goods-list-item" wx:for="{{classType}}" wx:key="{{item.id}}" data-id="{{item.id}}" catchtap='viewDetail'>
                 <view class="goods-list-img">
-                    <image class="showp-img" src="../../assets/img/type-img1.jpeg" mode="aspectFill"></image>
+                    <image class="showp-img" src="{{imgSrc+item.img}}" mode="aspectFill"></image>
                 </view>
                 <text class="goods-list-text">{{item.title}}</text>
             </view>

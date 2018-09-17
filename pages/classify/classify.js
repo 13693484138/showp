@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgSrc:"",//请求图片的ip地址(需要拼接id)
     class:[],//一级列表
     classIndex:0,//一级分类
     classType:[],//二级分类
@@ -16,6 +17,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
+    this.setData({
+      imgSrc: imgPath
+    })
     http.request({
       apiName:'goods/classify',
       method:'post',
