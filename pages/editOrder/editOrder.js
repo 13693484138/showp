@@ -140,10 +140,24 @@ Page({
       isShowProgress:true,
       success:(res)=>{
        console.log(res);
+       wx.requestPayment(
+        {
+        'timeStamp': '',
+        'nonceStr': '',
+        'package': '',
+        'signType': 'MD5',
+        'paySign': '',
+        'success':function(res){},
+        'fail':function(res){console.log(res);},
+        'complete':function(res){}
+        })
       },
       fail:err=>{
         console.log(err)
      }
     })
+  },
+  address:function(){
+    wx.navigateTo({ url: '../addressDetail/addressDetail'});
   }
 })

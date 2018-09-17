@@ -1,5 +1,5 @@
-<view class="section">
-    <view class="right-arrow base-info">
+<view class="section" >
+    <view class="right-arrow base-info" bindtap="address">
         <view class="flex-row flex-between fs-16 fc-33">
             <view>收货人：{{name}}</view>
             <view>{{phone}}</view>
