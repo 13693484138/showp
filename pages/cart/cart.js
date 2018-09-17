@@ -38,8 +38,8 @@ Page({
   deleNum:function(e){
     let up = "catList["+e.currentTarget.dataset.index+"].num";
     console.log(e.currentTarget.dataset.goodsid);
-    let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1;
-    if(num){
+    let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num);
+    if(num-1){
       http.request({
         apiName: 'order/updateshoppingcarlist',
         method: 'put',
@@ -52,12 +52,12 @@ Page({
           console.log(res);
           if(this.data.catList[e.currentTarget.dataset.index].checked){
             this.setData({
-              [up]:num,
+              [up]:num-1,
               count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
             })}
             else{
               this.setData({
-                [up]:parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1,
+                [up]:num-1,
               })
         }
       }})   
@@ -76,10 +76,13 @@ Page({
                isShowProgress: true,
                success: (res) => {
                   var newCatListIndex=this.data.catList.findIndex(res=>{
-                    res.goodsId==e.currentTarget.dataset.goodsid
+                    return res.goodsId==e.currentTarget.dataset.goodsid;
                   });
+                  console.log(newCatListIndex);
+                  let c=this.data.catList;
+                  c=c.splice(newCatListIndex,1)
                   this.setData({
-                    catList:this.data.catList.splice(newCatListIndex,1)
+                    catList:c
                   });
                  if(this.data.catList[e.currentTarget.dataset.index].checked){
                    this.setData({

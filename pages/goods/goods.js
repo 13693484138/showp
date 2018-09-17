@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isGoods:0,
     imgUrls:["https://img.alicdn.com/imgextra/i4/3369912041/TB2AsNWtkCWBuNjy0FaXXXUlXXa_!!3369912041.jpg_430x430q90.jpg",
     "https://img.alicdn.com/imgextra/i1/3369912041/TB2CZb.kLiSBuNkSnhJXXbDcpXa_!!3369912041.jpg_430x430q90.jpg"],
     swipercurrent : 0,
@@ -86,28 +87,44 @@ Page({
     })
   },
   okCat:function(){
-    http.request({
-      apiName: 'order/addshoppingcar',
-      method: 'put',
-      data:{
-        'goodsId':this.data.goodsId,
-        'num':this.data.num
-      },
-      isShowProgress: true,
-      success: (res) => {
-        wx.showToast({
-          title: res,
-          icon: 'success',
-          duration: 2000
-        })
-        this.hideModal();
-      },
-    })
+    if(this.data.isGoods>0){
+        let aa=this.data.goodsId;
+        let order=[];
+        let bb=this.data.num+"";
+        let myjson={};
+         myjson[aa] =bb;
+        order.push(myjson);
+      order=JSON.stringify(order);
+      console.log(order);
+      wx.navigateTo({ url: '../editOrder/editOrder?order='+order });
+    }else{
+      http.request({
+        apiName: 'order/addshoppingcar',
+        method: 'put',
+        data:{
+          'goodsId':this.data.goodsId,
+          'num':this.data.num
+        },
+        isShowProgress: true,
+        success: (res) => {
+          wx.showToast({
+            title: res,
+            icon: 'success',
+            duration: 2000
+          })
+          this.hideModal();
+        },
+      })
+    }
+   
   },
   /**
    * 显示购买弹出层
    */
-  showModal(){
+  showModal(e){
+    this.setData({
+      isGoods:e.currentTarget.dataset.id
+    })
     var animation = wx.createAnimation({
       duration: 200,
       timingFunction: 'ease-in-out',

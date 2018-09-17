@@ -128,12 +128,12 @@
     </view>
 
      <!--加入购物车-->
-    <view class='bottom-jrgwc flex-row flex-center' bindtap='showModal'>
+    <view class='bottom-jrgwc flex-row flex-center' data-id="0" bindtap='showModal'>
       <text>加入购物车</text>
     </view>
 
     <!--立即购买-->
-    <view class='bottom-ljgm flex-row flex-center' bindtap='showModal'>
+    <view class='bottom-ljgm flex-row flex-center' data-id="1" bindtap='showModal'>
       <text>立即购买</text>
     </view>
   
