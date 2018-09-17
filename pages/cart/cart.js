@@ -10,21 +10,7 @@ Page({
     checkList:[],
     selectedAllStatus:false,
     editing:false, //是否正在进行商品编辑
-    activityId1:'',//活动1 id
-    activityTopic1:"",//活动1的主题
-    activityGoodsList1:[],//活动1下的商品列表
-    activityId2: '',//活动2 id
-    activityTopic2: "",//活动2的主题
-    activityGoodsList2: [],//活动2下的商品列表
-    activityId3: '',//活动3 id
-    activityTopic3: "",//活动3的主题
-    activityGoodsList3: [],//活动3下的商品列表
-    activityId4: '',//活动4 id
-    activityTopic4: "",//活动4的主题
-    activityGoodsList4: [],//活动4下的商品列表
-    activityId5: '',//活动5 id
-    activityTopic5: "",//活动5的主题
-    activityGoodsList5: [],//活动5下的商品列表
+    activityGoodsList:[]
   },
   /**
    * 生命周期函数--监听页面加载
@@ -51,9 +37,10 @@ Page({
    */
   deleNum:function(e){
     let up = "catList["+e.currentTarget.dataset.index+"].num";
-    console.log(e.currentTarget.dataset.goodsid);
-    let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1;
-    if(num){
+    let salePrice=parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice);
+    let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num);
+    let checked=this.data.catList[e.currentTarget.dataset.index].checked;
+    if(num-1>=1){
       http.request({
         apiName: 'order/updateshoppingcarlist',
         method: 'put',
@@ -64,14 +51,14 @@ Page({
         isShowProgress: true,
         success: (res) => {
           console.log(res);
-          if(this.data.catList[e.currentTarget.dataset.index].checked){
+          if(checked){
             this.setData({
-              [up]:num,
-              count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
+              [up]:num-1,
+              count:this.data.count-salePrice
             })}
             else{
               this.setData({
-                [up]:parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1,
+                [up]:num-1,
               })
         }
       }})   
@@ -83,28 +70,26 @@ Page({
           "content":"确认要从购物车中删除此商品",
           success:(res)=>{
             if(res.confirm){
+              console.log(e.currentTarget.dataset.goodsid);
              http.request({
                apiName: 'order/deleteshoppingcarlist',
                method: 'delete',
                data:{"goodsId":[e.currentTarget.dataset.goodsid]},
                isShowProgress: true,
-               success: (res) => {
+               success: (res) =>   {
                   var newCatListIndex=this.data.catList.findIndex(res=>{
-                    res.goodsId==e.currentTarget.dataset.goodsid
+                    return res.goodsId==e.currentTarget.dataset.goodsid;
                   });
+                  let c=this.data.catList;
+                  c.splice(newCatListIndex,1)
                   this.setData({
-                    catList:this.data.catList.splice(newCatListIndex,1)
+                    catList:c
                   });
-                 if(this.data.catList[e.currentTarget.dataset.index].checked){
+                 if(checked){
                    this.setData({
-                     [up]:num,
-                     count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
+                     count:this.data.count-salePrice
                    })}
-                   else{
-                     this.setData({
-                       [up]:parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1,
-                     })
-               }
+       
              }}) 
             }
             else if(res.cancel){
@@ -164,6 +149,7 @@ addNum:function(e){
       },
       isShowProgress: true,
       success: (res) => {
+        console.log("---------");
         console.log(res);
        this.setData({
          catList:res.list,
@@ -183,28 +169,27 @@ addNum:function(e){
         "goodsSize":4
       },
       success: (res) => {
-        console.log(res)
+        console.log(res);
+        console.log("--------");
         this.setData({
           //活动1
-          activityId1: res[0].id,
-          activityTopic1:res[0].title,
-          activityGoodsList1:res[0].goodInfos,
+          activityGoodsList:res[0].goodInfos,
           //活动2
-          activityId2: res[1].id,
-          activityTopic2: res[1].title,
-          activityGoodsList2: res[1].goodInfos,
-          //活动3
-          activityId3: res[2].id,
-          activityTopic3: res[2].title,
-          activityGoodsList3: res[2].goodInfos,
-          //活动4
-          activityId4: res[3].id,
-          activityTopic4: res[3].title,
-          activityGoodsList4: res[3].goodInfos,
-          //活动5
-          activityId5: res[4].id,
-          activityTopic5: res[4].title,
-          activityGoodsList5: res[4].goodInfos,
+          // activityId2: res[0].goodInfos[1].id,
+          // activityTopic2: res[0].goodInfos[1].title,
+          // activityGoodsList2: res[0].goodInfos[1].goodInfos,
+          // //活动3
+          // activityId3: res[0].goodInfos[2].id,
+          // activityTopic3: res[0].goodInfos[2].title,
+          // activityGoodsList3: res[0].goodInfos[2].goodInfos,
+          // //活动4
+          // activityId4: res[0].goodInfos[3].id,
+          // activityTopic4: res[0].goodInfos[3].title,
+          // activityGoodsList4: res[0].goodInfos[3].goodInfos,
+          // //活动5
+          // activityId5: res[0].goodInfos[4].id,
+          // activityTopic5: res[0].goodInfos[4].title,
+          // activityGoodsList5: res[0].goodInfos[4].goodInfos,
         }) 
       },
     })

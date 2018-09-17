@@ -11,6 +11,14 @@ Page({
    goodsprice:0,//商品总价
    orderprice:0,//订单总价
    sendfee:0,//运费
+   imgpathUrl:"",
+   remark:"",//商家留言
+   name:"",//姓名
+   phone:"",//电话
+   Address:"",//地址
+   cardNo:"",//身份证号码
+   addressid:"",//地址id
+   backphoto:""//身份证图片
   },
 
   /**
@@ -19,7 +27,8 @@ Page({
   onLoad: function (options) {
     var order = options.order;
      this.setData({
-       order:order
+       order:order,
+       imgpathUrl:http.config.imgpathUrl
      })
   },
 
@@ -45,7 +54,13 @@ Page({
         orderList:res.list,
         goodsprice:res.goodsprice,
         orderprice:res.orderprice,
-        sendfee:res.sendfee
+        sendfee:res.sendfee,
+        name:res.name,
+        phone:res.phone,
+        Address:res.Address,
+        cardNo:res.cardNo,
+        backphoto:res.backphoto,
+        facephoto:res.facephoto
       });
      },
      fail:err=>{
@@ -88,10 +103,47 @@ Page({
   onShareAppMessage: function () {
   
   },
+  mobileInputEvent:function(e){
+    this.setData({
+      remark:e.detail.value
+    })
+  },
   goodsContent:function(e){
-    console.log(1);
     wx.navigateTo({
       url: '../goods/goods?goodsId='+e.currentTarget.dataset.id,
     })
   },
+  okOrder:function(){
+    let map={};
+    let list=[];
+    let order=this.data.orderList;
+    order.forEach(item => {
+      list.push({
+        "goodsid":item.goodsid,
+        "num":item.num,
+        "price":item.salePrice
+      })
+    });
+    map={
+      "addressid":this.data.Address,
+      "goodsprice":this.data.goodsprice,
+      "orderprice":this.data.orderprice,
+      "remark":this.data.remark,
+      "list":list
+    };
+    map=JSON.stringify(map);
+    console.log(map);
+    http.request({
+      apiName:"order/submitorder",
+      method:"put",
+      data:map,
+      isShowProgress:true,
+      success:(res)=>{
+       console.log(res);
+      },
+      fail:err=>{
+        console.log(err)
+     }
+    })
+  }
 })
