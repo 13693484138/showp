@@ -37,9 +37,10 @@ Page({
    */
   deleNum:function(e){
     let up = "catList["+e.currentTarget.dataset.index+"].num";
-    console.log(e.currentTarget.dataset.goodsid);
+    let salePrice=parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice);
     let num = parseInt(this.data.catList[e.currentTarget.dataset.index].num);
-    if(num-1){
+    let checked=this.data.catList[e.currentTarget.dataset.index].checked;
+    if(num-1>=1){
       http.request({
         apiName: 'order/updateshoppingcarlist',
         method: 'put',
@@ -50,10 +51,10 @@ Page({
         isShowProgress: true,
         success: (res) => {
           console.log(res);
-          if(this.data.catList[e.currentTarget.dataset.index].checked){
+          if(checked){
             this.setData({
               [up]:num-1,
-              count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
+              count:this.data.count-salePrice
             })}
             else{
               this.setData({
@@ -69,31 +70,26 @@ Page({
           "content":"确认要从购物车中删除此商品",
           success:(res)=>{
             if(res.confirm){
+              console.log(e.currentTarget.dataset.goodsid);
              http.request({
                apiName: 'order/deleteshoppingcarlist',
                method: 'delete',
                data:{"goodsId":[e.currentTarget.dataset.goodsid]},
                isShowProgress: true,
-               success: (res) => {
+               success: (res) =>   {
                   var newCatListIndex=this.data.catList.findIndex(res=>{
                     return res.goodsId==e.currentTarget.dataset.goodsid;
                   });
-                  console.log(newCatListIndex);
                   let c=this.data.catList;
-                  c=c.splice(newCatListIndex,1)
+                  c.splice(newCatListIndex,1)
                   this.setData({
                     catList:c
                   });
-                 if(this.data.catList[e.currentTarget.dataset.index].checked){
+                 if(checked){
                    this.setData({
-                     [up]:num,
-                     count:this.data.count-parseInt(this.data.catList[e.currentTarget.dataset.index].salePrice)
+                     count:this.data.count-salePrice
                    })}
-                   else{
-                     this.setData({
-                       [up]:parseInt(this.data.catList[e.currentTarget.dataset.index].num)-1,
-                     })
-               }
+       
              }}) 
             }
             else if(res.cancel){
