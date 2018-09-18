@@ -194,3 +194,37 @@ picker-view-column view {
 .create-view>button{
   border-radius: 0 !important;
 }
+.idCardPic{
+  display: flex;
+  
+}
+.idCardPic view{
+  width: 200rpx;
+  height: 140rpx;
+  /* border: 1px solid black; */
+  margin: 20rpx;
+  /* text-align: center; */
+  /* line-height: 140rpx; */
+  font-size: 24rpx;
+  background-color: #eee;
+  color: #eee;
+}
+.idCard{
+  width: 100%;
+  height: 100%;
+}
+.relativeBox{
+  position: relative;
+}
+.absoluteText{
+  position: absolute;
+  left:calc(50% - 30px);
+  top: calc(50% - 9px);
+}
+.defaultAddress{
+  display: flex;
+  justify-content: space-between
+}
+.defaultAddress view{
+  margin: 20rpx;
+}

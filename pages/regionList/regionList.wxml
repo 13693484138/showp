@@ -13,38 +13,6 @@
         <view class="region-list-mony">¥{{item.salePrice}}</view>
       </view>
     </view>
-
-    <!-- <view class="region-list-item">
-      <view class="region-list-item-img">
-        <image src="../../assets/img/content-list1.png"></image>
-        <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
-        <view class="region-list-mony">¥95</view>
-      </view>
-    </view>
-
-    <view class="region-list-item">
-      <view class="region-list-item-img">
-        <image src="../../assets/img/content-list1.png"></image>
-        <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
-        <view class="region-list-mony">¥95</view>
-      </view>
-    </view>
-
-    <view class="region-list-item">
-      <view class="region-list-item-img">
-        <image src="../../assets/img/content-list1.png"></image>
-        <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
-        <view class="region-list-mony">¥95</view>
-      </view>
-    </view>
-
-    <view class="region-list-item">
-      <view class="region-list-item-img">
-        <image src="../../assets/img/content-list1.png"></image>
-        <view class="region-list-text">排毒足贴DX 天然树液成分(葡萄柚)</view>
-        <view class="region-list-mony">¥95</view>
-      </view>
-    </view> -->
   <view class="goods-tishi" wx:if="{{genduo}}">没有更多啦～</view>
   </view>
 </scroll-view>

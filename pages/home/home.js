@@ -1,13 +1,13 @@
 // pages/home/home.js
 const http=require('../../utils/http.js');
-const imgPath = http.config.imgpathUrl;//图片的请求地址,需要通过id拼接
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     imgUrls: [],//存放轮播图
-    imgSrc:'',
+    imgSrc:'',//图片来源的ip地址(需要通过图片id进行拼接成完整url)
     indicatorDots: false,
     autoplay: true,
     interval: 5000,
@@ -38,6 +38,7 @@ Page({
     this.setData({
       imgSrc:imgPath
     })
+    console.log(imgPath)
     this.getSwiper();//请求轮播列表
     this.getTopic();//请求活动列表以及该活动下商品列表(4个)
   },
@@ -100,9 +101,7 @@ Page({
       method:'post',
       isShowProgress: true,
       success:res=>{
-        // console.log(res)
         let resAfter =res;
-        //拼接成完整的Url
         let imgUrlArr=[];//存放轮播图地址
         for(let value of resAfter){
           // value.picture = imgPath + value.picture
@@ -177,7 +176,11 @@ Page({
     wx.navigateTo({
       url: '../regionList/regionList?id=' + whichId,
     })
+  },
+  //全场包税按钮
+  enterDetail(){
+    
   }
-  //活动3点击跳转详情
+ 
   
 })

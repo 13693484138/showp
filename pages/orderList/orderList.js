@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgSrc:'',//图片请求ip
     translate: '', //滚动条的偏移量
     tabMenu: [
       // {
@@ -70,9 +71,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
+    this.setData({
+      imgSrc: imgPath
+    })
+    console.log(imgPath)
     const _this = this;
     let flag = false;
-
     //改变tabMenu的状态
     this.setData({
       tabMenuIndex: options.tabMenuIndex,

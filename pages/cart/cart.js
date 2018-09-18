@@ -149,6 +149,7 @@ addNum:function(e){
       },
       isShowProgress: true,
       success: (res) => {
+        console.log("-------21312321");
         console.log(res);
        this.setData({
          catList:res.list,
