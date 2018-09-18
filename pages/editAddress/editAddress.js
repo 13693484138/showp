@@ -10,16 +10,19 @@ Page({
     /*表单信息 */
     name: '',
     phone: '',
-    cardNo: '',
-    region: ["","",""],
+    cardNo: '',//身份证账号
+    region: [],
     address: '',
     isDefault:false,
-    facePhoto:'',
-    backPhoto:'',
-    uploadZheng:'',
+    facePhoto:'',//身份证正面图片id
+    backPhoto:'',//身份证反面图片id
+    uploadZheng:'',//所上传的身份证正面本机路径
     uploadFan:'',
-    /*上传图片后取回的id */
-    uploadId:''
+    /*上传图片后取回的id数组 */
+    uploadId:[],
+    indexZ:false,//是否上传正面新图片
+    indexF:false,//是否上传反面新图片
+    id:'',//修改地址需要带上这个参数
   },
 
   /**
@@ -32,6 +35,9 @@ Page({
     })
     let addressId = options.addressId;
     console.log(addressId)
+    this.setData({
+      id: addressId
+    })
     this.queryAddress(addressId); //请求将要编辑的地址详情
   },
 
@@ -153,83 +159,109 @@ Page({
    */
   saveData(e) {
     //组装表单中的值为json格式
-    values = e.detail.value; //表单中所有value值
+    var values = e.detail.value; //表单中所有value值
     values.province = this.data.region[0];
     values.city = this.data.region[1];
     values.district = this.data.region[2];
-    console.log(values)
+    // console.log(values)
 
-
+    console.log(this.validation(values))//表单验证通过返回true
     // 表单验证
-    if (!_this.validation(values)) {
+    if (!this.validation(values)) {
       console.log("======错误不执行下去========")
       return false;
     }
-    //准备上传的图片数组
-    let imgArr = [];
-    imgArr.push(this.data.uploadZheng)
-    imgArr.push(this.data.uploadFan)
-
-
-    //点击保存的人机交互效果
-    wx.showLoading({
-      title: '审核身份证',
-    })
-    setTimeout(() => {
-      wx.hideLoading()
-    }, 300)
-
-    /**
-   * 上传图片取回id
-   */
-    let id = [];//用来存返回的id
-    for (let index in imgArr) {
-      let token = wx.getStorageSync('_hgc');//取得token  
-      wx.uploadFile({
-        url: 'http://192.168.1.247:8080/attachment/upload',
-        filePath: imgArr[index],
-        name: 'file',
-        header: {
-          'Authorization': token
-        },
-        success: res => {
-          console.log(res)
-          let data = JSON.parse(res.data);
-          id.push(data.data)
-          this.setData({
-            uploadId: id
-          })
-          console.log(this.data.uploadId);
-          if (this.data.uploadId.length == 2) {
-            console.log("两个返回id已取得")
-            //将返回的id组装到values对象中
-            values.facephoto = this.data.uploadId[0];
-            values.backphoto = this.data.uploadId[1];
-
-            wx.showModal({
-              title: '提交',
-              content: '请确认您的信息无误',
-              success: (res) => {
-                if (res.confirm) {
-                  // 点击确定后的人机交互
-                  this.setData({
-                    disabled: true
-                  });
-                  this.submitAll(values)
-                  wx.showLoading({
-                    title: '正在保存中',
-                  })
-                }
-              }
+    //判断用户是否上传过新的身份证照片
+    if (this.data.indexZ==false&&this.data.indexF==false){
+      console.log("用户没改变身份证")
+      values.facephoto = this.data.facePhoto;
+      values.backphoto = this.data.backPhoto;
+      values.id=this.data.id
+      console.log(values)//组装后台需要的json参数
+      wx.showModal({
+        title: '提交',
+        content: '请确认您的信息无误',
+        success: (res) => {
+          if (res.confirm) {
+            // 点击确定后的人机交互
+            this.setData({
+              disabled: true
+            });
+            this.submitAll(values)
+            wx.showLoading({
+              title: '正在保存中',
             })
-
           }
-        },
-        fail: err => {
-          console.log(err)
         }
       })
+    }else{
+      //准备上传的图片数组
+      let imgArr = [];
+      imgArr.push(this.data.uploadZheng)
+      imgArr.push(this.data.uploadFan)
+      console.log(imgArr)
+
+      //点击保存的人机交互效果
+      wx.showLoading({
+        title: '审核身份证',
+      })
+      setTimeout(() => {
+        wx.hideLoading()
+      }, 300)
+
+      /**
+     * 上传图片取回id
+     */
+      let id = [];//用来存返回的id
+      for (let index in imgArr) {
+        let token = wx.getStorageSync('_hgc');//取得token  
+        wx.uploadFile({
+          url: 'http://192.168.1.247:8080/attachment/upload',
+          filePath: imgArr[index],
+          name: 'file',
+          header: {
+            'Authorization': token
+          },
+          success: res => {
+            console.log(res)
+            let data = JSON.parse(res.data);
+            id.push(data.data)
+            this.setData({
+              uploadId: id
+            })
+            console.log(this.data.uploadId);
+            if (this.data.uploadId.length == 2) {
+              console.log("两个返回id已取得")
+              //将返回的id组装到values对象中
+              values.facephoto = this.data.uploadId[0];
+              values.backphoto = this.data.uploadId[1];
+              values.id = this.data.id
+              wx.showModal({
+                title: '提交',
+                content: '请确认您的信息无误',
+                success: (res) => {
+                  if (res.confirm) {
+                    // 点击确定后的人机交互
+                    this.setData({
+                      disabled: true
+                    });
+                    this.submitAll(values)
+                    wx.showLoading({
+                      title: '正在保存中',
+                    })
+                  }
+                }
+              })
+
+            }
+          },
+          fail: err => {
+            console.log(err)
+          }
+        })
+      }
     }
+    
   },
   /**
    * 表单验证条件和正则
@@ -242,6 +274,7 @@ Page({
     }
     if (values.phone.length < 1) {
       let error = '手机号不能为空';
+      console.log(error)
       this.errToast(error);
       return false;
     }
@@ -251,12 +284,12 @@ Page({
       return false;
     }
     if (values.cardno.length < 1) {
-      let error = '身份证号不能为空';
+      let error = '身份证号不能为空';     
       this.errToast(error);
       return false;
     }
     if (values.cardno.length !== 18) {
-      let error = '身份证长度有误';
+      let error = '身份证长度有误'; 
       this.errToast(error);
       return false;
     }
@@ -276,16 +309,16 @@ Page({
       this.errToast(error)
       return false;
     }
-    if (this.data.indexZ == false) {
-      let error = '请上传身份证正面';
-      this.errToast(error)
-      return false;
-    }
-    if (this.data.indexF == false) {
-      let error = '请上传身份证反面';
-      this.errToast(error)
-      return false;
-    }
+    // if (this.data.indexZ == false) {
+    //   let error = '请上传身份证正面';
+    //   this.errToast(error)
+    //   return false;
+    // }
+    // if (this.data.indexF == false) {
+    //   let error = '请上传身份证反面';
+    //   this.errToast(error)
+    //   return false;
+    // }
     return true;
   },
 
@@ -308,5 +341,33 @@ Page({
       image: '../../assets/icon/err.png'
     })
     wx.hideToast()
+  },
+  /**
+   * 地址信息提交方法(将返回的id,连同表单信息一起提交后台)
+   */
+  submitAll(json) {
+    console.log(json)
+    //形参json表示要提交的所有信息
+    http.request({
+      apiName: 'order/insertaddress',
+      method: 'put',
+      data: json,
+      isShowProgress: true,
+      success: res => {
+        console.log(res);
+        console.log("保存成功")
+        //关闭加载框
+        wx.hideLoading()
+        this.setData({
+          disabled: false
+        });
+        wx.navigateBack({
+         
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
   },
 })

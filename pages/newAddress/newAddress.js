@@ -228,12 +228,11 @@ Page({
       data: json,
       isShowProgress: true,
       success: res => {
-        console.log(res);
         console.log("保存成功")
         //关闭加载框
         wx.hideLoading()
         this.setData({
-          disabled: flase
+          disabled: false
         });
       },
     })
