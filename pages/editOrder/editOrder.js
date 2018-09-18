@@ -158,6 +158,6 @@ Page({
     })
   },
   address:function(){
-    wx.navigateTo({ url: '../addressDetail/addressDetail'});
+    wx.navigateTo({ url: '../addressDetail/addressDetail?order='+this.data.order});
   }
 })
