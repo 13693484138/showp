@@ -1,3 +1,4 @@
+<wxs src='../../utils/math.wxs' module='filter' />
 <view class="section" >
     <view class="right-arrow base-info" bindtap="address">
         <view class="flex-row flex-between fs-16 fc-33">
@@ -45,7 +46,7 @@
 <view class="section border-bottom">
     <view class="flex-row flex-between flex-item">
         <view class="fc-33 fs-16">商品金额</view>
-        <view class="fc-red fs-14">￥{{goodsprice}}</view>
+        <view class="fc-red fs-14">￥{{filter.math(goodsprice)}}</view>
     </view>
     <!-- <view class="flex-row flex-between flex-item">
         <view class="fc-33 fs-16">税费</view>
@@ -55,12 +56,12 @@
         <view class="fc-33 fs-16">运费</view>
         <view class="fc-33 fs-14">￥{{sendfee}}</view>
     </view>
-    <view class="order-total fs-16 fc-33">订单金额：<text class="fc-red">￥{{orderprice}}</text></view>
+    <view class="order-total fs-16 fc-33">订单金额：<text class="fc-red">￥{{filter.math(orderprice)}}</text></view>
 </view>
 <view class="spacing"></view>
 <view class="flex-row flex-between footer-tab">
     <view class="fs-16 fc-33">
-        实付款：<text class="fc-red">￥{{orderprice}}</text>
+        实付款：<text class="fc-red">￥{{filter.math(orderprice)}}</text>
     </view>
     <button class="c-btn" bindtap="okOrder">提交订单</button>
 </view>

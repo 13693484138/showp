@@ -200,7 +200,8 @@ Page({
   //选项卡的切换
   menuTap: function(e) {
     //index选项卡的下标
-    const index = e.currentTarget.dataset.index;
+    const index = parseInt(e.currentTarget.dataset.index);
+    console.log(e.currentTarget.dataset.index);
     const outerWidth = this.data.tabMenu[index].oueterWidth;
     const innerWidth = this.data.tabMenu[index].innerWidth;
     this.data.translate = e.currentTarget.offsetLeft;
@@ -221,9 +222,17 @@ Page({
       isShowProgress: true,
       success: res => {
         console.log(res);
-        this.setData({
-          showData: res.list,
-        })
+        if(res){
+          this.setData({
+            showData: res.list,
+          })
+        }
+        else{
+          this.setData({
+            showData:""
+          })
+        }
+      
       },
     })
   },

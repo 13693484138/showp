@@ -1,4 +1,5 @@
 // pages/editOrder/editOrder.js
+
 const http = require('../../utils/http');
 Page({
 
@@ -142,14 +143,14 @@ Page({
        console.log(res);
        wx.requestPayment(
         {
-        'timeStamp': '',
-        'nonceStr': '',
-        'package': '',
-        'signType': 'MD5',
-        'paySign': '',
-        'success':function(res){},
+        'timeStamp':res.timeStamp,
+        'nonceStr':res.nonceStr,
+        'package': res.package,
+        'signType':res.signType,
+        'paySign': res.paySign,
+        'success':function(res){console.log(res);},
         'fail':function(res){console.log(res);},
-        'complete':function(res){}
+        'complete':function(res){console.log(res);}
         })
       },
       fail:err=>{
