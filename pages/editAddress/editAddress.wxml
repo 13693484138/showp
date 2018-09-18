@@ -27,7 +27,7 @@
           <text class="f-30">身份证</text>
         </view>
         <view class="right-cont dis-flex">
-          <input maxlength="18" name="cardNo" placeholder="请输入身份证号码" value='{{cardNo}}'></input>
+          <input maxlength="18" name="cardno" placeholder="请输入身份证号码" value='{{cardNo}}'></input>
           
         </view>
       </view>

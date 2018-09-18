@@ -4,7 +4,7 @@
     <!--主信息-->
     <view class='flex-row info-view'>
       <!--具体地址信息-->
-      <view class="adress-info-text">
+      <view class="adress-info-text" bindtap='chooseAddress' id="{{item.id}}">
         <view class='info-phone flex-row'>
           <text>{{item.name}}</text>
           <text>{{item.phone}}</text>
