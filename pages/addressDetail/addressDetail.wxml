@@ -1,6 +1,6 @@
 <view class='container'>
   <!--地址信息-->
-  <view class='address-info' wx:for="{{addressList}}" wx:key="{{index}}">
+  <view class='address-info' wx:for="{{addressList}}" wx:key="{{index}}" >
     <!--主信息-->
     <view class='flex-row info-view'>
       <!--具体地址信息-->
@@ -24,7 +24,7 @@
       </view>
       <!--编辑按钮-->
       <view class='info-change'>
-        <image src='../../assets/icon/bj.png' bindtap='editAddress'></image>
+        <image src='../../assets/icon/bj.png' bindtap='editAddress' id="{{item.id}}"></image>
       </view>
     </view>
     <!--是否默认-->

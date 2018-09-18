@@ -91,24 +91,24 @@ Page({
       num:this.data.num+1
     })
   },
-  okCat:function(){
-    if(this.data.isGoods>0){
-        let aa=this.data.goodsId;
-        let order=[];
-        let bb=this.data.num+"";
-        let myjson={};
-         myjson[aa] =bb;
-        order.push(myjson);
-      order=JSON.stringify(order);
+  okCat: function () {
+    if (this.data.isGoods > 0) {
+      let aa = this.data.goodsId;
+      let order = [];
+      let bb = this.data.num + "";
+      let myjson = {};
+      myjson[aa] = bb;
+      order.push(myjson);
+      order = JSON.stringify(order);
       console.log(order);
-      wx.navigateTo({ url: '../editOrder/editOrder?order='+order });
-    }else{
+      wx.navigateTo({ url: '../editOrder/editOrder?order=' + order });
+    } else {
       http.request({
         apiName: 'order/addshoppingcar',
         method: 'put',
-        data:{
-          'goodsId':this.data.goodsId,
-          'num':this.data.num
+        data: {
+          'goodsId': this.data.goodsId,
+          'num': this.data.num
         },
         isShowProgress: true,
         success: (res) => {
@@ -121,7 +121,7 @@ Page({
         },
       })
     }
-   
+
   },
   /**
    * 显示购买弹出层

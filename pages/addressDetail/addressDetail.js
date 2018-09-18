@@ -82,9 +82,10 @@ Page({
       url: '../newAddress/newAddress',
     })
   },
-  editAddress(){
+  editAddress(e){
+    let addressId = e.currentTarget.id;//所要编辑的地址id
     wx.navigateTo({
-      url: '../editAddress/editAddress',
+      url: '../editAddress/editAddress?addressId='+addressId,
     })
   }
 })
