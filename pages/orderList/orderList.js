@@ -274,6 +274,23 @@ Page({
     wx.navigateTo({
       url: '../goods/goods?goodsId=' + goodsId,
     })
+  },
+  //点击支付跳转填写订单信息页
+  editOrder(e){
+    let index = e.currentTarget.id;//判断点击的是第几组订单的下标
+    let orderGroup=this.data.showData[index].goods;//根据下标取得所要支付的商品列表和数量
+    console.log(orderGroup)
+    let json={};//将订单组装成{goodsId:num,goosId:num}格式
+    for(let key of orderGroup){
+      var jsonKey = key.goodsId;
+      json[jsonKey] = key.num;
+    }
+    console.log(json)
+    json=JSON.stringify(json)
+    console.log(json)
+    wx.navigateTo({
+      url: '../editOrder/editOrder?order='+json,
+    })
   }
   
 })

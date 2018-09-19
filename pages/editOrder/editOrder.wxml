@@ -8,7 +8,7 @@
         <view class="fs-14 fc-grey">收货地址：{{Address}}</view>
     </view>
     <view class="fs-10 fc-red tip">海外直邮商品必须提供收货人身份证信息及身份证照片用以办理清关手续。</view>
-    <view class="card-icon fs-16 fc-33">沈怀山：{{cardNo}}</view>
+    <view class="card-icon fs-16 fc-33">{{name}}：{{cardNo}}</view>
     <view class="flex-row flex-between cap-logistics card-images">
         <image mode="aspectFit" src="{{imgpathUrl}}{{facephoto}}"></image>
         <image mode="aspectFit" src="{{imgpathUrl}}{{backphoto}}"></image>
