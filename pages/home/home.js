@@ -178,8 +178,11 @@ Page({
     })
   },
   //全场包税按钮
-  enterDetail(){
-    
+  enterDetail(e){
+    let goodsId=e.currentTarget.id;
+    wx.navigateTo({
+      url: '../goods/goods+goodId='+goodsId,
+    })
   }
  
   

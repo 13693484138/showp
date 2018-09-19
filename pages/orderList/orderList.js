@@ -65,6 +65,7 @@ Page({
     listTitleIndex: 0,
     showData: [], //当前应该显示的数据
     status:'',//当前的状态文字(0待付款1待发货2待收货)
+    noList:false,//若该订单状态下午数据那么页面上显示没有数据图片
   },
 
   /**
@@ -221,9 +222,17 @@ Page({
       isShowProgress: true,
       success: res => {
         console.log(res);
-        this.setData({
-          showData: res.list,
-        })
+        if(res){
+          this.setData({
+            showData: res.list,
+          })
+        }else{
+          this.setData({
+            showData: '',
+            noList:true
+          })
+        }
+        
       },
     })
   },

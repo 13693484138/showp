@@ -38,14 +38,6 @@
       <view class="price">活动价：￥{{item.purPrice}}</view>
       <view class="ori_price">原价：￥{{item.salePrice}}</view>
     </view>
-    <!-- <view class="limited-item">
-      <view class="limited-item-tag">海外直邮</view>
-      <image class="limited-item-thumbnail" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'
-        mode="aspectFill"></image>
-      <view class="limited-item-title ellipse-2">澳大利亚保健品澳大利亚保健品澳大利亚保健品澳大利亚保健品</view>
-      <view class="price">活动价：￥200.00</view>
-      <view class="ori_price">原价：￥400.00</view>
-    </view> -->
     <view class="limited-item limited-view-all" bindtap='queryAll'>
       查看全部
     </view>
@@ -60,20 +52,20 @@
     <view class="template-1">
       <view class="flex-row">
         <view class="template-1-l">
-          <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+          <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+activityGoodsList2[0].imgs[0]}}"></image>
           <button type="button" class="btn btn-radius" bindtap='looklook'>
             <text class="right-arrow">去看看</text>
           </button>
         </view>
         <view class="flex-col template-1-r">
           <view>
-            <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+            <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+activityGoodsList2[1].imgs[0]}}" id="{{activityGoodsList2[1].id}}"></image>
             <button class="btn b-block" bindtap='enterDetail'>
               <text class="right-arrow">全场包税</text>
             </button>
           </view>
           <view>
-            <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+            <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+activityGoodsList2[2].imgs[0]}}" id="{{activityGoodsList2[2].id}}"></image>
             <button class="btn b-block" bindtap='enterDetail'>
               <text class="right-arrow">全场包税</text>
             </button>
@@ -113,7 +105,7 @@
       <view class="clearfix">
         <view class="template-3-item float-l" wx:for='{{activityGoodsList4}}' wx:key='{{item}}' id='{{item.id}}' bindtap='goodDeatails'>
           <view class="template-3-thumbnail">
-            <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
+            <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+item.imgs[0]}}"></image>
             <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
           </view>
           <view class="template-3-title ellipse-2">
@@ -154,7 +146,7 @@
     <view class="template-4">
       <view class="template-4-item">
         <view class="template-4-thumbnail">
-          <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+item.img[0]}}"></image>
+          <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+item.imgs[0]}}"></image>
         </view>
         <view class="flex-row flex-between template-4-info">
           <view class="template-4-title ellipse">{{item.title}}</view>

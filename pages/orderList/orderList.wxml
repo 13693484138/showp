@@ -8,49 +8,7 @@
     </view>
     <view class="slide-line" style="transform:translateX({{translate}});width:25%"></view>
   </scroll-view>
-  <!-- <view class="orderList-title">
-    <view class="orderList-title-li">
-      <image mode="aspectFill" class="goods-item-thumbnail" src='../../assets/icon/service-online.png'></image>跨境联盟</view>
-    <view class="orderList-title-li">已取消</view>
-  </view>
-  <view class="orderList-showp" wx:for="{{showData}}" wx:key="{{index}}">
-    <view class="orderList-showp-list" wx:for='{{item.goods}}'wx:for-item="item2">
-      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg"></image>
-      <view class="orderList-showp-list-text">
-        {{item2.title}}
-      </view>
-      <view class="orderList-show-list-many">
-        <view>¥{{item2.salePrice}}</view>
-        <view class="orderList-show-list-many-shuliang">x1</view>
-      </view>
-    </view>
-
-    <view class="orderList-showp-list">
-      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg"></image>
-      <view class="orderList-showp-list-text">
-        澳大利亚Swisse胶原蛋白原液血橙精华口服液 护发护肤护甲5...
-      </view>
-      <view class="orderList-show-list-many">
-        <view>¥160.00</view>
-        <view class="orderList-show-list-many-shuliang">x1</view>
-      </view>
-    </view>
-
-    <view class="orderList-showp-list">
-      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg"></image>
-      <view class="orderList-showp-list-text">
-        澳大利亚Swisse胶原蛋白原液血橙精华口服液 护发护肤护甲5...
-      </view>
-      <view class="orderList-show-list-many">
-        <view>¥160.00</view>
-        <view class="orderList-show-list-many-shuliang">x1</view>
-      </view>
-    </view>
-    <view class="orderList-title-dd">
-      <view class="orderList-title-dd-je">订单金额:</view>
-      <view class="orderList-title-dd-many">¥{{item.totalmoney}}</view>
-    </view>
-  </view> -->
+  
 
   <view class='oderGroup' wx:for="{{showData}}" wx:key="{{index}}">
 
@@ -87,7 +45,9 @@
     </view>
     <view class="oder-bug" wx:if='{{tabMenuIndex==0}}'></view>
   </view>
-  
+  <view class='noList'>
+    <image src='../../assets/img/nothing.png' wx:if="{{noList}}"></image>
+  </view>
   <!-- <view class="orderList-bottom">
     已经到底了哦～去别处逛逛把！
   </view> -->
