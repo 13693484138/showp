@@ -138,14 +138,31 @@ Page({
   
   },
   loderMore:function(){
-    if(!this.data.key){
-  console.log(this.data.typeId);
+    console.log(this.data.pageIndex);
+    console.log(this.data.pages);
+    if(this.data.pageIndex-1<=this.data.pages){
+      if(!this.data.key){
+        http.request({
+          apiName:'/goods/goodsListByFirstClassify',
+          method:'post',
+          data:{"currentPage":this.data.pageIndex,"pageSize":this.data.pageSize,"classifyId":this.data.typeId},
+          isShowProgress:true,
+          success:(res)=>{
+            this.setData({
+              showList:this.data.showList.concat(res.records),
+              pages:res.pages
+            })
+          }
+        })
+      }
+      else{
       http.request({
-        apiName:'/goods/goodsListByFirstClassify',
+        apiName:'/goods/goodsListByClassify',
         method:'post',
-        data:{"currentPage":this.data.pageIndex,"pageSize":this.data.pageSize,"classifyId":this.data.typeId},
+        data:{"currentPage":this.data.pageIndex,"pageSize":this.data.pageSize,"classifyId":this.data.key},
         isShowProgress:true,
         success:(res)=>{
+          console.log(res);
           this.setData({
             showList:this.data.showList.concat(res.records),
             pages:res.pages
@@ -153,26 +170,12 @@ Page({
         }
       })
     }
-    else if(this.data.pageIndex-1<this.data.pages){
-    http.request({
-      apiName:'/goods/goodsListByClassify',
-      method:'post',
-      data:{"currentPage":this.data.pageIndex,"pageSize":this.data.pageSize,"classifyId":this.data.key},
-      isShowProgress:true,
-      success:(res)=>{
-        console.log(res);
-        this.setData({
-          showList:this.data.showList.concat(res.records),
-          pages:res.pages
-        })
-      }
-    })
-  }
-  else {
-     this.setData({
-       genduo:true
-     })
-  }
+    }
+    else{
+      this.setData({
+        genduo:true
+      })
+   }
   },
   
   /**
@@ -230,7 +233,9 @@ Page({
     this.setData({
       key:e.currentTarget.dataset.id,
       pageIndex:1,
-      showList:[]
+      showList:[],
+      pages:0,
+      genduo:false
     });
      this.loderMore();
     const index = e.currentTarget.dataset.index;
