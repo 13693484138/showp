@@ -32,7 +32,7 @@
       </view>
       <view class='quantityBox'>
         <view class='price'>￥{{item2.salePrice}}</view>
-        <view class='many'>x1</view>
+        <view class='many'>x{{item2.num}}</view>
       </view>
     </view>
     
@@ -41,11 +41,11 @@
       <view>订单金额:
         <text class='totalPrice'>¥{{item.totalmoney}}</text>
       </view>
-      <view class='pay'>付款</view>
+      <view class='pay' bindtap='editOrder'id="{{index}}">付款</view>
     </view>
     <view class="oder-bug" wx:if='{{tabMenuIndex==0}}'></view>
   </view>
-  <view class='noList'>
+  <view class='noList' wx:if="{{noList}}">
     <image src='../../assets/img/nothing.png' wx:if="{{noList}}"></image>
   </view>
   <!-- <view class="orderList-bottom">

@@ -27,6 +27,7 @@ Page({
    */
   onLoad: function (options) {
     var order = options.order;
+    console.log(order)
      this.setData({
        order:order,
        imgpathUrl:http.config.imgpathUrl
