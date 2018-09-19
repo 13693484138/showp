@@ -139,6 +139,7 @@ Page({
   },
   loderMore:function(){
     if(!this.data.key){
+  console.log(this.data.typeId);
       http.request({
         apiName:'/goods/goodsListByFirstClassify',
         method:'post',
@@ -228,8 +229,9 @@ Page({
   menuTap:function(e){
     this.setData({
       key:e.currentTarget.dataset.id,
-      pageIndex:1
-    })
+      pageIndex:1,
+      showList:[]
+    });
      this.loderMore();
     const index = e.currentTarget.dataset.index;
     const outerWidth = this.data.tabMenu[index].oueterWidth;

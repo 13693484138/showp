@@ -18,7 +18,7 @@
       <view class="goods-item" wx:for="{{showList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="goodsContent" >
         <view class="item-thumbnail">
           <view class="item-tag">{{item.country}}</view>
-          <image class="goods-thumbnail" mode="aspectFill" src='{{imgSrc+item.picture}}'></image>
+          <image class="goods-thumbnail" mode="aspectFill" src='{{imgSrc+item.imgs[0]}}'></image>
         </view>
         <view class="ellipse-2 goods-name">{{item.title}}</view>
         <view class="goods-price">￥{{item.salePrice}}</view>
