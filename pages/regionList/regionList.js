@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgSrc:'',
     id: '',
     pageIndex: 1,
     pageSize: 8,
@@ -16,12 +17,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
+    this.setData({
+      imgSrc: imgPath
+    })
     if (options.id != null) {
       this.setData({
         id: options.id
       })
     } else {
-      console.log('没有参数')
+      return;
     }
     
     this.requestData();

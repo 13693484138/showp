@@ -65,6 +65,7 @@ Page({
     listTitleIndex: 0,
     showData: [], //当前应该显示的数据
     status:'',//当前的状态文字(0待付款1待发货2待收货)
+    noList:false,//若该订单状态下午数据那么页面上显示没有数据图片
   },
 
   /**
@@ -226,16 +227,17 @@ Page({
           this.setData({
             showData: res.list,
           })
-        }
-        else{
+        }else{
           this.setData({
-            showData:""
+            showData: '',
+            noList:true
           })
         }
-      
-      },
-    })
-  },
+        
+        }
+  
+    
+  })},
   /*
   若有需求可释放该条注释
   listTap:function(e){
@@ -268,9 +270,10 @@ Page({
   //进入商品详情
   enterDetail(e) {
     // console.log(e.currentTarget.id);
-    let goodsId = e.currentTarget.id
+    let goodsId = e.currentTarget.id;
     wx.navigateTo({
       url: '../goods/goods?goodsId=' + goodsId,
     })
   }
+  
 })
