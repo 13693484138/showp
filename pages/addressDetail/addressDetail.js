@@ -29,6 +29,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.order);
+    http.request({
+      apiName: 'order/addresslist',
+      method: 'get',
+      isShowProgress: true,
+      success: res => {
+        this.setData({
+          addressList:res,
+        })
+      }
+    })
     //将传递过来的订单保存住
     if(options.order){
       this.setData({

@@ -145,17 +145,25 @@ addNum:function(e){
       method: 'post',
       data:{
         'currentPage':1,
-        'pageSize':10
+        'pageSize':100
       },
       isShowProgress: true,
       success: (res) => {
-        console.log("-------21312321");
-        console.log(res);
-       this.setData({
-         catList:res.list,
-         count:0,
-         selectedAllStatus:false
-       })
+        if(res){
+          this.setData({
+            catList:res.list,
+            count:0,
+            selectedAllStatus:false
+          })
+        }
+        else{
+          this.setData({
+            catList:"",
+            count:0,
+            selectedAllStatus:false
+          })
+        }
+     
       },
     })
   },//动列表和该活动下的产品列表
@@ -227,9 +235,11 @@ addNum:function(e){
     // let order=[];
     let myjson={};
     newCatList.forEach(item => {
-      let aa=item.goodsId;
-      let bb=item.num;
-      myjson[aa]=bb;
+      if(item.checked){
+        let aa=item.goodsId;
+        let bb=item.num;
+        myjson[aa]=bb;
+      }
     });
     myjson=JSON.stringify(myjson);
     // order=order.replace("[","{");

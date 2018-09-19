@@ -201,7 +201,8 @@ Page({
   //选项卡的切换
   menuTap: function(e) {
     //index选项卡的下标
-    const index = e.currentTarget.dataset.index;
+    const index = parseInt(e.currentTarget.dataset.index);
+    console.log(e.currentTarget.dataset.index);
     const outerWidth = this.data.tabMenu[index].oueterWidth;
     const innerWidth = this.data.tabMenu[index].innerWidth;
     this.data.translate = e.currentTarget.offsetLeft;
@@ -233,9 +234,10 @@ Page({
           })
         }
         
-      },
-    })
-  },
+        }
+  
+    
+  })},
   /*
   若有需求可释放该条注释
   listTap:function(e){
@@ -268,9 +270,10 @@ Page({
   //进入商品详情
   enterDetail(e) {
     // console.log(e.currentTarget.id);
-    let goodsId = e.currentTarget.id
+    let goodsId = e.currentTarget.id;
     wx.navigateTo({
       url: '../goods/goods?goodsId=' + goodsId,
     })
   }
+  
 })

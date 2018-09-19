@@ -145,17 +145,17 @@ const sendRequest = (httpConfig) => {
               });
         }
     }).catch((error)=>{
-        if(typeof httpConfig.fail =='function'){
-            httpConfig.fail(error)
-        }else{
-            console.log(error);
-            wx.showModal({
-              title: '提示', //提示的标题,
-              content: JSON.stringify(error), //提示的内容,
-              showCancel: false, //是否显示取消按钮,
-              confirmText: '确定',
-            });
-        }
+        // console.log(error);
+        // if(typeof httpConfig.fail =='function'){
+        //     httpConfig.fail(error)
+        // }else if(error){
+        //     wx.showModal({
+        //       title: '提示', //提示的标题,
+        //       content: JSON.stringify(error), //提示的内容,
+        //       showCancel: false, //是否显示取消按钮,
+        //       confirmText: '确定',
+        //     });
+        // }
     })
 }
 module.exports = {
