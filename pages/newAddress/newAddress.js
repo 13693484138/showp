@@ -234,6 +234,9 @@ Page({
         this.setData({
           disabled: false
         });
+        wx.navigateBack({
+
+        })
       },
     })
   },
