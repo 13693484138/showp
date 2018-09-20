@@ -10,7 +10,7 @@
     <scroll-view id="right" scroll-y="true" scroll-top="{{scrollTop}}">
         <!-- 顶部图片  -->
         <view class="goods-banner">
-            <image class="img-banner" src="../../assets/img/type-banner.png" mode="scaleToFill"></image>
+            <image class="img-banner" src="../../assets/img/type-banner.jpg" mode="scaleToFill"></image>
         </view>
         <view class="goods-title"> <text>-</text>{{classTitle}}<text>-</text></view>
         <!-- 商品展示 -->

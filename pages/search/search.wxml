@@ -9,7 +9,7 @@
   <view class='cancel' bindtap='back'>取消</view>
 </view>
 <!-- 热搜 -->
-<view class='hotSearch'>
+<!-- <view class='hotSearch'>
   <view>热搜</view>
   <view class='hotContent'>
     <view>视频</view>
@@ -25,4 +25,4 @@
     <view>零食零食</view>
     <view>饮料</view>
   </view>
-</view>
+</view> -->
