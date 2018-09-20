@@ -180,9 +180,10 @@ Page({
     // console.log(err)
     wx.showToast({
       title: err,
-      image: '../../assets/icon/err.png'
+      image: '../../assets/icon/err.png',
+      duration:1500
     })
-    wx.hideToast()
+    // wx.hideToast()
   },
   /**
    * 身份证选取(正面)
