@@ -15,6 +15,11 @@
     </view>
     <view class="view-gift">查看赠品</view>
 </view-->
+<view class="cat-null" wx:if="{{catNull}}">
+    <image src="../../assets/img/catNull.png"></image>
+    <view class="cat-text1">购物车竟然是空的</view>
+    <view class="cat-text2">赶快把喜欢的加入到购物车吧～</view>
+</view>
 <view class="list-section"  style="margin-top:0;">
     <checkbox-group bindchange="checkboxChange" wx:for="{{catList}}"  wx:for-index="index" data-index="{{index}}" wx:key="*this">
         <view class="list-item flex-row">
@@ -53,8 +58,8 @@
     <view class="clearfix">
             <view class="template-3-item float-l" wx:for='{{activityGoodsList}}' wx:key='{{item}}' id='{{item.id}}' bindtap='goodDeatails'>
                     <view class="template-3-thumbnail">
-                      <image mode="aspectFill" class="classify-thumbnail" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534916747163&di=62fd31603c845ea7ff84d1d5f5295523&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161229%2F6d6a70aa617246559dfbb6a38ed32e6a_th.jpg"></image>
-                      <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+                      <image mode="aspectFill" class="classify-thumbnail" src="{{imgurl+item.imgs[0]}}"></image>
+                      <view class="template-3-remark ellipse">今日特惠</view>
                     </view>
                     <view class="template-3-title ellipse-2">
                       {{item.title}}

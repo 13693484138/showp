@@ -27,7 +27,8 @@ Page({
     activityId5: '',//活动5 id
     activityTopic5: "",//活动5的主题
     activityGoodsList5: [],//活动5下的商品列表
-    
+    activityId6:'',
+    activityId7:''
   },
 
   /**
@@ -162,10 +163,15 @@ Page({
   },
   //活动1的列表点击跳详情
   goodDeatails(e){
-    console.log(e.currentTarget.id)
     let goodsId = e.currentTarget.id
     wx.navigateTo({
       url: '../goods/goods?goodsId=' + goodsId,
+    })
+  },
+  grad(e){
+    let id = e.currentTarget.id
+    wx.navigateTo({
+      url: '../regionList/regionList?id='+id,
     })
   },
   //去看看按钮
@@ -180,8 +186,9 @@ Page({
   //全场包税按钮
   enterDetail(e){
     let goodsId=e.currentTarget.id;
+
     wx.navigateTo({
-      url: '../goods/goods+goodId='+goodsId,
+      url: '../goods/goods?goodsId='+goodsId,
     })
   }
  

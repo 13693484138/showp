@@ -320,3 +320,21 @@ page {
 .cat-h{
     height: 60rpx;
 }
+.cat-null{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cat-null image{
+    width: 456rpx;
+    height: 454rpx;
+}
+.cat-text1{
+    font-size: 18px;
+    color: #666666;
+    }
+    .cat-text2{
+        font-size: 16px;
+        color: #888888;
+        }

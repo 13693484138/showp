@@ -34,12 +34,6 @@
         "iconPath": "./assets/icon/home.png",
         "selectedIconPath": "./assets/icon/home-selected.png",
         "pagePath": "pages/home/home",
-        "text": "首页"
-      },
-      {
-        "iconPath": "./assets/icon/region.png",
-        "selectedIconPath": "./assets/icon/region-selected.png",
-        "pagePath": "pages/region/region",
         "text": "963专区"
       },
       {

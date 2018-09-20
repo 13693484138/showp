@@ -10,7 +10,8 @@ Page({
     checkList:[],
     selectedAllStatus:false,
     editing:false, //是否正在进行商品编辑
-    activityGoodsList:[]
+    activityGoodsList:[],
+    catNull:true
   },
   /**
    * 生命周期函数--监听页面加载
@@ -22,7 +23,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.setData({
+      imgurl:http.config.imgpathUrl
+    })
   },
   //活动1的列表点击跳详情
   goodDeatails(e){
@@ -83,12 +86,18 @@ Page({
                   let c=this.data.catList;
                   c.splice(newCatListIndex,1)
                   this.setData({
-                    catList:c
+                    catList:c,
                   });
+                  if(c.length<=0){
+                    this.setData({
+                      catNull:true
+                    })
+                  }
                  if(checked){
                    this.setData({
                      count:this.data.count-salePrice
                    })}
+                   
        
              }}) 
             }
@@ -153,6 +162,7 @@ addNum:function(e){
           this.setData({
             catList:res.list,
             count:0,
+            catNull:false,
             selectedAllStatus:false
           })
         }
@@ -160,6 +170,7 @@ addNum:function(e){
           this.setData({
             catList:"",
             count:0,
+            catNull:true,
             selectedAllStatus:false
           })
         }

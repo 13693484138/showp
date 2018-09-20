@@ -143,7 +143,7 @@
 <view class='pop-add-cart pop-common'  animation='{{animationData}}' wx:if="{{showPop}}" >
   <view class='header'>
     <view class='header-left'>
-      <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534854369071&di=c1310461a68a0d471d4e4bd08975958d&imgtype=0&src=http%3A%2F%2Fimg001.hc360.cn%2Fg3%2FM00%2FFD%2F80%2FwKhQvFMUJx-EbcD8AAAAANGxHBo736.jpg..200x200.jpg'></image>
+      <image src='{{imgSrc+imgs[0]}}'></image>
     </view>
     <view class='header-right'>
        <view class='header-right-many'>¥{{goodsDetails.salePrice}}</view>
