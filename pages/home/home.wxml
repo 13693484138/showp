@@ -2,7 +2,7 @@
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key='{{item.index}}'>
     <swiper-item>
-      <image src="{{imgSrc+item}}" class="slide-image" width="355" height="150" />
+      <image src="{{imgSrc+item}}" class="slide-image" width="355" height="150"  id="{{item.id}}" bindtap='queryAll' />
     </swiper-item>
   </block>
 </swiper>
