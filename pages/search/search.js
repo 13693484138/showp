@@ -66,5 +66,8 @@ Page({
   //返回按钮
   back(){
     console.log("back")
+  },
+  search(){
+    console.log(1)
   }
 })
