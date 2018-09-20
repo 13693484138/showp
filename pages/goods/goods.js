@@ -51,7 +51,6 @@ Page({
     })
     //获取所点击的goodId进行查询该商品详情
     let goodsId=options.goodsId;
-    console.log("3213213"+goodsId);
     this.setData({
       goodsId:goodsId
     })

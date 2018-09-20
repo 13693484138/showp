@@ -1,66 +1,77 @@
 
-/* 搜索部分*/
-.header{
-    width: 100%;
-    height: 80rpx;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 1px solid silver;
-   
-  }
-  .fangdajing{
-    width: 60rpx;
-    height: 60rpx;
-    display: inline-block;
-  }
-  .fangdajing>image{
-    width: 60rpx;
-    height: 60rpx;
-  }
-  .inputBox{
-    width: 80%;
-    height: 60rpx;
-    border-radius: 5px;
-    border: 1px solid silver;
-    display: flex;
-    align-items: center
-  }
-  .inputBox input{
-    display: inline-block;
-    width: 86%;
-    height: 60rpx;
-    font-size: 14px;  
-  }
-  .cancel{
-    width: 10%;
-    height: 60rpx;
-    line-height: 60rpx;
-    font-size: 14px;
-    color: black;
-  }
-  /* 热搜部分 */
-  .hotSearch{
-    width: 94%;
-    margin: 0 auto;
-  }
-  .hotContent{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    align-items: center;
-  }
-  .hotContent view{
-    margin:6rpx 12rpx 6rpx 0;
-    background:#f5f5f5;
-    color: #343333;
-    border-radius: 5px;
-    padding:8rpx;
-    font-size: 14px;
-  }
+.region-banner{
+  width: 100%;
+  text-align: center;
+  height: 327rpx;
+}
+.region-banner image{
+  width: 710rpx;
+  height: 327rpx;
   
-  
-  
-  
+}
+.region-banner-1{
+  width: 100%;
+  height: 180rpx;
+  text-align: center;
+  margin-top:20rpx;
+}
+.region-banner-1 image{
+  width: 710rpx;
+  height: 168rpx;
+
+}
+.region-list{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content:space-between;
+}
+.region-list-item{
+  width: 320rpx;
+  height: 489rpx;
+  border: 3rpx solid #dfdfdf;
+  text-align: center;
+  margin: 0 25rpx;
+  margin-top: 30rpx;
+}
+.region-list-item:last-child{
+  margin-bottom: 30rpx;
+}
+.region-list-text{
+  text-align: left;
+  font-size: 28rpx;
+  padding-top: 20rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  height:93rpx;
+  border-top: 3rpx solid #dfdfdf;
+  border-bottom: 3rpx dotted #dfdfdf;
+}
+.region-list-item-img image{
+  width: 172rpx;
+  height: 259rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.region-list-mony{
+  color: #f44054;
+}
+.region-list-mony{
+  text-align: left;
+  padding-left: 15rpx;
+  vertical-align: middle;
+  height: 64rpx;
+  line-height: 64rpx;
+}
+.goods-tishi{
+  width: 100%;
+  height: 120rpx;
+  text-align: center;
+  color: #222;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

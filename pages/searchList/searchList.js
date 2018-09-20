@@ -17,11 +17,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options.condition);
     const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
     this.setData({
       imgSrc: imgPath
     })
-    if (options.id != null) {
+    if (options.condition != null) {
       this.setData({
         condition: options.condition
       })

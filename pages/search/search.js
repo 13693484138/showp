@@ -69,9 +69,10 @@ Page({
     console.log("back")
   },
   search(e){
-     if(e.detail.id){
+    console.log(e.detail.value);
+     if(e.detail.value){
        wx.navigateTo({
-        url: '../search/search?condition='+e.detail.id
+        url: '../searchList/searchList?condition='+e.detail.value
          })
      }
      else{

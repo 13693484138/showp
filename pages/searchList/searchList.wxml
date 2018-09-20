@@ -1,2 +1,18 @@
-<!--pages/searchList/searchList.wxml-->
-<text>pages/searchList/searchList.wxml</text>
+<scroll-view scroll-y lower-threshold="20" bindscrolltolower="scrollBottom">
+  <view class="region-banner">
+    <image src="../../assets/img/content-banner.png"></image>
+  </view>
+  <view class="region-banner-1">
+    <image src="../../assets/img/content-text.png"></image>
+  </view>
+  <view class="region-list">
+    <view class="region-list-item" wx:for="{{goodsList}}" wx:key="{{item.title}}" bindtap='forward' id="{{item.id}}">
+      <view class="region-list-item-img">
+        <image src="{{imgSrc+item.imgs[0]}}"></image>
+        <view class="region-list-text">{{item.title}}</view>
+        <view class="region-list-mony">¥{{item.salePrice}}</view>
+      </view>
+    </view>
+  <view class="goods-tishi" wx:if="{{genduo}}">没有更多啦～</view>
+  </view>
+</scroll-view>
