@@ -108,6 +108,13 @@ Page({
           this.setData({
             showData: res.list,
           })
+          if(res){
+            console.log("有数据")
+          }else{
+            this.setData({
+              noList: true
+            })
+          }
         },
       })
     } else if (options.tabMenuIndex == 1) {
@@ -126,6 +133,13 @@ Page({
           this.setData({
             showData: res.list,
           })
+          if (res) {
+            console.log("有数据")
+          } else {
+            this.setData({
+              noList: true
+            })
+          }
         },
       })
     } else if (options.tabMenuIndex == 2) {
@@ -144,6 +158,13 @@ Page({
           this.setData({
             showData: res.list,
           })
+          if (res) {
+            console.log("有数据")
+          } else {
+            this.setData({
+              noList: true
+            })
+          }
         },
       })
     }
