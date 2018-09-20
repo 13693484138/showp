@@ -1,7 +1,7 @@
 
 <view class='container'>
 <!-- 页面顶部黑色区域 -->
-  <view class="person-head flex-row flex-between">
+  <view class="person-head flex-row flex-between" style="background: url(../../assets/img/head-bg.png);">
     <view class='userinfo-body flex-row'>
       <image class='userinfo-avatar' src='../../assets/icon/touxiang.jpg'></image>
         <view class='userinfo-nickname'>

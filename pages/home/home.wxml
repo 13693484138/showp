@@ -106,7 +106,7 @@
         <view class="template-3-item float-l" wx:for='{{activityGoodsList4}}' wx:key='{{item}}' id='{{item.id}}' bindtap='goodDeatails'>
           <view class="template-3-thumbnail">
             <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+item.imgs[0]}}"></image>
-            <view class="template-3-remark ellipse">amkdf峰客amkdf峰客amkdf峰客amkdf峰客</view>
+            <view class="template-3-remark ellipse">{{activityTopic4}}</view>
           </view>
           <view class="template-3-title ellipse-2">
             {{item.title}}

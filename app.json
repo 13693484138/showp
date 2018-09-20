@@ -18,7 +18,9 @@
     "pages/aboutMe/aboutMe",
     "pages/editOrder/editOrder",
     "pages/newAddress/newAddress",
-    "pages/editAddress/editAddress"
+    "pages/editAddress/editAddress",
+    "pages/searchList",
+    "pages/searchList/searchList"
   ],
   "window": {
     "backgroundTextStyle": "light",
