@@ -109,7 +109,7 @@ Page({
             showData: res.list,
           })
           if(res){
-            console.log("有数据")
+            console.log(res);
           }else{
             this.setData({
               noList: true
@@ -129,17 +129,16 @@ Page({
         },
         isShowProgress: true,
         success: res => {
-          console.log(res);
-          this.setData({
-            showData: res.list,
-          })
           if (res) {
-            console.log("有数据")
+            this.setData({
+              showData: res.list,
+            })
           } else {
             this.setData({
-              noList: true
+              noList: true,
+              showData:""
             })
-          }
+          }       
         },
       })
     } else if (options.tabMenuIndex == 2) {

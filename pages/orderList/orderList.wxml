@@ -46,7 +46,7 @@
     <view class="oder-bug" wx:if='{{tabMenuIndex==0}}'></view>
   </view>
   <view class='noList' wx:if="{{noList}}">
-    <image src='../../assets/img/nothing.png' wx:if="{{noList}}"></image>
+    <image src='../../assets/img/nothing.png'></image>
   </view>
   <!-- <view class="orderList-bottom">
     已经到底了哦～去别处逛逛把！
