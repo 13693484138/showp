@@ -104,12 +104,11 @@ Page({
         },
         isShowProgress: true,
         success: res => {
-          console.log(res);
-          this.setData({
-            showData: res.list,
-          })
           if(res){
             console.log(res);
+            this.setData({
+              showData: res.list,
+            })
           }else{
             this.setData({
               noList: true
