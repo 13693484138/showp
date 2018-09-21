@@ -76,7 +76,7 @@ page{
   color: #bebebe
 }
 .goodsInstro{
-  margin-top: 100rpx;
+  margin-top: 30rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
   font-size: 35rpx;
@@ -98,6 +98,7 @@ page{
   font-size: 25rpx;
   color: #b3b2b2;
   margin-right: 30rpx;
+  margin-left: 30rpx;
 }
 
 .img-size{

@@ -165,7 +165,7 @@ Page({
   goodDeatails(e){
     let id = e.currentTarget.id
     wx.navigateTo({
-      url: '../regionList/regionList?id=' + id,
+      url: '../goods/goods?goodsId=' + id,
     })
   },
   grad(e){

@@ -25,27 +25,29 @@
          <view class='pthy goods-price-color'>
             普通会员价
          </view>
+         <view class='sell-goods flex-row flex-end'>
+            <view>
+              已售: {{sellAccount}} 件 
+            </view>
+          </view>
       </view>
-      <view class='sell-goods flex-row flex-end'>
-        <view>
-          已售: {{sellAccount}} 件 
-        </view>
-      </view>
+    
       
       <view class="goodsInstro">
         {{goodsDetails.title}}
       </view>
       <view class='productCountryInfo flex-row flex-between'>
         <view class='flex-row'>
-           <image src='{{productCountryIcon}}' class='productCountryIcon img-size'></image>
+           <!-- <image src='{{productCountryIcon}}' class='productCountryIcon img-size'></image> -->
            <view class='productCountry'>
               {{productCountry}}
            </view>
+           <view class='taxRate'>
+              海外直邮商品,使用税率为{{taxRate}}
+            </view>
         </view>
        
-        <view class='taxRate'>
-          海外直邮商品,使用税率为{{taxRate}}
-        </view>
+      
       </view>
       <view class='flex-row'>
         <image src='../../assets/icon/feiji.png' class='img-size currency-margin'></image>

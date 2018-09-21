@@ -38,7 +38,7 @@
       <view class="price">活动价：￥{{item.purPrice}}</view>
       <view class="ori_price">原价：￥{{item.salePrice}}</view>
     </view>
-    <view class="limited-item limited-view-all" bindtap='queryAll'>
+    <view class="limited-item limited-view-all" id='{{activityId1}}' bindtap='queryAll'>
       查看全部
     </view>
   </scroll-view>
@@ -53,7 +53,7 @@
       <view class="flex-row">
         <view class="template-1-l">
           <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+activityGoodsList2[0].imgs[0]}}"></image>
-          <button type="button" class="btn btn-radius" bindtap='looklook'>
+          <button type="button" class="btn btn-radius" id='{{activityId2}}' bindtap='looklook'>
             <text class="right-arrow">去看看</text>
           </button>
         </view>
@@ -142,7 +142,7 @@
   <view class="classify-title">
     <text class="right-arrow">{{activityTopic5}}</text>
   </view>
-  <view class="classify-content" wx:for='{{activityGoodsList5}}' wx:key='{{item}}' id='{{item.id}}' bindtap='goodDeatails'>
+  <view class="classify-content" wx:for='{{activityGoodsList5}}' wx:key='{{item}}' id='{{item.id}}' bindtap='grad'>
     <view class="template-4">
       <view class="template-4-item">
         <view class="template-4-thumbnail">
