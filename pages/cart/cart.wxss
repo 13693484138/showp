@@ -327,8 +327,8 @@ page {
     align-items: center;
 }
 .cat-null image{
-    width: 456rpx;
-    height: 454rpx;
+    width: 300rpx;
+    height: 300rpx;
 }
 .cat-text1{
     font-size: 18px;

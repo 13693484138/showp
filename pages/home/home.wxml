@@ -146,11 +146,7 @@
     <view class="template-4">
       <view class="template-4-item">
         <view class="template-4-thumbnail">
-          <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+item.imgs[0]}}"></image>
-        </view>
-        <view class="flex-row flex-between template-4-info">
-          <view class="template-4-title ellipse">{{item.title}}</view>
-          <view class="template-4-price">￥{{item.salePrice}}</view>
+          <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+item.picture}}"></image>
         </view>
       </view>
       <!-- <view class="template-4-item">

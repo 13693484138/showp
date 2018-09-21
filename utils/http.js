@@ -89,7 +89,11 @@ const wxLogin = () => {
                         // param['signature'] = signature;//签名
                         param['encryptedData'] = encryptedData;//解密工具
                         param['iv'] = iv;
-                        userinfo = userInfo
+                        userinfo = userInfo;
+                        console.log(userinfo);
+
+                      
+                      
                     },
                     complete: () => {
                         // 登录操作
@@ -98,8 +102,8 @@ const wxLogin = () => {
                             data: param,
                             method: 'post'
                         }).then(res => {
-                           
                                 // 保存用户信息
+                               
                                 wx.setStorage({
                                     key: 'userinfo',
                                     data: userinfo

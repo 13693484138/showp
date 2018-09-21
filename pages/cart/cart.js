@@ -259,8 +259,9 @@ addNum:function(e){
   }
   else{
     wx.showToast({
-      "title":"请选择商品",
-      "icon":"loading"
+      title: err,
+      image: '../../assets/icon/err.png',
+      duration:1500
     })
   }
   },

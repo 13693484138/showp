@@ -15,7 +15,12 @@
   height: 280rpx;
   text-align: center;
   font-size: 14px;
-
+  text-indent: 2em;
+}
+.description text{
+  margin: 0 20rpx;
+  display: block;
+  text-align:justify
 }
 .footer{
   height: 30rpx;

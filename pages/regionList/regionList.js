@@ -11,7 +11,8 @@ Page({
     pageSize: 8,
     pages: 0,
     genduo:false,
-    goodsList: [] //用来渲染该页面的产品数据
+    goodsList: [], //用来渲染该页面的产品数据
+    goodsNull:false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -99,8 +100,6 @@ Page({
 
   //请求活动商品列表
   requestData() {
-    console.log("==========================");
-    console.log(this.data.id)
     http.request({
       apiName: 'activity/activityShoppingList',
       method: 'post',
@@ -111,12 +110,18 @@ Page({
       },
       isShowProgress: true,
       success: (res) => {
-        console.log("1111111111111111111111")
-        console.log(res)
-        this.setData({
-          goodsList: this.data.goodsList.concat(res.records),
-          pages: res.pages
-        })
+        if(res.pages){
+          this.setData({
+            goodsList: this.data.goodsList.concat(res.records),
+            pages: res.pages
+          })
+        }
+        else{
+         this.setData({
+          goodsNull:true
+         })
+        }
+       
       },
       fail:err=>{
         console.log(err)

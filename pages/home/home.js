@@ -163,9 +163,9 @@ Page({
   },
   //活动1的列表点击跳详情
   goodDeatails(e){
-    let goodsId = e.currentTarget.id
+    let id = e.currentTarget.id
     wx.navigateTo({
-      url: '../goods/goods?goodsId=' + goodsId,
+      url: '../regionList/regionList?id=' + id,
     })
   },
   grad(e){

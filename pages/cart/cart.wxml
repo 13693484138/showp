@@ -59,7 +59,6 @@
             <view class="template-3-item float-l" wx:for='{{activityGoodsList}}' wx:key='{{item}}' id='{{item.id}}' bindtap='goodDeatails'>
                     <view class="template-3-thumbnail">
                       <image mode="aspectFill" class="classify-thumbnail" src="{{imgurl+item.imgs[0]}}"></image>
-                      <view class="template-3-remark ellipse">今日特惠</view>
                     </view>
                     <view class="template-3-title ellipse-2">
                       {{item.title}}

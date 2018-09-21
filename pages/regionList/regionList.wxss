@@ -76,3 +76,11 @@
     align-items: center;
     justify-content: center;
 }
+.goods-null{
+    text-align: center;
+    width: 100%
+}
+.goods-null image{
+    width: 400rpx;
+    height: 400rpx;
+}
