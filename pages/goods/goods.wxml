@@ -86,9 +86,9 @@
             </view>
           </view>
       </view>
-      <view class='ppzq font-size' bindtap='brandArea'>
+      <!-- <view class='ppzq font-size' bindtap='brandArea'>
         查看品牌专区
-       </view>
+       </view> -->
     </view>
 
     <!--评论-->
