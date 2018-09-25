@@ -1,10 +1,10 @@
 <scroll-view scroll-y lower-threshold="20" bindscrolltolower="scrollBottom">
   <view class="region-banner">
-    <image src="../../assets/img/content-banner.png"></image>
+    <image src="{{imgSrc+banner}}"></image>
   </view>
-  <view class="region-banner-1">
+  <!-- <view class="region-banner-1">
     <image src="../../assets/img/content-text.png"></image>
-  </view>
+  </view> -->
   <view class="region-list">
     <view class="region-list-item" wx:for="{{goodsList}}" wx:key="{{item.title}}" bindtap='forward' id="{{item.id}}">
       <view class="region-list-item-img">

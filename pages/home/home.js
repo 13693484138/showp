@@ -39,7 +39,6 @@ Page({
     this.setData({
       imgSrc:imgPath
     })
-    console.log(imgPath)
     this.getSwiper();//请求轮播列表
     this.getTopic();//请求活动列表以及该活动下商品列表(4个)
   },
@@ -102,14 +101,17 @@ Page({
       method:'post',
       isShowProgress: true,
       success:res=>{
-        let resAfter =res;
-        let imgUrlArr=[];//存放轮播图地址
-        for(let value of resAfter){
-          // value.picture = imgPath + value.picture
-          imgUrlArr.push(value.picture)
-        }
+        console.log(res)
+        // let resAfter =res;
+        // let imgUrlArr=[];//存放轮播图地址
+        // for(let value of resAfter){
+        //   imgUrlArr.push(value.picture)
+        // }
+        // this.setData({
+        //   imgUrls: imgUrlArr
+        // })
         this.setData({
-          imgUrls: imgUrlArr
+          imgUrls: res
         })
       }
     })
@@ -148,7 +150,7 @@ Page({
             activityTopic5: res[4].title,
             activityGoodsList5: res[4].goodInfos,
           }) 
-          console.log(this.data.activityGoodsList1)
+          
         },
       })
     
@@ -156,7 +158,7 @@ Page({
   },
   //查看全部按钮的跳转
   queryAll(){
-    let id=this.data.activityId1
+    let id=this.data.activityId1;
     wx.navigateTo({
       url: '../regionList/regionList?id='+id,
     })
@@ -175,20 +177,32 @@ Page({
     })
   },
   //去看看按钮
-  looklook(){
-    console.log(1)
-    let whichId=this.data.activityId2;
-    console.log(whichId)
-    wx.navigateTo({
-      url: '../regionList/regionList?id=' + whichId,
-    })
-  },
+  // looklook(){
+  //   console.log(1)
+  //   let whichId=this.data.activityId2;
+  //   console.log(whichId)
+  //   wx.navigateTo({
+  //     url: '../regionList/regionList?id=' + whichId,
+  //   })
+  // },
   //全场包税按钮
   enterDetail(e){
     let goodsId=e.currentTarget.id;
 
     wx.navigateTo({
       url: '../goods/goods?goodsId='+goodsId,
+    })
+  },
+
+
+  //点击轮播进列表
+  swiperList(e){
+    let id = e.currentTarget.id;//传递轮播id获取商品列表
+    let swiperImg = e.currentTarget.dataset.swiperimg;//传递轮播picture作为List的banner
+    console.log(swiperImg)
+    wx.navigateTo({
+      url:`../regionList/regionList?id=${id}&swiperImg=${swiperImg}`
+      // url:`../regionList/regionList`
     })
   }
  

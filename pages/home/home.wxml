@@ -2,7 +2,7 @@
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key='{{item.index}}'>
     <swiper-item>
-      <image src="{{imgSrc+item}}" class="slide-image" width="355" height="150"  id="{{item.id}}" bindtap='queryAll' />
+      <image src="{{imgSrc+item.picture}}" class="slide-image" width="355" height="150"  id="{{item.id}}" data-swiperImg="{{item.picture}}" bindtap='swiperList' />
     </swiper-item>
   </block>
 </swiper>
@@ -53,7 +53,7 @@
       <view class="flex-row">
         <view class="template-1-l">
           <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+activityGoodsList2[0].imgs[0]}}"></image>
-          <button type="button" class="btn btn-radius" id='{{activityId2}}' bindtap='looklook'>
+          <button type="button" class="btn btn-radius" id='{{activityGoodsList2[1].id}}' bindtap='enterDetail'>
             <text class="right-arrow">去看看</text>
           </button>
         </view>
@@ -64,7 +64,7 @@
               <text class="right-arrow">全场包税</text>
             </button>
           </view>
-          <view id="{{activityGoodsList2[1].id}}"  bindtap='enterDetail'>
+          <view id="{{activityGoodsList2[2].id}}"  bindtap='enterDetail'>
             <image mode="aspectFill" class="classify-thumbnail" src="{{imgSrc+activityGoodsList2[2].imgs[0]}}"></image>
             <button class="btn b-block">
               <text class="right-arrow">全场包税</text>

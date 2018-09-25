@@ -18,13 +18,13 @@ Page({
     commentPersonAccount:4,
     commentInfoList:[{
     "avatar": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535111868147&di=955bc85bc8bee8bd3e29ee7eec7de9b4&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2Fimg013%2Fv1%2F68%2Fd%2F84.jpg",
-    "nickName":"张三",
-    "content":"hello world"
+    "nickName":"小叮当",
+    "content":"物美价廉,必须好评"
   },
     {
       "avatar": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535111868147&di=955bc85bc8bee8bd3e29ee7eec7de9b4&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2Fimg013%2Fv1%2F68%2Fd%2F84.jpg",
-      "nickName":"李四",
-      "content": "hello world2"
+      "nickName":"godV",
+      "content": "必须好评,很满意的一次购物"
     }
   ],
   goodDetails:null,//用于存放请求回的商品详情数据
@@ -232,11 +232,16 @@ Page({
     wx.switchTab({
         url: '../cart/cart',
     })
-  }
+  },
   /**
    * 自定义方法
    */
-  //渲染商品详情
+  //查看品牌专区
+  brandArea(){
+    wx.navigateBack({
+      
+    })
+  }
  
 
 })

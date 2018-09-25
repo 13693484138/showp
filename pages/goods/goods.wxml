@@ -66,14 +66,14 @@
     </view>
 
     <!--说明-->
-    <view class='sendType flex-row right-arrow'>
+    <!-- <view class='sendType flex-row right-arrow'>
       <view class='font-size currency-margin'>
         说明 
       </view>
       <view class='hwps currency-margin'>
         关于海外直邮配送方式
       </view>
-    </view>
+    </view> -->
 
     <!--品牌-->
     <view class='sendType flex-row flex-between right-arrow'>
@@ -86,7 +86,7 @@
             </view>
           </view>
       </view>
-      <view class='ppzq font-size'>
+      <view class='ppzq font-size' bindtap='brandArea'>
         查看品牌专区
        </view>
     </view>
