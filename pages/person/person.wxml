@@ -15,7 +15,7 @@
   </view>
 
   <view class='myOrder'>
-    <view class='myOrder right-arrow'>
+    <view class='myOrder right-arrow' bindtap="showp" id='0'>
       {{myOrder}}
     </view>
     <view class='flex-row-smx'>
