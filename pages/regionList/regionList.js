@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    banner:'',
     imgSrc:'',
     id: '',
     pageIndex: 1,
@@ -18,16 +19,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options)
     const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
     this.setData({
       imgSrc: imgPath
     })
-    if (options.id != null) {
+    //存放此id作为ajax请求参数
+    if (options.id) {
       this.setData({
         id: options.id
       })
     } else {
+      console.log("没有id")
       return;
+    }
+    //存放此图片作为该页面的banner
+    if(options.swiperImg){
+      this.setData({
+        banner: options.swiperImg
+      })
+      console.log("有图")
+    }else{
+      console.log("美图")
     }
     
     this.requestData();
@@ -110,6 +123,7 @@ Page({
       },
       isShowProgress: true,
       success: (res) => {
+        console.log(res)
         if(res.pages){
           this.setData({
             goodsList: this.data.goodsList.concat(res.records),

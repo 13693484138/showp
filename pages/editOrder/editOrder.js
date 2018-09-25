@@ -66,6 +66,7 @@ Page({
           backphoto: res.backphoto,
           facephoto: res.facephoto
         });
+        console.log(res.list)
         //若为新用户那么它未设置地址填写订单一定没有地址信息
         if (this.data.name == null && this.data.phone == null && this.data.address == null) {
           //那么订单页面的个人信息应该显示为一个新增地址的按钮
