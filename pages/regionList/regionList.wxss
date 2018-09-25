@@ -49,6 +49,8 @@
     height:93rpx;
     border-top: 3rpx solid #dfdfdf;
     border-bottom: 3rpx dotted #dfdfdf;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .region-list-item-img image{
     width: 172rpx;

@@ -170,7 +170,7 @@
       </view>
     </view>
     <view class="footer-bottom flex-row flex-1">
-        <button class="ok-buttom" type="warn"  bindtap="okCat"> 完成 </button>
+        <button style="line-height:80rpx;" class="ok-buttom" type="warn"  bindtap="okCat"> 完成 </button>
   </view>
   </view>
 </view>
