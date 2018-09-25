@@ -153,17 +153,24 @@ Page({
         isShowProgress: true,
         success: res => {
           console.log(res);
-          this.setData({
-            showData: res.list,
-          })
           if (res) {
             console.log("有数据")
+            this.setData({
+              showData: res.list,
+            })
           } else {
             this.setData({
               noList: true
             })
           }
         },
+      })
+    }
+    //判断显示没有商品
+    if (this.data.showData.length==0){
+      console.log("该订单状态无订单")
+      this.setData({
+        noList:true
       })
     }
 
@@ -245,6 +252,7 @@ Page({
         if(res){
           this.setData({
             showData: res.list,
+            noList: false
           })
         }else{
           this.setData({

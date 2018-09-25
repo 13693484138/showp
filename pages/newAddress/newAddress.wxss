@@ -186,9 +186,10 @@ picker-view-column view {
 .create-view{
   width: 90%;
   height: 80rpx;
-  left: calc(50% - 45%);
+  margin: 0 auto;
+  /* left: calc(50% - 45%);
   bottom: 60rpx;
-  position: fixed;
+  position: fixed; */
   background: white;
 }
 .create-view>button{

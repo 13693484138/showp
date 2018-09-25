@@ -1,6 +1,6 @@
 <scroll-view scroll-y lower-threshold="20" bindscrolltolower="scrollBottom">
   <view class="region-banner">
-    <image src="{{imgSrc+banner}}"></image>
+    <image src="{{haveBanner?imgSrc+banner:banner}}"></image>
   </view>
   <!-- <view class="region-banner-1">
     <image src="../../assets/img/content-text.png"></image>

@@ -113,7 +113,7 @@
   <!-- 底部-->
   <view class='containerBottom flex-row flex-between'>
     <!--分享-->
-    <button open-type='share' class='flex-col flex-center bottom-fx'>
+    <button open-type="share" class='flex-col flex-center bottom-fx' bindtap="onShareAppMessage">
      
       <image src='../../assets/icon/fx.png' class='img-size'></image>
       <text>分享</text>
