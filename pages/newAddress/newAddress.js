@@ -60,7 +60,7 @@ Page({
     for (let index in imgArr){
       let token = wx.getStorageSync('_hgc');//取得token  
       wx.uploadFile({
-        url: 'http://192.168.1.247:8080/attachment/upload',
+        url: 'https://fit.brkinfinite.com/attachment/upload',
         filePath: imgArr[index],
         name: 'file',
         header: {

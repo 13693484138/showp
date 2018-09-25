@@ -88,7 +88,7 @@
         </view>
         <view class="template-2-content">
           <view class="ellipse template-2-title">{{item.title}}</view>
-          <view class="ellipse template-2-remark">澳大利亚保健品澳大利亚保健品澳大利亚保健品澳大利亚保健品</view>
+          <view class="ellipse template-2-remark">产地:{{item.country}}   规格:{{item.spec}}/{{item.unit}}</view>
           <view class="template-2-price">￥{{item.salePrice}}</view>
         </view>
       </view>

@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    banner:'',
+    banner:'../../assets/img/content-banner.png',
+    haveBanner:false,//判断是否有banner的开关
     imgSrc:'',
     id: '',
     pageIndex: 1,
@@ -36,11 +37,16 @@ Page({
     //存放此图片作为该页面的banner
     if(options.swiperImg){
       this.setData({
+        haveBanner:true,
         banner: options.swiperImg
       })
       console.log("有图")
     }else{
-      console.log("美图")
+      console.log("没图")
+      this.setData({
+        haveBanner:false,
+        banner: '../../assets/img/content-banner.png'
+      })
     }
     
     this.requestData();
