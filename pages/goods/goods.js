@@ -237,7 +237,6 @@ Page({
       url: '../cart/cart',
     })
   },
-
   onShareAppMessage: function () {
     let that =this;
     return {
