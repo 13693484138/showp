@@ -92,31 +92,31 @@ const wxLogin = () => {
                         userinfo = userInfo;
                         console.log(userinfo);
 
-                      
+                            // 登录操作
+                            http({
+                                apiName: AppConfig.loginApi,
+                                data: param,
+                                method: 'post'
+                            }).then(res => {
+                                    // 保存用户信息
+                                   
+                                    wx.setStorage({
+                                        key: 'userinfo',
+                                        data: userinfo
+                                    })
+                                    wx.setStorage({
+                                        key: "_hgc",
+                                        data: res,
+                                        success: () => {
+                                            resolve(res)
+                                        }
+                                    })
+                              
+                            }).catch(error => reject(error))
                       
                     },
                     complete: () => {
-                        // 登录操作
-                        http({
-                            apiName: AppConfig.loginApi,
-                            data: param,
-                            method: 'post'
-                        }).then(res => {
-                                // 保存用户信息
-                               
-                                wx.setStorage({
-                                    key: 'userinfo',
-                                    data: userinfo
-                                })
-                                wx.setStorage({
-                                    key: "_hgc",
-                                    data: res,
-                                    success: () => {
-                                        resolve(res)
-                                    }
-                                })
-                          
-                        }).catch(error => reject(error))
+                    
                     }
                 })
             }
