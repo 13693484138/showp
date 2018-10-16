@@ -35,6 +35,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowHeight)
+        // that.setData({
+        //   clientHeight: res.windowHeight
+        // });
+      }
+    })
     const imgPath = http.config.imgpathUrl;//取图片的路径需要id拼接
     this.setData({
       imgSrc:imgPath
